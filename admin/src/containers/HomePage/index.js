@@ -20,8 +20,10 @@ import {
   Wave,
   Separator,
 } from './components';
-import BlogPost from './BlogPost';
-import SocialLink from './SocialLink';
+import Accounts from './charts/Accounts'
+import AccountsWithOpportunities from './charts/AccountsWithOpportunities'
+import Contacts from './charts/Contacts'
+import Opportunities from './charts/Opportunities'
 
 const FIRST_BLOCK_LINKS = [
   {
@@ -106,32 +108,42 @@ const HomePage = ({ global: { plugins }, history: { push } }) => {
       </FormattedMessage>
       <Container className="container-fluid">
         <div className="row">
-          <div className="col-lg-8 col-md-12">
+          <div className="col-lg-12 col-md-12">
             <Block>
-              <Wave />
+              
               <FormattedMessage
                 id={headerId}
                 values={{
                   name: upperFirst(username),
                 }}
               >
-                {msg => <h2 id="mainHeader">{msg}</h2>}
+                {msg => <h2 id="mainHeader" style={{ position: 'relative' }}>
+                  {msg}
+                  <Wave />
+                </h2>}
               </FormattedMessage>
               
               <Separator style={{ marginTop: 37, marginBottom: 36 }} />
-
-            </Block>
-          </div>
-
-          <div className="col-md-12 col-lg-4">
-            <Block style={{ paddingRight: 30, paddingBottom: 0 }}>
-              <FormattedMessage id="HomePage.community">
-                {msg => <h2>{msg}</h2>}
-              </FormattedMessage>
-
-
-              <Separator style={{ marginTop: 18 }} />
               
+              <div className="row">
+                <div className="col-md-6">
+                  <Opportunities />
+                </div>
+                <div className="col-md-6">
+                <Contacts />
+                </div>
+              </div>
+
+              <Separator style={{ marginTop: 37, marginBottom: 36 }} />
+
+              <div className="row">
+                <div className="col-md-6">
+                  <Accounts />
+                </div>
+                <div className="col-md-6">
+                  <AccountsWithOpportunities />
+                </div>
+              </div>
             </Block>
           </div>
         </div>
