@@ -1,0 +1,16 @@
+{
+  "connection": "default",
+  "collectionName": "contact_types",
+  "info": {
+    "name": "Contact type"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "connection": "default",
+  "collectionName": "opportunities",
+  "info": {
+    "name": "opportunity"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "ammount": {
+      "type": "decimal"
+    },
+    "currency": {
+      "type": "enumeration",
+      "enum": [
+        "pesos",
+        "dolar"
+      ]
+    },
+    "observations": {
+      "type": "text"
+    },
+    "state": {
+      "model": "state"
+    },
+    "opportunity_type": {
+      "model": "opportunity-type"
+    },
+    "account": {
+      "model": "account"
+    }
+  }
+}

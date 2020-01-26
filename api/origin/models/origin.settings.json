@@ -1,0 +1,16 @@
+{
+  "connection": "default",
+  "collectionName": "origins",
+  "info": {
+    "name": "Origin"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    }
+  }
+}

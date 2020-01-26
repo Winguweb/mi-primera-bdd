@@ -1,0 +1,16 @@
+{
+  "connection": "default",
+  "collectionName": "opportunity_type",
+  "info": {
+    "name": "Opportunity type"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    }
+  }
+}
