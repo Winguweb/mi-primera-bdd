@@ -2,7 +2,7 @@
   "connection": "default",
   "collectionName": "accounts",
   "info": {
-    "name": "Account"
+    "name": "Cuenta"
   },
   "options": {
     "increments": true,

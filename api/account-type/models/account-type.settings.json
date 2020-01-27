@@ -2,7 +2,7 @@
   "connection": "default",
   "collectionName": "account_types",
   "info": {
-    "name": "Account type"
+    "name": "Tipos de cuentas"
   },
   "options": {
     "increments": true,

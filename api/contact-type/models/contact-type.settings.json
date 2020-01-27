@@ -2,7 +2,7 @@
   "connection": "default",
   "collectionName": "contact_types",
   "info": {
-    "name": "Contact type"
+    "name": "Tipos de contacto"
   },
   "options": {
     "increments": true,

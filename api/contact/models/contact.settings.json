@@ -2,7 +2,7 @@
   "connection": "default",
   "collectionName": "contacts",
   "info": {
-    "name": "contact"
+    "name": "Contacto"
   },
   "options": {
     "increments": true,

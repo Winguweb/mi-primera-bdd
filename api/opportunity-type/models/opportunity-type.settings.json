@@ -2,7 +2,7 @@
   "connection": "default",
   "collectionName": "opportunity_type",
   "info": {
-    "name": "Opportunity type"
+    "name": "Tipo de oportunidad"
   },
   "options": {
     "increments": true,

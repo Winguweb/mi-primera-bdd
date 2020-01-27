@@ -2,7 +2,7 @@
   "connection": "default",
   "collectionName": "states",
   "info": {
-    "name": "State"
+    "name": "Estado"
   },
   "options": {
     "increments": true,
