@@ -17,14 +17,16 @@ const Contacts = () => {
           datasets: [{
             data: Object.values(grouped),
             backgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56'
+            '#2680FF',
+            '#FFBD2E',
+            '#00DE89',
+            '#ff7214'
             ],
             hoverBackgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56'
+              '#2680FF',
+              '#FFBD2E',
+              '#00DE89',
+              '#ff7214'
             ]
           }]
         }

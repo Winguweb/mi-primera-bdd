@@ -111,17 +111,10 @@ const HomePage = ({ global: { plugins }, history: { push } }) => {
           <div className="col-lg-12 col-md-12">
             <Block>
               
-              <FormattedMessage
-                id={headerId}
-                values={{
-                  name: upperFirst(username),
-                }}
-              >
-                {msg => <h2 id="mainHeader" style={{ position: 'relative' }}>
-                  {msg}
-                  <Wave />
-                </h2>}
-              </FormattedMessage>
+              <h2 id="mainHeader" style={{ position: 'relative' }}>
+                Hola  {upperFirst(username)}!
+                <Wave />
+              </h2>
               
               <Separator style={{ marginTop: 37, marginBottom: 36 }} />
               
