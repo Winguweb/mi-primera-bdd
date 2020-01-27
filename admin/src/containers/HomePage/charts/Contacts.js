@@ -7,10 +7,10 @@ const Contacts = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    fetch('http://localhost:1337/opportunities')
+    fetch('http://localhost:1337/contacts')
       .then((res) => res.json())
       .then((res) => {
-        const grouped = _.countBy(res, (op => op.state.Name))
+        const grouped = _.countBy(res, (op => op.contact_type.Name))
 
         const formatted = {
           labels: Object.keys(grouped),
@@ -40,6 +40,7 @@ const Contacts = () => {
 
   return (
     <div>
+      <h2>Contacto por tipo</h2>
       <Bar data={data} />
     </div>
   )

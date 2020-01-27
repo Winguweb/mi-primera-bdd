@@ -1,9 +1,49 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { Bar } from 'react-chartjs-2';
+import _ from 'lodash'
 
-const Accounts = () => (
-  <div>
-    Soy chart
-  </div>
-)
+const Contacts = () => {
+  const [data, setData ] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
 
-export default Accounts
+  useEffect(() => {
+    fetch('http://localhost:1337/accounts')
+      .then((res) => res.json())
+      .then((res) => {
+        const grouped = _.countBy(res, (op => op.account_type.Name))
+
+        const formatted = {
+          labels: Object.keys(grouped),
+          datasets: [{
+            data: Object.values(grouped),
+            backgroundColor: [
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56'
+            ],
+            hoverBackgroundColor: [
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56'
+            ]
+          }]
+        }
+
+        setData(formatted)
+        setIsLoading(false)
+      })
+  }, [])
+
+  if (isLoading) return <p>Loading...</p>
+
+
+
+  return (
+    <div>
+      <h2>Cuentas por tipo</h2>
+      <Bar data={data} />
+    </div>
+  )
+}
+
+export default Contacts

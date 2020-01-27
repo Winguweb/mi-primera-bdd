@@ -35,7 +35,8 @@
       "model": "opportunity-type"
     },
     "account": {
-      "model": "account"
+      "model": "account",
+      "via": "opportunities"
     }
   }
 }

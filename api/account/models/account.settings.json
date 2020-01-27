@@ -38,6 +38,10 @@
     },
     "account_type": {
       "model": "account-type"
+    },
+    "opportunities": {
+      "via": "account",
+      "collection": "opportunity"
     }
   }
 }
