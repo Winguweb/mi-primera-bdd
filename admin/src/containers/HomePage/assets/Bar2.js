@@ -2,7 +2,7 @@ import React from "react"
 
 const Bar2 = (props) => {
   return (
-    <svg viewBox="0 0 455.4 455.4" {...props}>
+    <svg width={150} height={150} viewBox="0 0 455.4 455.4" {...props}>
       <path
         fill="#00acea"
         d="M455.4 280.8L427 324.6l28.4 43.8H332.3v-23.7h42.6v-63.9h13.6z"

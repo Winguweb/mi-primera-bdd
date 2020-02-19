@@ -5,16 +5,20 @@ import styled from 'styled-components'
 const Counter = styled.h3`
   font-size: 8rem;
   color: #2680FF;
-  margin-top: auto;
-  margin-bottom: auto;
   text-align: center;
+  height: 150px;
+  margin: 5rem 0 0;
 `
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  height: 100%;
+  justify-content: space-between;
+`
+
+const Span = styled.span`
+  color: #919BAE;
+  text-align: center;
 `
 
 const AccountsWithOportunities = () => {
@@ -40,6 +44,9 @@ const AccountsWithOportunities = () => {
     <Wrapper>
       <h2>Cuentas con oportunidades</h2>
       <Counter>{counter}</Counter>
+      { !counter && 
+        <Span>Las métricas aún no están disponibles</Span>
+      }
     </Wrapper>
   )
 }
