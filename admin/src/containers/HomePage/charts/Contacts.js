@@ -1,37 +1,44 @@
 import React, { useState, useEffect } from 'react'
 import { Bar } from 'react-chartjs-2';
 import _ from 'lodash'
+import EmptyState from '../assets/EmptyState'
+import BarSvg from '../assets/Bar'
 
 const Contacts = () => {
   const [data, setData ] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [isEmpty, setIsEmpty] = useState(false)
 
   useEffect(() => {
     fetch('http://localhost:1337/contacts')
       .then((res) => res.json())
       .then((res) => {
-        const grouped = _.countBy(res, (op => op.contact_type.Name))
+        if (_.isEmpty(res)) {
+          setIsEmpty(true)
+        } else {
+          const grouped = _.countBy(res, (op => op.contact_type.Name))
 
-        const formatted = {
-          labels: Object.keys(grouped),
-          datasets: [{
-            data: Object.values(grouped),
-            backgroundColor: [
-              '#2680FF',
-              '#FFBD2E',
-              '#00DE89',
-              '#ff7214'
-            ],
-            hoverBackgroundColor: [
-              '#2680FF',
-              '#FFBD2E',
-              '#00DE89',
-              '#ff7214'
-            ]
-          }]
+          const formatted = {
+            labels: Object.keys(grouped),
+            datasets: [{
+              data: Object.values(grouped),
+              backgroundColor: [
+                '#2680FF',
+                '#FFBD2E',
+                '#00DE89',
+                '#ff7214'
+              ],
+              hoverBackgroundColor: [
+                '#2680FF',
+                '#FFBD2E',
+                '#00DE89',
+                '#ff7214'
+              ]
+            }]
+          }
+
+          setData(formatted)
         }
-
-        setData(formatted)
         setIsLoading(false)
       })
   }, [])
@@ -43,7 +50,13 @@ const Contacts = () => {
   return (
     <div>
       <h2>Contacto por tipo</h2>
-      <Bar data={data} />
+      { isEmpty ? (
+        <EmptyState>
+          <BarSvg />
+        </EmptyState>
+      )
+      : <Bar data={data} />
+      }
     </div>
   )
 }

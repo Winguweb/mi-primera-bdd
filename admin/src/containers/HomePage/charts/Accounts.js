@@ -10,6 +10,8 @@ const Contacts = () => {
     fetch('http://localhost:1337/accounts')
       .then((res) => res.json())
       .then((res) => {
+        console.log(res)
+        console.log(_.isEmpty(res))
         const grouped = _.countBy(res, (op => op.account_type.Name))
 
         const formatted = {
