@@ -26,7 +26,12 @@ const AccountsWithOportunities = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    fetch(`${strapi.backendURL}/accounts`)
+    const token = sessionStorage.getItem('jwtToken')
+    fetch(`${strapi.backendURL}/accounts`, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(token)}`
+      }
+    })
       .then((res) => res.json())
       .then((res) => {
         const number = _(res)

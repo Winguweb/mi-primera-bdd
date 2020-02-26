@@ -10,9 +10,15 @@ const Opportunities = () => {
   const [isEmpty, setIsEmpty] = useState(false)
 
   useEffect(() => {
-    fetch(`${strapi.backendURL}/opportunities`)
+    const token = sessionStorage.getItem('jwtToken')
+    fetch(`${strapi.backendURL}/opportunities`, {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(token)}`
+      }
+    })
       .then((res) => res.json())
       .then((res) => {
+        console.log(res)
         if (_.isEmpty(res)) {
           setIsEmpty(true)
         } else {
