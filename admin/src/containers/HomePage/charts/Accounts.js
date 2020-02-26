@@ -11,6 +11,7 @@ const Contacts = () => {
   const [isEmpty, setIsEmpty] = useState(false)
 
   useEffect(() => {
+    console.log(`${process.env.APP_HOST}/${process.env.PORT}`)
     fetch(`${process.env.APP_HOST}/${process.env.PORT}`)
       .then((res) => res.json())
       .then((res) => {
