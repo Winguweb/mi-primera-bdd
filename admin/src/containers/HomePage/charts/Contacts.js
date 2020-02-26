@@ -10,7 +10,7 @@ const Contacts = () => {
   const [isEmpty, setIsEmpty] = useState(false)
 
   useEffect(() => {
-    fetch('http://localhost:1337/contacts')
+    fetch(`${strapi.backendURL}/contacts`)
       .then((res) => res.json())
       .then((res) => {
         if (_.isEmpty(res)) {

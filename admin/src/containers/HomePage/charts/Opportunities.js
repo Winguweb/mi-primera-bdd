@@ -10,7 +10,7 @@ const Opportunities = () => {
   const [isEmpty, setIsEmpty] = useState(false)
 
   useEffect(() => {
-    fetch('http://localhost:1337/opportunities')
+    fetch(`${strapi.backendURL}/opportunities`)
       .then((res) => res.json())
       .then((res) => {
         if (_.isEmpty(res)) {

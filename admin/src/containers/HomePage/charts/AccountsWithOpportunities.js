@@ -26,7 +26,7 @@ const AccountsWithOportunities = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    fetch('http://localhost:1337/accounts')
+    fetch(`${strapi.backendURL}/accounts`)
       .then((res) => res.json())
       .then((res) => {
         const number = _(res)
