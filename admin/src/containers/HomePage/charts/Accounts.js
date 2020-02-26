@@ -4,13 +4,14 @@ import _ from 'lodash'
 import EmptyState from '../assets/EmptyState'
 import Bar2 from '../assets/Bar2'
 
+
 const Contacts = () => {
   const [data, setData ] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [isEmpty, setIsEmpty] = useState(false)
 
   useEffect(() => {
-    fetch('http://localhost:1337/accounts')
+    fetch(`${process.env.APP_HOST}/${process.env.PORT}`)
       .then((res) => res.json())
       .then((res) => {
 
