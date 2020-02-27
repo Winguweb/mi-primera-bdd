@@ -10,6 +10,12 @@ const Contacts = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [isEmpty, setIsEmpty] = useState(false)
 
+  const options = {
+    legend: {
+      display: false
+    }
+  }
+
   useEffect(() => {
     fetch(`${strapi.backendURL}/accounts`)
       .then((res) => res.json())
@@ -56,7 +62,7 @@ const Contacts = () => {
         ? ( <EmptyState>
             <Bar2 />
           </EmptyState> )
-        : <Bar data={data} />
+        : <Bar data={data} options={options} />
       }
     </div>
   )

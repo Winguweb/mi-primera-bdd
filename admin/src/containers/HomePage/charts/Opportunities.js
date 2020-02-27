@@ -10,6 +10,12 @@ const Opportunities = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [isEmpty, setIsEmpty] = useState(false)
 
+  const options = {
+    legend: {
+      position: 'right'
+    }
+  }
+
   useEffect(() => {
     fetch(`${strapi.backendURL}/opportunities`)
       .then((res) => res.json())
@@ -51,7 +57,7 @@ const Opportunities = () => {
         ? ( <EmptyState>
             <SvgPie />
           </EmptyState> )
-        : <Pie data={data} />
+        : <Pie data={data} options={options} />
       }
     </div>
   )
