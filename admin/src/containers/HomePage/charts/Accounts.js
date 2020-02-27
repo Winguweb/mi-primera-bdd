@@ -11,12 +11,7 @@ const Contacts = () => {
   const [isEmpty, setIsEmpty] = useState(false)
 
   useEffect(() => {
-    const token = sessionStorage.getItem('jwtToken')
-    fetch(`${strapi.backendURL}/accounts`, {
-      headers: {
-        Authorization: `Bearer ${JSON.parse(token)}`
-      }
-    })
+    fetch(`${strapi.backendURL}/accounts`)
       .then((res) => res.json())
       .then((res) => {
         if (_.isEmpty(res)) {

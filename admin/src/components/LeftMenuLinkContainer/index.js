@@ -103,7 +103,7 @@ function LeftMenuLinkContainer({ plugins, ...rest }) {
           {...rest}
           icon='circle'
           label='Indicadores'
-          destination='/dashboard' />
+          destination='/' />
       </ul>
       {linkSections}
       <div>

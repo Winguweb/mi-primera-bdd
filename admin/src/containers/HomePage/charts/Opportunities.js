@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Pie } from 'react-chartjs-2';
+import { Pie } from 'react-chartjs-2'
 import _ from 'lodash'
+
 import EmptyState from '../assets/EmptyState'
 import SvgPie from '../assets/Pie'
 
@@ -10,15 +11,9 @@ const Opportunities = () => {
   const [isEmpty, setIsEmpty] = useState(false)
 
   useEffect(() => {
-    const token = sessionStorage.getItem('jwtToken')
-    fetch(`${strapi.backendURL}/opportunities`, {
-      headers: {
-        Authorization: `Bearer ${JSON.parse(token)}`
-      }
-    })
+    fetch(`${strapi.backendURL}/opportunities`)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res)
         if (_.isEmpty(res)) {
           setIsEmpty(true)
         } else {
