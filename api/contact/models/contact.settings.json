@@ -51,14 +51,20 @@
     "account": {
       "model": "account"
     },
-    "gender": {
-      "model": "gender"
-    },
     "origin": {
       "model": "origin"
     },
     "contact_type": {
       "model": "contact-type"
+    },
+    "Genero": {
+      "type": "enumeration",
+      "enum": [
+        "masculino",
+        "femenino",
+        "no_binario",
+        "prefiero_no_decirlo"
+      ]
     }
   }
 }
