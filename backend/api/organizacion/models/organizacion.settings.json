@@ -1,0 +1,21 @@
+{
+  "connection": "default",
+  "collectionName": "organizacions",
+  "info": {
+    "name": "Organización"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Nombre": {
+      "type": "string"
+    },
+    "users": {
+      "via": "organizacion",
+      "plugin": "users-permissions",
+      "collection": "user"
+    }
+  }
+}
