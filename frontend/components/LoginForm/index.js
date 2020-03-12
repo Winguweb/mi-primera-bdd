@@ -15,7 +15,7 @@ const LoginForm = props => {
     if (result) {
       const token = result.data.login.jwt
       localStorage.setItem('token', token)
-      Router.push('/')
+      Router.push('/dashboard')
     }
   }
 

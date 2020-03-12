@@ -13,7 +13,15 @@ function create (initialState) {
       uri: 'http://localhost:1337/graphql', // Server URL (must be absolute)
       credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
       // Use fetch() polyfill on the server
-      fetch: !isBrowser && fetch
+      fetch: !isBrowser && fetch,
+      request: async (operation) => {
+        const token = await AsyncStorage.getItem('token');
+        operation.setContext({
+          headers: {
+            authorization: token
+          }
+        });
+      },
     }),
     cache: new InMemoryCache().restore(initialState || {})
   })

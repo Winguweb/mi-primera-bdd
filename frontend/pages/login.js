@@ -4,7 +4,6 @@ import { LOGIN_MUTATION } from '../graphql/user/mutation/login'
 import LoginForm from '../components/LoginForm'
 
 export default () => {
-
   const [ loginUser, { data }] = useMutation(LOGIN_MUTATION)
 
   return (
