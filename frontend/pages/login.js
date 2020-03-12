@@ -1,10 +1,9 @@
-
-import { useMutation } from '@apollo/react-hooks'
-import { LOGIN_MUTATION } from '../graphql/user/mutation/login'
+import React, { useContext } from 'react'
+import { UserContext } from '../context/UserContext'
 import LoginForm from '../components/LoginForm'
 
 export default () => {
-  const [ loginUser, { data }] = useMutation(LOGIN_MUTATION)
+  const { loginUser } = useContext(UserContext)
 
   return (
     <div className="h-screen max-h-screen ">

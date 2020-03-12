@@ -1,8 +1,13 @@
-const Header = ({ name }) => {
+import React, { useContext } from 'react'
+import { UserContext } from '../../context/UserContext'
+
+const Header = () => {
+  const { user } = useContext(UserContext)
+
   return (
     <header className="flex items-center">
       <h2 className="mr-4 inline-block border-b-4 border-yellow-wingu font-semibold text-2xl ">
-        ¡Hola, { name }!
+        ¡Hola {user.username}!
       </h2>
       <span className="text-4xl">👋</span>
     </header>

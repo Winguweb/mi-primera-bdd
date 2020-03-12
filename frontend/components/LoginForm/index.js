@@ -8,15 +8,15 @@ const LoginForm = props => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     
-    const result = await props.submit({
-      variables: { email, password }
+    const result = props.submit({
+      email, password
     })
 
-    if (result) {
-      const token = result.data.login.jwt
-      localStorage.setItem('token', token)
-      Router.push('/dashboard')
-    }
+    // if (result) {
+    //   const token = result.data.login.jwt
+    //   localStorage.setItem('token', token)
+    //   Router.push('/dashboard')
+    // }
   }
 
 

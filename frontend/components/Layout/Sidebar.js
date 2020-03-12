@@ -6,7 +6,7 @@ const Sidebar = () => {
   const router = useRouter()
 
   return (
-    <aside class="p-2 w-64 ">
+    <aside className="p-2 w-64 ">
       <div className="w-full py-4 px-2 text-gray-900 bg-white rounded-lg text-left text-sm shadow-lg">
             <span className="px-1 py-1 rounded block mb-5 text-blue-wingu">
               <span>Inicio</span>
