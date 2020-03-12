@@ -15,7 +15,7 @@ const Navbar = () => {
         <h1 className="font-title text-xl uppercase">Mi primera base de datos</h1>
       </div>
       <div className="flex flex-col items-end text-white">
-        <span>Usuario: {user.username}</span>
+        <span>Organización: {user.username}</span>
         <button onClick={logout}>
           <span>Cerrar sesión</span>
         </button>

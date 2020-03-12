@@ -42,6 +42,12 @@ const Sidebar = () => {
                 <span>Campos customizables</span>
               </span>
             </Link>
+          <div className="mt-20">
+            <span>
+              Hecho con 💚 por 
+              <a href="https://winguweb.org" target="_blank" noopener noreferrer className="ml-1 text-blue-wingu cursor-pointer font-bold">Wingu</a>
+            </span>
+          </div>
       </div>
     </aside>
   )

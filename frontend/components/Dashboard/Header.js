@@ -6,9 +6,9 @@ const Header = () => {
 
   return (
     <header className="flex items-center">
-      <h2 className="mr-4 inline-block border-b-4 border-yellow-wingu font-semibold text-2xl ">
+      <h1 className="mr-4 inline-block border-b-4 border-yellow-wingu font-semibold text-2xl ">
         ¡Hola {user.username}!
-      </h2>
+      </h1>
       <span className="text-4xl">👋</span>
     </header>
   )
