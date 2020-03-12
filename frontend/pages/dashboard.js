@@ -1,11 +1,12 @@
 import Layout from '../components/Layout'
+import Dashboard from '../components/Dashboard'
 
-const Dashboard = props => {
+const Home = props => {
   return (
     <Layout>
-      Dashboard
+      <Dashboard />
     </Layout>
   )
 }
 
-export default Dashboard
+export default Home
