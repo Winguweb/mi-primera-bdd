@@ -1,38 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import _ from 'lodash'
 
-// const Counter = styled.h3`
-//   font-size: 8rem;
-//   color: #2680FF;
-//   text-align: center;
-//   height: 150px;
-//   margin: 5rem 0 0;
-// `
+const AccountsWithOportunities = ({ data, error, loading }) => {
+  let counter = false
 
-const AccountsWithOportunities = () => {
-  const [counter, setCounter] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
+  if (loading) return <p>Loading...</p>
 
-  // useEffect(() => {
-  //   fetch(`${strapi.backendURL}/accounts`)
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       const number = _(res)
-  //       .filter((account) => account.opportunities.length)
-  //       .size()
+  if (data) {
+    const number = _([...data.accounts])
+      .filter((account) => account.opportunities.length)
+      .size()
 
-  //       setCounter(number)
-  //       setIsLoading(false)
-  //     })
-  // }, [])
-
-  if (isLoading) return <p>Loading...</p>
+    counter = number
+  }
 
   return (
     <div className="flex flex-col justify-between">
-      <h2>Cuentas con oportunidades</h2>
-      <h3 className="text-blue-wingu text-center">{counter}</h3>
-      { !counter && 
+      <h2 className="text-lg mb-4">Cuentas con oportunidades</h2>
+      <h3 className="text-blue-wingu text-center text-6xl">{counter}</h3>
+      { (error || !counter) && 
         <span className="text-center">Las métricas aún no están disponibles</span>
       }
     </div>

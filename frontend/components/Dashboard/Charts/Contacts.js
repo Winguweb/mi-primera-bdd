@@ -4,10 +4,10 @@ import _ from 'lodash'
 import EmptyState from '../assets/EmptyState'
 import BarSvg from '../assets/Bar'
 
-const Contacts = () => {
-  const [data, setData ] = useState(null)
-  const [isLoading, setIsLoading] = useState(true)
-  const [isEmpty, setIsEmpty] = useState(true)
+const Contacts = ({ loading, error, data }) => {
+  let formatted = null
+
+  const [isEmpty, setIsEmpty] = useState(false)
 
   const options = {
     legend: {
@@ -15,53 +15,44 @@ const Contacts = () => {
     }
   }
 
-  // useEffect(() => {
-  //   fetch(`${strapi.backendURL}/contacts`)
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       if (_.isEmpty(res)) {
-  //         setIsEmpty(true)
-  //       } else {
-  //         const grouped = _.countBy(res, (op => op.contact_type.Name))
+  if (loading) return <p>Loading...</p>
 
-  //         const formatted = {
-  //           labels: Object.keys(grouped),
-  //           datasets: [{
-  //             data: Object.values(grouped),
-  //             backgroundColor: [
-  //               '#2680FF',
-  //               '#FFBD2E',
-  //               '#00DE89',
-  //               '#ff7214'
-  //             ],
-  //             hoverBackgroundColor: [
-  //               '#2680FF',
-  //               '#FFBD2E',
-  //               '#00DE89',
-  //               '#ff7214'
-  //             ]
-  //           }]
-  //         }
-
-  //         setData(formatted)
-  //       }
-  //       setIsLoading(false)
-  //     })
-  // }, [])
-
-  if (isLoading) return <p>Loading...</p>
-
-
+  if (data) {
+    const contacts = [...data.contacts].filter((contact) => contact.contact_type)
+    if (!contacts) {
+      setIsEmpty(true)
+    } else {
+      const grouped = _.countBy(contacts, (contact => contact.contact_type.Name))
+      formatted = {
+        labels: Object.keys(grouped),
+        datasets: [{
+          data: Object.values(grouped),
+          backgroundColor: [
+            '#2680FF',
+            '#FFBD2E',
+            '#00DE89',
+            '#ff7214'
+          ],
+          hoverBackgroundColor: [
+            '#2680FF',
+            '#FFBD2E',
+            '#00DE89',
+            '#ff7214'
+          ]
+        }]
+      }
+    }
+  }
 
   return (
     <div>
-      <h2>Contacto por tipo</h2>
+    <h2 className="text-lg mb-4">Contacto por tipo</h2>
       { isEmpty ? (
         <EmptyState>
           <BarSvg />
         </EmptyState>
       )
-      : <Bar data={data} options={options} />
+      : <Bar data={formatted} options={options} />
       }
     </div>
   )

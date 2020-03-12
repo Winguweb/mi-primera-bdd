@@ -6,40 +6,40 @@ const Sidebar = () => {
   const router = useRouter()
 
   return (
-    <aside className="p-2 w-64 ">
+    <aside className="fixed inset-y-0 left-0 p-2 w-64 mt-24">
       <div className="w-full py-4 px-2 text-gray-900 bg-white rounded-lg text-left text-sm shadow-lg">
-            <span className="px-1 py-1 rounded block mb-5 text-blue-wingu">
+            <span className="px-1 py-1 rounded block mb-5 text-gray-500">
               <span>Inicio</span>
             </span>
             <Link href="/dashboard">
-              <span className={`${router.pathname == "/dashboard" ? "font-bold text-gray-700" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
-                <span>Indicadores</span>
+              <span className={`${router.pathname == "/dashboard" ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
+                <span>· Indicadores</span>
               </span>
             </Link>
-            <span className="px-1 py-1 rounded block mb-5 text-blue-wingu">
+            <span className="px-1 py-1 rounded block mb-5 text-gray-500">
               <span>Gestión</span>
             </span>
             <Link href="/contacts">
-            <span className={`${router.pathname == "/contacts" ? "font-bold text-gray-700" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
-                <span>Contactos</span>
+            <span className={`${router.pathname == "/contacts" ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
+                <span>· Contactos</span>
               </span>
             </Link>
             <Link href="/accounts">
-            <span className={`${router.pathname == "/accounts" ? "font-bold text-gray-700" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
-                <span>Cuentas</span>
+            <span className={`${router.pathname == "/accounts" ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
+                <span>· Cuentas</span>
               </span>
             </Link>
             <Link href="/opportunities">
-            <span className={`${router.pathname == "/opportunities" ? "font-bold text-gray-700" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
-                <span>Oportunidades</span>
+            <span className={`${router.pathname == "/opportunities" ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
+                <span>· Oportunidades</span>
               </span>
             </Link>
-            <span className="px-1 py-1 rounded block mb-5 text-blue-wingu">
+            <span className="px-1 py-1 rounded block mb-5 text-gray-500">
               <span>Configuración</span>
             </span>
             <Link href="/customize">
-            <span className={`${router.pathname == "/customize" ? "font-bold text-gray-700" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
-                <span>Campos customizables</span>
+              <span className={`${router.pathname == "/customize" ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
+                <span>· Campos customizables</span>
               </span>
             </Link>
           <div className="mt-20">
