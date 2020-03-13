@@ -47,7 +47,7 @@ const Opportunities = ({ loading, error, data }) => {
 
   return (
     <div>
-      <h2 className="text-lg mb-4">Oportunidades por estado</h2>
+      <h2 className="text-lg mb-4 font-bold">Oportunidades por estado</h2>
       { isEmpty
         ? ( <EmptyState>
             <SvgPie />

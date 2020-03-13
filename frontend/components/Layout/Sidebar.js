@@ -13,7 +13,7 @@ const Sidebar = () => {
             </span>
             <Link href="/dashboard">
               <span className={`${router.pathname == "/dashboard" ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
-                <span>· Indicadores</span>
+                <span>• Indicadores</span>
               </span>
             </Link>
             <span className="px-1 py-1 rounded block mb-5 text-gray-500">
@@ -21,17 +21,17 @@ const Sidebar = () => {
             </span>
             <Link href="/contacts">
             <span className={`${router.pathname == "/contacts" ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
-                <span>· Contactos</span>
+                <span>• Contactos</span>
               </span>
             </Link>
             <Link href="/accounts">
             <span className={`${router.pathname == "/accounts" ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
-                <span>· Cuentas</span>
+                <span>• Cuentas</span>
               </span>
             </Link>
             <Link href="/opportunities">
             <span className={`${router.pathname == "/opportunities" ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
-                <span>· Oportunidades</span>
+                <span>• Oportunidades</span>
               </span>
             </Link>
             <span className="px-1 py-1 rounded block mb-5 text-gray-500">
@@ -39,7 +39,7 @@ const Sidebar = () => {
             </span>
             <Link href="/customize">
               <span className={`${router.pathname == "/customize" ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
-                <span>· Campos customizables</span>
+                <span>• Campos customizables</span>
               </span>
             </Link>
           <div className="mt-48 text-center">

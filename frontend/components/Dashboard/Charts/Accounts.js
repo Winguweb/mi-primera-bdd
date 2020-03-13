@@ -47,7 +47,7 @@ const Accounts = ({ loading, error, data }) => {
 
   return (
     <div>
-      <h2 className="text-lg mb-4">Cuentas por tipo</h2>
+      <h2 className="text-lg mb-4 font-bold">Cuentas por tipo</h2>
       { isEmpty
         ? ( <EmptyState>
             <Bar2 />

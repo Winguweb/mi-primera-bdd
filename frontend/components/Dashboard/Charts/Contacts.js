@@ -46,7 +46,7 @@ const Contacts = ({ loading, error, data }) => {
 
   return (
     <div>
-    <h2 className="text-lg mb-4">Contacto por tipo</h2>
+    <h2 className="text-lg mb-4 font-bold">Contacto por tipo</h2>
       { isEmpty ? (
         <EmptyState>
           <BarSvg />

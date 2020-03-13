@@ -16,7 +16,7 @@ const AccountsWithOportunities = ({ data, error, loading }) => {
 
   return (
     <div className="flex flex-col justify-between">
-      <h2 className="text-lg mb-4">Cuentas con oportunidades</h2>
+      <h2 className="text-lg mb-4 font-bold">Cuentas con oportunidades</h2>
       <h3 className="text-blue-wingu text-center text-6xl">{counter}</h3>
       { (error || !counter) && 
         <span className="text-center">Las métricas aún no están disponibles</span>

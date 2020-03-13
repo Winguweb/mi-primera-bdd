@@ -11,6 +11,10 @@ module.exports = {
       fontFamily: {
         'title': ['Oswald', 'sans-serif'],
         'body': ['Raleway', 'sans-serif']
+      },
+      minHeight: {
+        '1/4': '100px',
+        '86vh': '86vh'
       }
     },
   },
