@@ -14,6 +14,7 @@ class MyApp extends App {
         <Head>
           <title>Wingu | Mi primera base de datos</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <link href="https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap" rel="stylesheet"  /> 
         </Head>
         <UserContextProvider>
           <Component {...pageProps} />

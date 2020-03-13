@@ -1,9 +1,11 @@
 import Header from './Header'
+import Searchbar from './Searchbar'
 
 const List = ({ name }) => {
   return (
     <div className="p-2">
       <Header name={name} />
+      <Searchbar />
       <div className="w-full mx-auto">
       <div className="bg-white shadow-md my-6">
         <table className="text-left w-full border-collapse">
@@ -16,6 +18,7 @@ const List = ({ name }) => {
               <th className="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Teléfono</th>
               <th className="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Género</th>
               <th className="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Cuenta</th>
+              <th className="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light"></th>
             </tr>
           </thead>
           <tbody>
