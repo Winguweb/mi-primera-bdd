@@ -1,9 +1,10 @@
 import Layout from '../components/Layout'
+import List from '../components/List'
 
 const Customize = props => {
   return (
     <Layout>
-      <span>Customize</span>
+      <List name="Configuración de campos" />
     </Layout>
   )
 }

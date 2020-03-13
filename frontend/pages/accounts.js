@@ -1,9 +1,10 @@
 import Layout from '../components/Layout'
+import List from '../components/List'
 
 const Accounts = props => {
   return (
     <Layout>
-      <span>Accounts</span>
+      <List name="Cuentas" />
     </Layout>
   )
 }
