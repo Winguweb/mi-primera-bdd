@@ -7,7 +7,7 @@ const Navbar = () => {
   const { user, logout } = useContext(UserContext)
 
   return (
-    <nav className="fixed w-full flex items-center justify-between flex-wrap bg-blue-wingu p-6">
+    <nav className="fixed w-full flex items-center justify-between flex-wrap bg-blue-wingu p-6 z-10">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Link href="/dashboard">
           <Logo className="cursor-pointer mr-6" />

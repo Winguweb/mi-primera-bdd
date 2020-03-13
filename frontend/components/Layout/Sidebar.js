@@ -20,17 +20,17 @@ const Sidebar = () => {
               <span>Gestión</span>
             </span>
             <Link href="/contacts">
-            <span className={`${router.pathname == "/contacts" ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
+            <span className={`${(router.pathname == "/contacts" || router.pathname == "/new-contact") ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
                 <span>• Contactos</span>
               </span>
             </Link>
             <Link href="/accounts">
-            <span className={`${router.pathname == "/accounts" ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
+            <span className={`${(router.pathname == "/accounts" || router.pathname == "/new-account")? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
                 <span>• Cuentas</span>
               </span>
             </Link>
             <Link href="/opportunities">
-            <span className={`${router.pathname == "/opportunities" ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
+            <span className={`${(router.pathname == "/opportunities" || router.pathname == "/new-opportunity") ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
                 <span>• Oportunidades</span>
               </span>
             </Link>
