@@ -1,7 +1,11 @@
+import Header from './Header'
+import Form from './Form'
+
 const AccountForm = () => {
   return (
-    <div>
-      AccountForm
+    <div className="p-2">
+      <Header />
+      <Form />
     </div>
   )
 }

@@ -1,7 +1,9 @@
+import Header from './Header'
+
 const ContactForm = () => {
   return (
-    <div>
-      ContactForm
+    <div className="p-2">
+      <Header />
     </div>
   )
 }

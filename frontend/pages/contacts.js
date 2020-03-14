@@ -4,7 +4,7 @@ import List from '../components/List'
 const Contacts = props => {
   return (
     <Layout>
-      <List name="Contactos" />
+      <List name="Gestión de contactos" />
     </Layout>
   )
 }
