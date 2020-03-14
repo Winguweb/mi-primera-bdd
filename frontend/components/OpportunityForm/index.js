@@ -1,7 +1,11 @@
+import Header from './Header'
+import Form from './Form'
+
 const OpportunityForm = () => {
   return (
-    <div>
-      OpportunityForm
+    <div className="p-2">
+      <Header />
+      <Form />
     </div>
   )
 }
