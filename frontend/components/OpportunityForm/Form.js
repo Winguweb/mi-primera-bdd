@@ -86,7 +86,7 @@ const Form = () => {
           <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
             Observaciones
           </label>
-          <textarea className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-city" type="text" placeholder="Observaciones..." />
+          <textarea className="h-32 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 resize-none" id="grid-city" type="text" placeholder="Observaciones..." />
         </div>
       </div>
     </div>
