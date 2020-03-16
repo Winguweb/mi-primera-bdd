@@ -42,11 +42,37 @@ const Form = () => {
         </div>
       </div>
       <div className="-mx-3 md:flex mb-6">
-        <div className="md:w-1/2 px-3 mb-6 md:mb-0">
-          <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
-            Dirección
+        <div className="md:w-1/3 px-3">
+          <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
+            Dirección <span className="ml-2 normal-case text-xs italic font-light">Calle y numeración</span>
           </label>
-          <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-city" type="text" placeholder="Thames 1024" />
+          <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+        </div>
+        <div className="md:w-1/3 px-3">
+          <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
+            Ciudad
+          </label>
+          <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+        </div>
+        <div className="md:w-1/3 px-3">
+          <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
+            Código postal
+          </label>
+          <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+        </div>
+      </div>
+      <div className="-mx-3 md:flex mb-6">
+        <div className="md:w-1/2 px-3">
+          <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
+            Estado o provincia
+          </label>
+          <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+        </div>
+        <div className="md:w-1/2 px-3">
+          <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-state">
+            País
+          </label>
+          <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
         </div>
       </div>
       <div className="-mx-3 md:flex mb-6">
@@ -76,7 +102,7 @@ const Form = () => {
           <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
             Observaciones
           </label>
-          <textarea className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" id="grid-city" type="text" placeholder="Observaciones..." />
+          <textarea className="h-32 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 resize-none" id="grid-city" type="text" placeholder="Observaciones..." />
         </div>
       </div>
     </div>
