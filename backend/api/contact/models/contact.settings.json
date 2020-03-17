@@ -57,7 +57,7 @@
     "contact_type": {
       "model": "contact-type"
     },
-    "Genero": {
+    "gender": {
       "type": "enumeration",
       "enum": [
         "masculino",

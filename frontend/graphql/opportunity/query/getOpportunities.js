@@ -5,9 +5,16 @@ export const GET_OPPORTUNITIES= gql`
     opportunities {
       id
       name
-      state
-      opportunity_type
-      account
+      state {
+        Name
+      }
+      opportunity_type {
+        Name
+      }
+      account {
+        name
+      }
       date
+    }
   }
 `;

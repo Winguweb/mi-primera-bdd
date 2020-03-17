@@ -6,11 +6,15 @@ export const GET_CONTACTS = gql`
       id
       name
       lastname
-      contact_type
+      contact_type {
+        Name
+      }
       email
       phone
       gender
-      account
+      account {
+        name
+      }
     }
   }
 `;
