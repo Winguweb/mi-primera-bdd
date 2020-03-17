@@ -3,12 +3,12 @@ import Searchbar from './Searchbar'
 import Table from './Table'
 import Pagination from './Pagination'
 
-const List = ({ name }) => {
+const List = ({ cta, data, fields, title }) => {
   return (
     <div className="p-2">
-      <Header name={name} />
+      <Header name={title} cta={cta} />
       <Searchbar />
-      <Table />
+      <Table fields={fields} data={data} />
       <Pagination />
     </div>
   )

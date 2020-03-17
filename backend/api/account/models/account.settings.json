@@ -9,7 +9,7 @@
     "timestamps": true
   },
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string"
     },
     "address": {
@@ -40,8 +40,8 @@
       "model": "account-type"
     },
     "opportunities": {
-      "via": "account",
-      "collection": "opportunity"
+      "collection": "opportunity",
+      "via": "account"
     },
     "organizacion": {
       "plugin": "users-permissions",

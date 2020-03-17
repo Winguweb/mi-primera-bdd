@@ -35,8 +35,8 @@
       "model": "opportunity-type"
     },
     "account": {
-      "model": "account",
-      "via": "opportunities"
+      "via": "opportunities",
+      "model": "account"
     },
     "organizacion": {
       "plugin": "users-permissions",
