@@ -1,12 +1,10 @@
-import Layout from '../components/Layout'
+import securePage from '../hocs/securePage'
 import List from '../components/List'
 
 const Contacts = props => {
   return (
-    <Layout>
-      <List name="Gestión de contactos" />
-    </Layout>
+    <List name="Gestión de contactos" />
   )
 }
 
-export default Contacts
+export default securePage(Contacts)

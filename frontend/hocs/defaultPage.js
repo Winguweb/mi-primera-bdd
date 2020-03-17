@@ -10,8 +10,6 @@ export default Page =>
         ? getUserFromLocalCookie()
         : getUserFromServerCookie(req);
       const pageProps = Page.getInitialProps && Page.getInitialProps(req)
-      console.log("is authenticated")
-      console.log(loggedUser)
       let path = req ? req.pathname : ""
       path = ""
       return {

@@ -53,7 +53,7 @@ export const unsetToken = () => {
 
   // to support logging out from all windows
   window.localStorage.setItem("logout", Date.now());
-  Router.push("/");
+  Router.push("/login");
 };
 
 export const getUserFromServerCookie = req => {

@@ -11,8 +11,8 @@ const Sidebar = () => {
             <span className="px-1 py-1 rounded block mb-5 text-gray-500">
               <span>Inicio</span>
             </span>
-            <Link href="/dashboard">
-              <span className={`${router.pathname == "/dashboard" ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
+            <Link href="/">
+              <span className={`${router.pathname == "/" ? "font-bold text-green-wingu" : ""} cursor-pointer px-1 py-1 hover:bg-gray-200 hover:text-gray-700 rounded block mb-5`}>
                 <span>• Indicadores</span>
               </span>
             </Link>

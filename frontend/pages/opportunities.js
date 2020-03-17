@@ -1,12 +1,10 @@
-import Layout from '../components/Layout'
+import securePage from '../hocs/securePage'
 import List from '../components/List'
 
 const Opportunities = props => {
   return (
-    <Layout>
-      <List name="Gestión de oportunidades" />
-    </Layout>
+    <List name="Gestión de oportunidades" />
   )
 }
 
-export default Opportunities
+export default securePage(Opportunities)

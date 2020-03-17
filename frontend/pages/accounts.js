@@ -1,12 +1,10 @@
-import Layout from '../components/Layout'
+import securePage from '../hocs/securePage'
 import List from '../components/List'
 
 const Accounts = props => {
   return (
-    <Layout>
-      <List name="Gestión de cuentas" />
-    </Layout>
+    <List name="Gestión de cuentas" />
   )
 }
 
-export default Accounts
+export default securePage(Accounts)

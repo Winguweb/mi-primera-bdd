@@ -1,13 +1,12 @@
-const Index = (props) =>  (
-  <div className="p-4 shadow rounded bg-white">
-    <span>Home</span>
-  </div>
-)
+import securePage from '../hocs/securePage'
+import Dashboard from '../components/Dashboard'
 
-Index.getInitialProps = async context => {
-  
-  
-  return {}
-};
+const Index = props => {
+  const { loggedUser } = props
 
-export default Index
+  return (
+    <Dashboard loggedUser={loggedUser} />
+  )
+}
+
+export default securePage(Index)

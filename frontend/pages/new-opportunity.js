@@ -1,12 +1,10 @@
-import Layout from '../components/Layout'
+import securePage from '../hocs/securePage'
 import OpportunityForm from '../components/OpportunityForm'
 
 const NewOpportunity = () => {
   return (
-    <Layout>
-      <OpportunityForm />
-    </Layout>
+    <OpportunityForm />
   )
 }
 
-export default NewOpportunity
+export default securePage(NewOpportunity)

@@ -1,7 +1,11 @@
-import React, { Component } from "react"
+import { Component } from "react"
+import dynamic from "next/dynamic"
+import Router from "next/router";
 import PropTypes from "prop-types"
 
 import defaultPage from "./defaultPage"
+
+const LoginPage = dynamic(() => import("../pages/login"))
 
 const securePageHoc = Page =>
   class SecurePage extends Component {
@@ -13,9 +17,15 @@ const securePageHoc = Page =>
       return Page.getInitialProps && Page.getInitialProps(ctx)
     }
 
+    componentDidMount() {
+      if (!this.props.isAuthenticated) {
+        Router.replace('/login')
+      }
+    }
+
     render() {
-      const { isAuthenticated } = this.props;
-      return isAuthenticated ? <Page {...this.props} /> : "Not Authorized"
+      const { isAuthenticated } = this.props
+      return isAuthenticated ? <Page {...this.props} /> : <LoginPage />
     }
   }
 

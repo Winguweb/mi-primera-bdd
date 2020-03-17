@@ -1,12 +1,10 @@
-import Layout from '../components/Layout'
+import securePage from '../hocs/securePage'
 import CustomFields from '../components/CustomFields'
 
 const Customize = props => {
   return (
-    <Layout>
-      <CustomFields />
-    </Layout>
+    <CustomFields />
   )
 }
 
-export default Customize
+export default securePage(Customize)

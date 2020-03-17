@@ -1,12 +1,10 @@
-import Layout from '../components/Layout'
+import securePage from '../hocs/securePage'
 import ContactForm from '../components/ContactForm'
 
 const NewContact = () => {
   return (
-    <Layout>
-      <ContactForm />
-    </Layout>
+    <ContactForm />
   )
 }
 
-export default NewContact
+export default securePage(NewContact)
