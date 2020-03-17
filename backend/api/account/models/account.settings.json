@@ -42,6 +42,10 @@
     "opportunities": {
       "via": "account",
       "collection": "opportunity"
+    },
+    "organizacion": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

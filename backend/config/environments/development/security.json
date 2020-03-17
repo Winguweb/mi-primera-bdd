@@ -22,7 +22,11 @@
   },
   "cors": {
     "enabled": true,
-    "origin": "*"
+    "origin": "*",
+    "headers": [
+      "Authorization",
+      "Content-Type"
+    ]
   },
   "ip": {
     "enabled": false,

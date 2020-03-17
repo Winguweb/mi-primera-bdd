@@ -11,6 +11,10 @@
   "attributes": {
     "Name": {
       "type": "string"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

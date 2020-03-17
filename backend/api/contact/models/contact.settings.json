@@ -65,6 +65,10 @@
         "no_binario",
         "prefiero_no_decirlo"
       ]
+    },
+    "organizacion": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

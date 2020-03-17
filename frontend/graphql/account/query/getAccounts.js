@@ -1,8 +1,9 @@
 import { gql } from "apollo-boost";
 
-export const GET_CONTACTS = gql`
+export const GET_ACCOUNTS = gql`
   query {
-    contacts {
+    accounts {
+      id
     }
   }
 `;

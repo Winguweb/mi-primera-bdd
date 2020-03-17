@@ -37,6 +37,7 @@ export const setToken = token => {
   }
   Cookies.set("username", token.user.username);
   Cookies.set("jwt", token.jwt);
+  Cookies.set("id", token.user.id);
 
   if (Cookies.get("username")) {
     Router.push("/");

@@ -45,7 +45,7 @@ const Sidebar = () => {
           <div className="mt-auto text-center">
             <span>
               Hecho con 💚 por 
-              <a href="https://winguweb.org" target="_blank" noopener noreferrer className="ml-1 text-blue-wingu cursor-pointer font-bold">Wingu</a>
+              <a href="https://winguweb.org" target="_blank" rel="noopener noreferrer"className="ml-1 text-blue-wingu cursor-pointer font-bold">Wingu</a>
             </span>
           </div>
       </div>
