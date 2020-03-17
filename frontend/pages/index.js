@@ -4,4 +4,10 @@ const Index = (props) =>  (
   </div>
 )
 
+Index.getInitialProps = async context => {
+  
+  
+  return {}
+};
+
 export default Index
