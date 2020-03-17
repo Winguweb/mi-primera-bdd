@@ -1,5 +1,4 @@
 const Table = ({ fields, data }) => {
-  console.log(data)
   return (
     <div className="w-full mx-auto">
       <div className="bg-white shadow-md my-6">
