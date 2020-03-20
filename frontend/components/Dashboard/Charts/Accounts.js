@@ -23,7 +23,6 @@ const Accounts = ({ loading, error, data }) => {
       setIsEmpty(true)
     } else {
       const grouped = _.countBy(accounts, (account) => account.account_type.Name)
-      console.log(Object.keys(grouped))
       formatted = {
                   labels: Object.keys(grouped),
                   datasets: [{

@@ -7,12 +7,12 @@ import Contacts from './Charts/Contacts'
 import Opportunities from './Charts/Opportunities'
 
 
-const Dashboard = () => {
+const Dashboard = ({ loggedUser }) => {
   const { loading, error, data } = useQuery(GET_METRICS) 
 
   return (
     <div className="p-2">
-      <Header />
+      <Header loggedUser={loggedUser} />
       <div className="mt-4">
         <div className="row flex mb-4">
           <div className="w-1/2 p-2">

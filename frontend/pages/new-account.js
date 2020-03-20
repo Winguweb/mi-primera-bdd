@@ -1,12 +1,10 @@
-import Layout from '../components/Layout'
+import securePage from '../hocs/securePage'
 import AccountForm from '../components/AccountForm'
 
 const NewAccount = () => {
   return (
-    <Layout>
-      <AccountForm />
-    </Layout>
+    <AccountForm />
   )
 }
 
-export default NewAccount
+export default securePage(NewAccount)

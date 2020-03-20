@@ -1,7 +1,12 @@
-const Index = (props) =>  (
-  <div className="p-4 shadow rounded bg-white">
-    <span>Home</span>
-  </div>
-)
+import securePage from '../hocs/securePage'
+import Dashboard from '../components/Dashboard'
 
-export default Index
+const Index = props => {
+  const { loggedUser } = props
+
+  return (
+    <Dashboard loggedUser={loggedUser} />
+  )
+}
+
+export default securePage(Index)

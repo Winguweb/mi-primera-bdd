@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Router from 'next/router'
 
 const LoginForm = props => {
   const [ email, setEmail ] = useState('')
@@ -15,7 +14,7 @@ const LoginForm = props => {
     // if (result) {
     //   const token = result.data.login.jwt
     //   localStorage.setItem('token', token)
-    //   Router.push('/dashboard')
+    //   Router.push("/")
     // }
   }
 
@@ -23,11 +22,11 @@ const LoginForm = props => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white shadow-md rounded px-8 pt-6 pb-8"
+      className="md:w-full bg-white shadow-md rounded px-8 pt-6 pb-8"
     >
       <div className="mb-4 w-full text-center">
         <span className="text-blue-wingu font-title text-2xl uppercase">
-          Mi primera base de datos
+          Iniciar sesión
         </span>
       </div>
       <div className="mb-4">
