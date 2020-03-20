@@ -4,7 +4,7 @@ export const GET_METRICS = gql`
   query {
     accounts {
       account_type {
-        Name
+        name
       }
       opportunities {
         name
