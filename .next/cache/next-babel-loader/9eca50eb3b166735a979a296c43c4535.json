@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nimport securePage from '../hocs/securePage';\nimport ContactForm from '../components/ContactForm';\n\nvar NewContact = function NewContact() {\n  return __jsx(ContactForm, null);\n};\n\nexport default securePage(NewContact);","map":null,"metadata":{},"sourceType":"module"}

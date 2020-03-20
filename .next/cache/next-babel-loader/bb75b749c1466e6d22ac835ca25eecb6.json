@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nimport Header from './Header';\nimport Form from './Form';\n\nvar ContactForm = function ContactForm() {\n  return __jsx(\"div\", {\n    className: \"p-2\"\n  }, __jsx(Header, null), __jsx(Form, null));\n};\n\nexport default ContactForm;","map":null,"metadata":{},"sourceType":"module"}

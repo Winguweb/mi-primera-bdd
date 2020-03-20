@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nimport securePage from '../hocs/securePage';\nimport OpportunityForm from '../components/OpportunityForm';\n\nconst NewOpportunity = () => {\n  return __jsx(OpportunityForm, null);\n};\n\nexport default securePage(NewOpportunity);","map":null,"metadata":{},"sourceType":"module"}

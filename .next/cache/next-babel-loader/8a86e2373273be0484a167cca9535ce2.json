@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { gql } from \"apollo-boost\";\nexport const GET_CONTACTS = gql`\n  query {\n    contacts {\n      id\n      name\n      lastname\n      contact_type {\n        Name\n      }\n      email\n      phone\n      gender\n      account {\n        name\n      }\n    }\n  }\n`;","map":null,"metadata":{},"sourceType":"module"}

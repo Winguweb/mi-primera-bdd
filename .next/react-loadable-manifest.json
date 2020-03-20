@@ -1,0 +1,10 @@
+{
+  "../pages/login": [
+    {
+      "id": "O2ls",
+      "name": "./pages/login.js",
+      "file": "static/chunks/23.594ce99728ec81831e2d.js",
+      "publicPath": "static/chunks/23.594ce99728ec81831e2d.js"
+    }
+  ]
+}
