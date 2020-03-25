@@ -109,7 +109,9 @@ coverage
 
 exports
 .cache
-build
+build/
 
 .env
-.next
+.next/
+
+db/

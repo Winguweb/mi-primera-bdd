@@ -7,8 +7,6 @@ import BarSvg from '../assets/Bar'
 const Contacts = ({ loading, error, data }) => {
   let formatted = null
 
-  const [isEmpty, setIsEmpty] = useState(false)
-
   const options = {
     legend: {
       display: false
@@ -47,12 +45,13 @@ const Contacts = ({ loading, error, data }) => {
   return (
     <div>
     <h2 className="text-lg mb-4 font-bold">Contacto por tipo</h2>
-      { isEmpty ? (
-        <EmptyState>
-          <BarSvg />
-        </EmptyState>
-      )
-      : <Bar data={formatted} options={options} />
+      { data.contacts && !!data.contacts.length 
+        ? <Bar data={formatted} options={options} />
+        : (
+          <EmptyState>
+            <BarSvg />
+          </EmptyState>
+        )
       }
     </div>
   )
