@@ -1,13 +1,15 @@
-import { useRouter } from 'next/router';
-import Layout from '../../components/MyLayout';
+import { useRouter } from 'next/router'
+import securePage from '../../hocs/securePage'
 
-export default function Post() {
-  const router = useRouter();
+const Contact = (props) => {
+  const router = useRouter()
 
   return (
-    <Layout>
+    <div>
       <h1>{router.query.id}</h1>
-      <p>Hola mundo!</p>
-    </Layout>
+      <p>Soy contacto</p>
+    </div>
   );
 }
+
+export default securePage(Contact)
