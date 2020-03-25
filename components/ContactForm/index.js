@@ -1,11 +1,11 @@
 import Header from './Header'
 import Form from './Form'
 
-const ContactForm = () => {
+const ContactForm = ({ data }) => {
   return (
     <div className="p-2">
-      <Header />
-      <Form />
+      <Header mode={!data.contact ? 'create' : 'edit'} />
+      <Form data={data} />
     </div>
   )
 }

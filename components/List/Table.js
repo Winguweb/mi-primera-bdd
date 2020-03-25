@@ -15,17 +15,22 @@ const Table = ({ fields, data }) => {
           </thead>
           <tbody>
             { data && data.map((item, i) => (
-              <Link href="/contact/[id]" as={`/contact/${item.id}`}>
-                <tr className="bg-grey-lighter" key={i}>
-                  { fields && fields.map((field, j) => {
-                    return (<td className="py-4 px-6 border-b border-grey-light" key={j}>{item[field.key]}</td>)
-                  })}
+                <tr className="bg-grey-lighter cursor-pointer" key={i}>
+                    { fields && fields.map((field, j) => {
+                      return (
+                        <td className="py-4 px-6 border-b border-grey-light" key={j}>
+                          <Link href="/contact/[id]" as={`/contact/${item.id}`}>
+                            <span>{item[field.key]}</span>
+                          </Link>
+                        </td>
+                      )
+                    })}
                   <td className="py-4 px-6 border-b border-grey-light">
                     <a href="#" className="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark">Editar</a>
                     <a href="#" className="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark">Eliminar</a>
                   </td>
                 </tr>
-              </Link>
+
             ))}
           </tbody>
         </table>

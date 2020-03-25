@@ -34,7 +34,7 @@ const Contacts = props => {
 
   const cta = {
     title: "Nuevo contacto",
-    link: "/new-contact"
+    link: "/contact/new"
   }
   return (
     <Query query={GET_CONTACTS}>
