@@ -49,7 +49,8 @@ const Contacts = props => {
           cta={cta}
           data={data.contacts}
           fields={fields}
-          title={title}/>
+          title={title}
+          workspace="contact" />
       )}}
     </Query>
   )

@@ -37,7 +37,8 @@ const Accounts = props => {
           cta={cta}
           data={data.accounts}
           fields={fields}
-          title={title}/>
+          title={title}
+          workspace="account" />
       )}}
     </Query>
   )

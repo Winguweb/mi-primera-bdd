@@ -40,7 +40,8 @@ const Opportunities = props => {
           cta={cta}
           data={data.opportunities}
           fields={fields}
-          title={title}/>
+          title={title}
+          workspace="opportunity" />
       )}}
     </Query>
   )
