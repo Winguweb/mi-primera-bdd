@@ -4,7 +4,6 @@ import Router from 'next/router'
 
 const Table = ({ fields, info, workspace, ...props }) => {
   const [deleteItem, { data }] = useMutation(props.delete, {
-    refetchQueries: ['contacts'],
     onCompleted: () => Router.reload()
   })
 

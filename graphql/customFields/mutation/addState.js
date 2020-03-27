@@ -1,10 +1,10 @@
 import { gql } from "apollo-boost";
 
 export const ADD_STATE = gql`
-  mutation {
-    createState(input: { data: { name: "Tipo 1" } }) {
+  mutation CreateState($name: String!) {
+    createState(input: { data: { Name: $name } }) {
       state {
-        name
+        Name
       }
     }
   }

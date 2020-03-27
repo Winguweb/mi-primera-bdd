@@ -1,10 +1,10 @@
 import { gql } from "apollo-boost";
 
 export const ADD_CONTACT_TYPE = gql`
-  mutation {
-    createContactType(input: { data: { name: "Tipo 1" } }) {
+  mutation CreateContactType($name: String!){
+    createContactType(input: { data: { Name: $name } }) {
       contactType {
-        name
+        Name
       }
     }
   }

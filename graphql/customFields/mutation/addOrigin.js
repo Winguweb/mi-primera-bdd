@@ -1,10 +1,10 @@
 import { gql } from "apollo-boost";
 
 export const ADD_ORIGIN = gql`
-  mutation {
-    createOrigin(input: { data: { name: "Tipo 1" } }) {
+  mutation CreateOrigin($name: String!) {
+    createOrigin(input: { data: { Name: $name } }) {
       origin {
-        name
+        Name
       }
     }
   }
