@@ -24,6 +24,8 @@ class Form extends Component {
 
   toggleIsVolunteer = () => this.setState({volunteer: !this.state.volunteer})
 
+  toggleIsSubscribed = () => this.setState({subscribed: !this.state.subscribed})
+
   handleChange = (event) => {
     const { name, value } = event.target
 
@@ -256,6 +258,17 @@ class Form extends Component {
                 value={phone} onChange={this.handleChange} />
             </div>
             <div className="md:w-1/3 px-3 mb-6 md:mb-0">
+              <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="cellphone">
+                Móvil
+              </label>
+              <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                name="cellphone" type="number"
+                value={cellphone} onChange={this.handleChange} />
+            </div>
+            
+          </div>
+          <div className="-mx-3 md:flex mb-6">
+            <div className="md:w-1/3 px-3 mb-6 md:mb-0">
               <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="email">
                 Email
               </label>
@@ -332,12 +345,29 @@ class Form extends Component {
                 Observaciones
               </label>
               <textarea
-                className="h-32 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 resize-none" 
+                className="h-32 appearance-none block w-2/3 bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 resize-none" 
                 name="observations"
                 type="text"
                 value={observations}
                 onChange={this.handleChange} />
             </div>
+          </div>
+          <div className="-mx-3 md:flex mb-2">
+            <div className="md:w-full px-3 mb-6 md:mb-0">
+              <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="subscribed">
+              <button className="mt-3 inline-flex items-center cursor-pointer" onClick={this.toggleIsSubscribed}>
+                <span className="relative">
+                  <span className="block w-10 h-6 bg-gray-400 rounded-full shadow-inner"></span>
+                  <span className={subscribed ? 'absolute block w-4 h-4 mt-1 ml-1 rounded-full shadow inset-y-0 left-0 focus-within:shadow-outline transition-transform duration-300 ease-in-out bg-blue-wingu transform translate-x-full' : 'absolute block w-4 h-4 mt-1 ml-1 bg-white rounded-full shadow inset-y-0 left-0 focus-within:shadow-outline transition-transform duration-300 ease-in-out'}>
+                    <input id="unchecked" type="checkbox" className="absolute opacity-0 w-0 h-0" />
+                  </span>
+                </span>
+                <span className="ml-3 text-sm">
+                  Recibir novedades
+                </span>
+              </button>
+              </label>
+            </div>  
           </div>
         </div>
       </>
