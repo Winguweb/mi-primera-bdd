@@ -32,5 +32,10 @@ export const GET_OPPORTUNITY = gql`
       id
       Name
     }
+
+    accounts {
+      id
+      name
+    }
   }
 `;

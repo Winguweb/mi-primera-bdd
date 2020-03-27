@@ -10,5 +10,10 @@ export const GET_OPPORTUNITY_FIELDS = gql`
       id
       Name
     }
+
+    accounts {
+      id
+      name
+    }
   }
 `;
