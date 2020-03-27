@@ -68,23 +68,6 @@ class Form extends Component {
 
     return (
       <>
-        <header className="w-full flex items-center justify-between">
-          <h1 className="mr-4 inline-block font-semibold text-2xl ">
-            <Link href="/contacts">
-              <span className="cursor-pointer">Gestión de contactos</span>
-            </Link>
-            <span className="mx-2">/</span>
-            <span className="border-b-4 border-yellow-wingu">
-              { mode === 'create'
-                ? 'Crear contacto'
-                : 'Editar contacto'
-              }
-            </span>
-          </h1>
-          <div>
-            
-          </div>
-        </header>
         <form>
           <div className="bg-white px-4 pt-6 pb-8 mb-4 flex flex-col my-2">
             <div className="-mx-3 md:flex mb-6">

@@ -1,11 +1,18 @@
-import Header from './Header'
 import Form from './Form'
+import Header from '../FormHeader'
 
-const OpportunityForm = () => {
+const OpportunityForm = (props) => {
   return (
     <div className="p-2">
-      <Header />
-      <Form />
+      <Header
+        title="Gestión de oportunidades"
+        link="/opportunities" >
+        { !props.data.opportunity
+          ? 'Crear oportunidad'
+          : 'Editar oportunidad'
+        }
+      </Header>
+      <Form {...props} />
     </div>
   )
 }
