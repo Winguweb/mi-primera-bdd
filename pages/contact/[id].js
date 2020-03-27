@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { Query } from 'react-apollo'
 import { GET_CONTACT } from '../../graphql/contact/query/getContact'
+import { UPDATE_CONTACT } from '../../graphql/contact/mutation/updateContact'
 import securePage from '../../hocs/securePage'
 import ContactForm from '../../components/ContactForm'
 

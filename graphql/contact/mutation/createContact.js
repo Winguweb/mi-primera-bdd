@@ -1,8 +1,8 @@
 import { gql } from "apollo-boost";
 
-export const GET_CONTACT = gql`
-  query Contact($id: ID!) {
-    contact(id: $id) {
+export const CREATE_CONTACT = gql`
+  mutation createContact($input: createContactInput) {
+    createContact(input: $input) {
       id
       identification
       name
@@ -27,16 +27,6 @@ export const GET_CONTACT = gql`
         Name
       }
       gender
-    }
-
-    contactTypes {
-      id
-      Name
-    }
-
-    origins {
-      id
-      Name
     }
   }
 `;
