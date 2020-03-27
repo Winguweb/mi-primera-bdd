@@ -1,5 +1,6 @@
 import { Query } from 'react-apollo'
 import { GET_CONTACTS } from '../graphql/contact/query/getContacts'
+import { DELETE_CONTACT } from '../graphql/contact/mutation/deleteContact'
 import securePage from '../hocs/securePage'
 import List from '../components/List'
 
@@ -50,7 +51,9 @@ const Contacts = props => {
           data={data.contacts}
           fields={fields}
           title={title}
-          workspace="contact" />
+          workspace="contact"
+          delete={DELETE_CONTACT}
+          refetch={GET_CONTACTS} />
       )}}
     </Query>
   )

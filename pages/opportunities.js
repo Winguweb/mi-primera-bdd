@@ -1,5 +1,6 @@
 import { Query } from 'react-apollo'
 import { GET_OPPORTUNITIES } from '../graphql/opportunity/query/getOpportunities'
+import { DELETE_OPPORTUNITY } from '../graphql/opportunity/mutation/deleteOpportunity'
 import securePage from '../hocs/securePage'
 import List from '../components/List'
 
@@ -41,7 +42,9 @@ const Opportunities = props => {
           data={data.opportunities}
           fields={fields}
           title={title}
-          workspace="opportunity" />
+          workspace="opportunity"
+          delete={DELETE_OPPORTUNITY}
+          refetch={GET_OPPORTUNITIES} />
       )}}
     </Query>
   )

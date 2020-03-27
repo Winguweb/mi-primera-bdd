@@ -40,7 +40,8 @@ const Accounts = props => {
           fields={fields}
           title={title}
           workspace="account"
-          delete={DELETE_ACCOUNT} />
+          delete={DELETE_ACCOUNT}
+          refetch={GET_ACCOUNTS} />
       )}}
     </Query>
   )

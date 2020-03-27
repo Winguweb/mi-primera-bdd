@@ -1,11 +1,13 @@
 import { gql } from "apollo-boost";
 
 export const DELETE_CONTACT = gql`
-  deleteAccount(input: { where: { id: ID! } }) {
-    contact {
-      id
-      name
-      lastname
+  mutation DeleteContact($id: ID!) {
+    deleteContact(input: { where: { id: $id } }) {
+      contact {
+        id
+        name
+        lastname
+      }
     }
   }
 `

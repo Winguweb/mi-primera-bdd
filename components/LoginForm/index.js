@@ -10,12 +10,6 @@ const LoginForm = props => {
     const result = props.submit({
       email, password
     })
-
-    // if (result) {
-    //   const token = result.data.login.jwt
-    //   localStorage.setItem('token', token)
-    //   Router.push("/")
-    // }
   }
 
 

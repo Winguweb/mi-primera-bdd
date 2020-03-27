@@ -1,6 +1,13 @@
+import { useMutation } from '@apollo/react-hooks'
 import Link from 'next/link'
+import Router from 'next/router'
 
-const Table = ({ fields, data, workspace }) => {
+const Table = ({ fields, info, workspace, ...props }) => {
+  const [deleteItem, { data }] = useMutation(props.delete, {
+    refetchQueries: ['contacts'],
+    onCompleted: () => Router.reload()
+  })
+
   return (
     <div className="w-full mx-auto">
       <div className="bg-white shadow-md my-6">
@@ -14,7 +21,7 @@ const Table = ({ fields, data, workspace }) => {
             </tr>
           </thead>
           <tbody>
-            { data && data.map((item, i) => (
+            { info && info.map((item, i) => (
                 <tr className="bg-grey-lighter cursor-pointer" key={i}>
                     { fields && fields.map((field, j) => {
                       return (
@@ -29,7 +36,14 @@ const Table = ({ fields, data, workspace }) => {
                     <Link href={`/${workspace}/[id]`} as={`/${workspace}/${item.id}`}>
                       <a className="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark">Editar</a>
                     </Link>
-                    <a href="#" className="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark">Eliminar</a>
+                    <button
+                      className="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark"
+                      onClick={e => {
+                        e.preventDefault();
+                        deleteItem({ variables: { id: item.id } })
+                      }}>
+                      Eliminar
+                    </button>
                   </td>
                 </tr>
 
