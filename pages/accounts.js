@@ -1,5 +1,6 @@
 import { Query } from 'react-apollo'
 import { GET_ACCOUNTS } from '../graphql/account/query/getAccounts'
+import { DELETE_ACCOUNT } from '../graphql/account/mutation/deleteAccount'
 import securePage from '../hocs/securePage'
 import List from '../components/List'
 
@@ -38,7 +39,8 @@ const Accounts = props => {
           data={data.accounts}
           fields={fields}
           title={title}
-          workspace="account" />
+          workspace="account"
+          delete={DELETE_ACCOUNT} />
       )}}
     </Query>
   )
