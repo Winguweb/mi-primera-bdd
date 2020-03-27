@@ -26,7 +26,7 @@ const Opportunities = props => {
 
   const cta = {
     title: "Nueva oportunidad",
-    link: "/new-opportunity"
+    link: "/opportunity/new"
   }
   return (
     <Query query={GET_OPPORTUNITIES}>

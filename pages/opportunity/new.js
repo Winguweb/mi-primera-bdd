@@ -1,5 +1,5 @@
-import securePage from '../hocs/securePage'
-import OpportunityForm from '../components/OpportunityForm'
+import securePage from '../../hocs/securePage'
+import OpportunityForm from '../../components/OpportunityForm'
 
 const NewOpportunity = () => {
   return (

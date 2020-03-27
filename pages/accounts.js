@@ -23,7 +23,7 @@ const Accounts = props => {
 
   const cta = {
     title: "Nueva cuenta",
-    link: "/new-account"
+    link: "/account/new"
   }
   return (
     <Query query={GET_ACCOUNTS}>

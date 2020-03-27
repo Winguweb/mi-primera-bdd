@@ -89,6 +89,11 @@ const Form = () => {
           <textarea className="h-32 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 resize-none" id="grid-city" type="text" placeholder="Observaciones..." />
         </div>
       </div>
+      <div className="-mx-3 md:flex md:justify-center mb-2 mt-4">
+        <button className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded">
+          Guardar oportunidad
+        </button>
+      </div>
     </div>
   )
 }
