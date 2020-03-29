@@ -14,18 +14,11 @@ class Form extends Component {
   }
 
   handleChange = (event) => {
-    console.log('holi')
     const { name, value } = event.target
-    console.log(name, value)
 
     this.setState({ 
       [name]: value
     })
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault()
-    console.log('submit')
   }
 
   render() {
@@ -203,7 +196,6 @@ class Form extends Component {
                   className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
                   onClick={(e) => {
                     e.preventDefault()
-                    console.log('click')
                     accountMutation()
                   }}>
                   Guardar cuenta

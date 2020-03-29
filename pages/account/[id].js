@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { Query } from 'react-apollo'
 import { GET_ACCOUNT } from '../../graphql/account/query/getAccount'
-import { EDIT_ACCOUNT } from '../../graphql/account/query/editAccount'
+import { EDIT_ACCOUNT } from '../../graphql/account/mutation/editAccount'
 import securePage from '../../hocs/securePage'
 import AccountForm from '../../components/AccountForm'
 

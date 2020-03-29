@@ -9,7 +9,6 @@ const List = ({ cta,  title, data, ...props }) => {
       <Header name={title} cta={cta} />
       <Searchbar />
       <Table info={data} {...props} />
-      <Pagination />
     </div>
   )
 }

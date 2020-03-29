@@ -21,11 +21,6 @@ class Form extends Component {
     })
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault()
-    console.log('Submit')
-  }
-
   render() {
     const { opportunityTypes, states, accounts } = this.props.data
 
@@ -175,7 +170,6 @@ class Form extends Component {
                   className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
                   onClick={(e) => {
                     e.preventDefault()
-                    console.log('click')
                     opportunityMutation()
                   }}>
                   Guardar oportunidad

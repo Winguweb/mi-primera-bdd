@@ -1,14 +1,39 @@
+import { useState } from 'react'
 import { useMutation } from '@apollo/react-hooks'
 import Link from 'next/link'
 import Router from 'next/router'
+import Pagination from './Pagination'
 
 const Table = ({ fields, info, workspace, ...props }) => {
   const [deleteItem, { data }] = useMutation(props.delete, {
     onCompleted: () => Router.reload()
   })
 
+  const size = 10
+
+  const [currentPage, changeCurrentPage] = useState(1)
+
+  const [min, changeMin] = useState(Math.min(info.length, 1))
+
+  const [max, changeMax] = useState(Math.min(info.length, 10))
+
+  const moveForward = () => {
+    changeCurrentPage(currentPage +1)
+    changeMin(min + 10)
+    changeMax(Math.min((max + 10), info.length))
+  }
+
+  const moveBackward = () => {
+    changeCurrentPage(currentPage - 1)
+    changeMin(min - 10)
+    changeMax(Math.min((max - 10), info.length))
+  }
+
   return (
     <div className="w-full mx-auto">
+      {
+        console.table(info.slice((currentPage - 1) * size, currentPage * size))
+      }
       <div className="bg-white shadow-md my-6">
         <table className="text-left w-full border-collapse">
           <thead>
@@ -20,9 +45,12 @@ const Table = ({ fields, info, workspace, ...props }) => {
             </tr>
           </thead>
           <tbody>
-            { info && info.map((item, i) => (
+            { info && info
+                .slice((currentPage - 1) * size, currentPage * size)
+                .map((item, i) => (
                 <tr className="bg-grey-lighter cursor-pointer" key={i}>
-                    { fields && fields.map((field, j) => {
+                    { fields && fields
+                      .map((field, j) => {
                       return (
                         <td className="py-4 px-6 border-b border-grey-light" key={j}>
                           <Link href={`/${workspace}/[id]`} as={`/${workspace}/${item.id}`}>
@@ -50,6 +78,12 @@ const Table = ({ fields, info, workspace, ...props }) => {
           </tbody>
         </table>
       </div>
+      <Pagination
+        min={min}
+        max={max}
+        total={info.length}
+        moveBackward={moveBackward}
+        moveForward={moveForward} />
     </div>
   )
 }
