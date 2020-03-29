@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { Mutation } from 'react-apollo'
 
 class Form extends Component {
   state = {
@@ -13,7 +14,9 @@ class Form extends Component {
   }
 
   handleChange = (event) => {
+    console.log('holi')
     const { name, value } = event.target
+    console.log(name, value)
 
     this.setState({ 
       [name]: value
@@ -98,7 +101,7 @@ class Form extends Component {
               </label>
               <input
                 className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                name="alternative-email"
+                name="alternative_email"
                 type="email"
                 placeholder="wingu@wingu.org"
                 value={alternative_email}
@@ -160,6 +163,7 @@ class Form extends Component {
                 className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
                 type="number"
                 placeholder="123456789"
+                name="alt_phone"
                 value={alt_phone}
                 onChange={this.handleChange} />
             </div>
@@ -193,11 +197,19 @@ class Form extends Component {
             </div>
           </div>
           <div className="-mx-3 md:flex md:justify-center mb-2 mt-4">
-            <button
-              type="submit"
-              className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded">
-              Guardar cuenta
-            </button>
+            <Mutation mutation={this.props.mutation} variables={this.state}>
+              { accountMutation =>
+                 <button
+                  className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    console.log('click')
+                    accountMutation()
+                  }}>
+                  Guardar cuenta
+                </button>
+              }
+            </Mutation>
           </div>
         </div>
       </form>

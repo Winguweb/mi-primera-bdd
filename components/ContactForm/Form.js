@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import Link from 'next/link'
+import { Mutation } from 'react-apollo'
 
 class Form extends Component {
   state = {
@@ -350,11 +350,19 @@ class Form extends Component {
               </div>  
             </div>
             <div className="-mx-3 md:flex mb-2 md:justify-center">
-              <button
-                className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
-                onClick={this.handleSubmit}>
-                Guardar contacto
-              </button>
+              <Mutation mutation={this.props.mutation} variables={this.state}>
+                { contactMutation =>
+                  <button
+                    className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      console.log('click')
+                      contactMutation()
+                    }}>
+                    Guardar contacto
+                  </button>
+                }
+              </Mutation>
             </div>
           </div>
         </form>

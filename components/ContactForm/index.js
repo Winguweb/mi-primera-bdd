@@ -1,7 +1,7 @@
 import Form from './Form'
 import Header from '../FormHeader'
 
-const ContactForm = ({ data }) => {
+const ContactForm = ({ data, mutation }) => {
   return (
     <div className="p-2">
       <Header
@@ -14,7 +14,8 @@ const ContactForm = ({ data }) => {
       </Header>
       <Form
         data={data}
-        mode={!data.contact ? 'create' : 'edit'} />
+        mode={!data.contact ? 'create' : 'edit'}
+        mutation={mutation} />
     </div>
   )
 }

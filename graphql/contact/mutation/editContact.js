@@ -2,7 +2,7 @@ import { gql } from "apollo-boost";
 
 export const EDIT_CONTACT = gql`
   mutation UpdateContact($name: String!) {
-    updateContact(input: { name: $name }) {
+    updateContact(input: { data: { name: $name } }) {
       contact {
         id
         identification

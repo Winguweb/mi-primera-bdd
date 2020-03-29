@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { Mutation } from 'react-apollo'
 
 class Form extends Component {
   state = {
@@ -49,7 +50,7 @@ class Form extends Component {
               </label>
               <input
                 className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
-                id="name" type="text" placeholder="Wingu"
+                name="name" type="text" placeholder="Wingu"
                 value={name} onChange={this.handleChange} />
               {
                 //<p className="text-red text-xs italic">Please fill out this field.</p>
@@ -168,11 +169,19 @@ class Form extends Component {
             </div>
           </div>
           <div className="-mx-3 md:flex md:justify-center mb-2 mt-4">
-            <button 
-              className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
-              type="submit">
-              Guardar oportunidad
-            </button>
+          <Mutation mutation={this.props.mutation} variables={this.state}>
+              { opportunityMutation =>
+                 <button
+                  className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    console.log('click')
+                    opportunityMutation()
+                  }}>
+                  Guardar oportunidad
+                </button>
+              }
+            </Mutation>
           </div>
         </div>
       </form>
