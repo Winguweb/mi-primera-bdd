@@ -1,5 +1,6 @@
 import { Query } from 'react-apollo'
 import { GET_ACCOUNT_FIELDS } from '../../graphql/account/query/getAccountFields'
+import { CREATE_ACCOUNT } from '../../graphql/account/mutation/createAccount'
 import securePage from '../../hocs/securePage'
 import AccountForm from '../../components/AccountForm'
 
@@ -11,7 +12,9 @@ const NewAccount = () => {
           return <p>Cargando...</p>;
         }
         return (
-          <AccountForm data={data} />
+          <AccountForm
+            data={data}
+            mutation={CREATE_ACCOUNT} />
         )
       }}
     </Query>

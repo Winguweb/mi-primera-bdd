@@ -1,9 +1,12 @@
 import { gql } from "apollo-boost";
 
 export const EDIT_ACCOUNT = gql`
-  mutation updateAccount($input: updateAccountInput) {
-    updateAccount(input: $input) {
-      id
+  mutation UpdateAccount($name: String!) {
+    updateAccount(input: { name: $name }) {
+      account {
+        id
+        name
+      }
     }
   }
 `;

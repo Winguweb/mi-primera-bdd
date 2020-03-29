@@ -1,8 +1,12 @@
 import { gql } from "apollo-boost";
 
 export const CREATE_OPPORTUNITY = gql`
-  mutation createOpportunity($input: createOpportunityInput) {
-    createOpportunity(input: $input) {
-      id
+  mutation CreateOpportunity($name: String!) {
+    createOpportunity(input: { name: $name }) {
+      opportunity {
+        id
+        name
+      }
+    }
   }
-`;
+`

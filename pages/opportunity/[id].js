@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { Query } from 'react-apollo'
 import { GET_OPPORTUNITY} from '../../graphql/opportunity/query/getOpportunity'
+import { EDIT_OPPORTUNITY } from '../../graphql/opportunity/mutation/editOpportunity'
 import securePage from '../../hocs/securePage'
 import OpportunityForm from '../../components/OpportunityForm'
 
@@ -14,7 +15,9 @@ const Opportunity = (props) => {
         }
 
         return (
-          <OpportunityForm data={data} />
+          <OpportunityForm
+            data={data}
+            mutation={EDIT_OPPORTUNITY} />
         )
       }}
     </Query>

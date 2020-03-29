@@ -1,5 +1,6 @@
 import { Query } from 'react-apollo'
 import { GET_CONTACT_FIELDS } from '../../graphql/contact/query/getContactFields'
+import { CREATE_CONTACT } from '../../graphql/contact/mutation/createContact'
 import securePage from '../../hocs/securePage'
 import ContactForm from '../../components/ContactForm'
 
@@ -12,7 +13,9 @@ const Contact = () => {
           return <p>Cargando...</p>;
         }
         return (
-          <ContactForm data={data} />
+          <ContactForm
+            data={data}
+            mutation={CREATE_CONTACT} />
         )
       }}
     </Query>

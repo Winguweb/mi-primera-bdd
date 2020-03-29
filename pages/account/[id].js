@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import { Query } from 'react-apollo'
 import { GET_ACCOUNT } from '../../graphql/account/query/getAccount'
+import { EDIT_ACCOUNT } from '../../graphql/account/query/editAccount'
 import securePage from '../../hocs/securePage'
 import AccountForm from '../../components/AccountForm'
 
@@ -14,7 +15,9 @@ const Account = (props) => {
         }
 
         return (
-          <AccountForm data={data} />
+          <AccountForm
+            data={data}
+            mutation={EDIT_ACCOUNT} />
         )
       }}
     </Query>

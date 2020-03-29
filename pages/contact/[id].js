@@ -16,7 +16,9 @@ const Contact = (props) => {
         }
 
         return (
-          <ContactForm data={data} />
+          <ContactForm
+            data={data}
+            mutation={EDIT_CONTACT} />
         )
       }}
     </Query>
