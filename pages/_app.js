@@ -13,19 +13,32 @@ class MyApp extends App {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
     }
+
     return { pageProps }
+  }
+
+  state = {
+    showModal: false
+  }
+
+  toggleModal = () => this.setState({ showModal: true })
+
+  dismissModal = () => {
+    this.setState({ showModal: false})
   }
 
   render () {
     const { Component, pageProps, isAuthenticated, ctx } = this.props
     return (
-      <Layout isAuthenticated={isAuthenticated} {...pageProps}>
+      <Layout
+        showModal={this.state.showModal}
+        isAuthenticated={isAuthenticated} {...pageProps}>
         <Head>
           <title>Wingu | Mi primera base de datos</title>
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
           <link href='https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap' rel='stylesheet'  /> 
         </Head>
-        <Component {...pageProps} />
+        <Component {...pageProps} toggleModal={this.toggleModal}  />
       </Layout>
     )
   }

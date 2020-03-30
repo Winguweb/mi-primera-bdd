@@ -1,7 +1,6 @@
 import { Component }from 'react'
-import Cookie from 'js-cookie'
+import Cookies from 'js-cookie'
 import defaultPage from '../../hocs/defaultPage'
-import { unsetToken } from '../../lib/auth'
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import Main from './Main'
@@ -21,11 +20,18 @@ class Layout extends Component {
   }
 
   render() {
-    const { isAuthenticated, loggedUser, children } = this.props
+    const { isAuthenticated, loggedUser, children, showModal } = this.props
+    console.log(showModal)
     return (
       <div>
+      {
+        showModal &&
+        <div>
+          Showmodal
+        </div>
+      }
       <Navbar isAuthenticated={isAuthenticated} loggedUser={loggedUser} />
-      { isAuthenticated 
+      {  isAuthenticated 
         ? (<div className="flex">
             <Sidebar />
             <Main>
@@ -34,7 +40,7 @@ class Layout extends Component {
           </div>)
         : <> 
           { children }
-        </>
+        </> }
       }
     </div>
     )

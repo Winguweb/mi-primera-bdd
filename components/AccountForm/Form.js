@@ -36,7 +36,7 @@ class Form extends Component {
 
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <div className="bg-white px-4 pt-6 pb-8 mb-4 flex flex-col my-2">
           <div className="-mx-3 md:flex mb-6">
             <div className="md:w-1/2 px-3 mb-6 md:mb-0">

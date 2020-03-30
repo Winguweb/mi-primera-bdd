@@ -13,7 +13,15 @@ const Login = (props) => {
   }, [])
 
   const onSubmit = ({ email, password }) => {
-    strapiLogin(email, password).then(() => console.log(Cookies.get('user')))
+    strapiLogin(email, password).then((res) => {
+
+      if (!res) {
+        props.toggleModal()
+      }
+
+      console.log(Cookies.get('username'))
+      
+    })
   }
 
   return (

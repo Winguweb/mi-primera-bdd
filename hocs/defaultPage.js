@@ -8,7 +8,8 @@ export default Page =>
     static async getInitialProps({ req }) {
       const loggedUser = process.browser
         ? getUserFromLocalCookie()
-        : getUserFromServerCookie(req);
+        : getUserFromServerCookie(req)
+
       const pageProps = Page.getInitialProps && Page.getInitialProps(req)
       let path = req ? req.pathname : ""
       path = ""

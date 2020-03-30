@@ -31,9 +31,6 @@ const Table = ({ fields, info, workspace, ...props }) => {
 
   return (
     <div className="w-full mx-auto">
-      {
-        console.table(info.slice((currentPage - 1) * size, currentPage * size))
-      }
       <div className="bg-white shadow-md my-6">
         <table className="text-left w-full border-collapse">
           <thead>

@@ -1,4 +1,5 @@
 import { Query } from 'react-apollo'
+import Cookies from 'js-cookie'
 import { GET_ACCOUNTS } from '../graphql/account/query/getAccounts'
 import { DELETE_ACCOUNT } from '../graphql/account/mutation/deleteAccount'
 import securePage from '../hocs/securePage'
@@ -25,6 +26,9 @@ const Accounts = props => {
     title: "Nueva cuenta",
     link: "/account/new"
   }
+
+  const id = Cookies.get("id")
+
   return (
     <Query query={GET_ACCOUNTS}>
       {({ loading, data, error }) => {
