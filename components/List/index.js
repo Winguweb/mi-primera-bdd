@@ -7,7 +7,9 @@ const List = ({ cta,  title, data, ...props }) => {
   return (
     <div className="p-2">
       <Header name={title} cta={cta} />
-      <Searchbar />
+      {
+        //<Searchbar />
+      }
       <Table info={data} {...props} />
     </div>
   )

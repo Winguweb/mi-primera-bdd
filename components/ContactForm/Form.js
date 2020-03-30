@@ -352,7 +352,6 @@ class Form extends Component {
                     className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
                     onClick={(e) => {
                       e.preventDefault()
-                      console.log('click')
                       contactMutation()
                     }}>
                     Guardar contacto
