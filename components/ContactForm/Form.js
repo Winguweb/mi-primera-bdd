@@ -22,9 +22,15 @@ class Form extends Component {
     identification: this.props.data.contact ? this.props.data.contact.identification : 'Documento'
   }
 
-  toggleIsVolunteer = () => this.setState({volunteer: !this.state.volunteer})
+  toggleIsVolunteer = (e) => {
+    e.preventDefault()
+    this.setState({volunteer: !this.state.volunteer})
+  }
 
-  toggleIsSubscribed = () => this.setState({subscribed: !this.state.subscribed})
+  toggleIsSubscribed = (e) => {
+    e.preventDefault()
+    this.setState({subscribed: !this.state.subscribed})
+  }
 
   handleChange = (event) => {
     const { name, value } = event.target
