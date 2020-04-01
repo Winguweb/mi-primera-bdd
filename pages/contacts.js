@@ -1,4 +1,5 @@
 import { Query } from 'react-apollo'
+import { getIdFromLocalCookie } from '../lib/auth'
 import { GET_CONTACTS } from '../graphql/contact/query/getContacts'
 import { DELETE_CONTACT } from '../graphql/contact/mutation/deleteContact'
 import securePage from '../hocs/securePage'
@@ -38,7 +39,7 @@ const Contacts = props => {
     link: "/contact/new"
   }
   return (
-    <Query query={GET_CONTACTS}>
+    <Query query={GET_CONTACTS} variables={{organization: getIdFromLocalCookie()}}>
       {({ loading, data, error }) => {
 
       if (loading || !data) {

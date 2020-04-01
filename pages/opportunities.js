@@ -1,4 +1,5 @@
 import { Query } from 'react-apollo'
+import { getIdFromLocalCookie } from '../lib/auth'
 import { GET_OPPORTUNITIES } from '../graphql/opportunity/query/getOpportunities'
 import { DELETE_OPPORTUNITY } from '../graphql/opportunity/mutation/deleteOpportunity'
 import securePage from '../hocs/securePage'
@@ -29,7 +30,7 @@ const Opportunities = props => {
     link: "/opportunity/new"
   }
   return (
-    <Query query={GET_OPPORTUNITIES}>
+    <Query query={GET_OPPORTUNITIES} variables={{organization: getIdFromLocalCookie()}}>
       {({ loading, data, error }) => {
 
       if (loading || !data) {

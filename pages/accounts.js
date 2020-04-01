@@ -1,5 +1,6 @@
 import { Query } from 'react-apollo'
 import Cookies from 'js-cookie'
+import { getIdFromLocalCookie } from '../lib/auth'
 import { GET_ACCOUNTS } from '../graphql/account/query/getAccounts'
 import { DELETE_ACCOUNT } from '../graphql/account/mutation/deleteAccount'
 import securePage from '../hocs/securePage'
@@ -30,7 +31,7 @@ const Accounts = props => {
   const id = Cookies.get("id")
 
   return (
-    <Query query={GET_ACCOUNTS}>
+    <Query query={GET_ACCOUNTS} variables={{organization: getIdFromLocalCookie()}}>
       {({ loading, data, error }) => {
 
       if (loading || !data) {

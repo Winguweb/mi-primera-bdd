@@ -1,7 +1,7 @@
 import { gql } from "apollo-boost";
 
 export const GET_CONTACT = gql`
-  query Contact($id: ID!) {
+  query Contact($id: ID!, $organization: ID!) {
     contact(id: $id) {
       id
       identification
@@ -29,17 +29,17 @@ export const GET_CONTACT = gql`
       gender
     }
 
-    contactTypes {
+    contactTypes (where: { organizacion: { id: $organization }}) {
       id
       Name
     }
 
-    origins {
+    origins (where: { organizacion: { id: $organization }}) {
       id
       Name
     }
 
-    accounts {
+    accounts (where: { organizacion: { id: $organization }}) {
       id
       name
     }

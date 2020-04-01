@@ -1,8 +1,8 @@
 import { gql } from "apollo-boost";
 
 export const GET_OPPORTUNITIES= gql`
-  query {
-    opportunities {
+  query ($organization: ID!)  {
+    opportunities (where: { organizacion: { id: $organization }}) {
       id
       name
       state {

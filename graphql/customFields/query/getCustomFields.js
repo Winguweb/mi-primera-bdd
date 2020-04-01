@@ -1,24 +1,24 @@
 import { gql } from "apollo-boost";
 
 export const GET_CUSTOM_FIELDS = gql`
-  query {
-    contactTypes {
+  query ($organization: ID!) {
+    contactTypes (where: { organizacion: { id: $organization }}) {
       id
       Name
     }
-    origins {
+    origins (where: { organizacion: { id: $organization }}) {
       id
       Name
     }
-    accountTypes {
+    accountTypes (where: { organizacion: { id: $organization }}) {
       id
       name
     }
-    states {
+    states  (where: { organizacion: { id: $organization }}) {
       id
       Name
     } 
-    opportunityTypes {
+    opportunityTypes (where: { organizacion: { id: $organization }}) {
       id
       Name
     }

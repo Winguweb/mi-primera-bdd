@@ -1,7 +1,7 @@
 import { gql } from "apollo-boost";
 
 export const GET_ACCOUNT = gql`
-  query Account($id: ID!) {
+  query Account($id: ID!, $organization: ID!) {
     account(id: $id) {
       id
       name
@@ -17,7 +17,7 @@ export const GET_ACCOUNT = gql`
       observations
     }
 
-    accountTypes {
+    accountTypes(where: { organizacion: { id: $organization }}) {
       id
       name
     }
