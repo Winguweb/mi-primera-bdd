@@ -25,7 +25,9 @@ const securePageHoc = Page =>
 
     render() {
       const { isAuthenticated } = this.props
-      return isAuthenticated ? <Page {...this.props} /> : <LoginPage />
+      return isAuthenticated 
+      ? <Page {...this.props} />
+      : <LoginPage />
     }
   }
 

@@ -10,9 +10,10 @@ export default Page =>
         ? getUserFromLocalCookie()
         : getUserFromServerCookie(req)
 
+
       const pageProps = Page.getInitialProps && Page.getInitialProps(req)
       let path = req ? req.pathname : ""
-      path = ""
+
       return {
         ...pageProps,
         loggedUser,

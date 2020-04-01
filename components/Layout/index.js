@@ -5,10 +5,13 @@ import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import Main from './Main'
 
-
 class Layout extends Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      showModal: false
+    }
   }
 
   static async getInitialProps({ req }) {
@@ -19,30 +22,41 @@ class Layout extends Component {
     return { pageProps, isAuthenticated }
   }
 
+  dismissModal = () => {
+    Cookies.set("acceptedTerms", true)
+    this.setState({ showModal: false })
+
+  }
+
+  componentDidMount() {
+    if (Cookies.get("acceptedTerms") == "false") {
+      this.setState({
+        showModal: true
+      })
+    }
+  }
+
+  
+
   render() {
-    const { isAuthenticated, loggedUser, children, showModal } = this.props
-    console.log(showModal)
+    const { isAuthenticated, loggedUser, children } = this.props
+    const { showModal } = this.state
+
     return (
       <div>
-      {
-        showModal &&
-        <div>
-          Showmodal
-        </div>
-      }
-      <Navbar isAuthenticated={isAuthenticated} loggedUser={loggedUser} />
-      {  isAuthenticated 
-        ? (<div className="flex">
-            <Sidebar />
-            <Main>
-              { children }
-            </Main>
-          </div>)
-        : <> 
-          { children }
-        </> }
-      }
-    </div>
+        <Navbar isAuthenticated={isAuthenticated} loggedUser={loggedUser} />
+        {  isAuthenticated 
+          ? (<div className="flex">
+              <Sidebar />
+              <Main showModal={showModal} dismissModal={this.dismissModal}>
+                { children }
+              </Main>
+            </div>)
+          : <> 
+            { children }
+          </> }
+        }
+      </div>
     )
   }
 }
