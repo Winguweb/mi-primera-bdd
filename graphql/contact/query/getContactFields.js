@@ -11,5 +11,10 @@ export const GET_CONTACT_FIELDS = gql`
       id
       Name
     }
+
+    accounts {
+      id
+      name
+    }
   }
 `;

@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { Mutation } from 'react-apollo'
+import { CREATE_CONTACT_AND_ACCOUNT } from '../../graphql/contact/mutation/createContactAndAccount'
 
 class Form extends Component {
   state = {
@@ -34,6 +35,7 @@ class Form extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target
+    console.log(name, value)
 
     this.setState({ 
       [name]: value
@@ -65,8 +67,8 @@ class Form extends Component {
     const {
       origins,
       contactTypes,
-      mode
-    } = this.props
+      accounts
+    } = this.props.data
 
     return (
       <>
@@ -171,12 +173,13 @@ class Form extends Component {
                 <div className="relative">
                   <select 
                     className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
-                    name={account}
+                    name="account"
                     value={account}
                     onChange={this.handleChange}>
-                    <option>Cuenta 1</option>
-                    <option>Cuenta 2</option>
-                    <option>Cuenta 3</option>
+                    <option value='new'>Nueva cuenta</option>
+                    {accounts && accounts.map((acc, i) => (
+                      <option value={acc.name} key={i}>{acc.name}</option>
+                    ))}
                   </select>
                   <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
                     <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -309,16 +312,42 @@ class Form extends Component {
             </div>
             <div className="-mx-3 md:flex mb-6">
               <div className="md:w-1/3 px-3">
-                <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
+                <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="origin">
                   Origen
                 </label>
-                <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+                <div className="relative">
+                  <select
+                    className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
+                    name="origin"
+                    value={origin}
+                    onChange={this.handleChange}>
+                    { origins && origins.map((or, i) => (
+                      <option value={or.Name} key={i}>{or.Name}</option>
+                    ))}
+                  </select>
+                  <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
+                    <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
               </div>
               <div className="md:w-1/3 px-3">
-                <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
+                <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="contact_type">
                   Tipo
                 </label>
-                <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+                <div className="relative">
+                  <select
+                    className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
+                    name="contact_type"
+                    value={contact_type}
+                    onChange={this.handleChange}>
+                    { contactTypes && contactTypes.map((typ, i) => (
+                      <option value={typ.Name} key={i}>{typ.Name}</option>
+                    ))}
+                  </select>
+                  <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
+                    <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="-mx-3 md:flex mb-2">
@@ -352,7 +381,9 @@ class Form extends Component {
               </div>  
             </div>
             <div className="-mx-3 md:flex mb-2 md:justify-center">
-              <Mutation mutation={this.props.mutation} variables={this.state}>
+              {console.log(this.props.mode)}
+              {console.log(account)}
+              <Mutation mutation={(this.props.mode === 'create' && account === 'new') ? CREATE_CONTACT_AND_ACCOUNT : this.props.mutation } variables={this.state}>
                 { contactMutation =>
                   <button
                     className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"

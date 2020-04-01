@@ -38,5 +38,10 @@ export const GET_CONTACT = gql`
       id
       Name
     }
+
+    accounts {
+      id
+      name
+    }
   }
 `;
