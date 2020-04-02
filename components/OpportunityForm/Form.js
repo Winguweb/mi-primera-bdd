@@ -4,13 +4,14 @@ import Router from 'next/router'
 import { getIdFromLocalCookie } from '../../lib/auth'
 import Alert from '../Alert'
 import Loader from '../Loader'
+import { parse } from 'graphql'
 
 class Form extends Component {
   state = {
     name: this.props.data.opportunity ? this.props.data.opportunity.name : '',
     date: this.props.data.opportunity ? this.props.data.opportunity.date : Date.now(),
     ammount: this.props.data.opportunity ? this.props.data.opportunity.ammount : 0,
-    currency: this.props.data.opportunity ? this.props.data.opportunity.currency : 'Pesos argentinos',
+    currency: this.props.data.opportunity ? this.props.data.opportunity.currency : 'pesos',
     observations: this.props.data.opportunity ? this.props.data.opportunity.observations : '',
     state: this.props.data.opportunity ? this.props.data.opportunity.state : '',
     opportunity_type: this.props.data.opportunity ? this.props.data.opportunity.opportunity_type : '',
@@ -22,6 +23,14 @@ class Form extends Component {
 
     this.setState({ 
       [name]: value
+    })
+  }
+
+  handleAmmount = (event) => {
+    const { value } = event.target
+
+    this.setState({
+      ammount: parseInt(value)
     })
   }
 
@@ -41,7 +50,11 @@ class Form extends Component {
 
     return (
       <Mutation mutation={this.props.mutation} 
-        variables={{ ...this.state, organization: getIdFromLocalCookie() }}
+        variables={{ 
+          ammount: parseFloat(ammount),
+          ...this.state, 
+          organization: getIdFromLocalCookie()
+        }}
         onCompleted={() => Router.push({ pathname: '/opportunities', query: { success: 'true'} })} >
           { (opportunityMutation, { loading, error }) => (
             <>
@@ -74,7 +87,7 @@ class Form extends Component {
                         value={opportunity_type}
                         onChange={this.handleChange}>
                           { opportunityTypes && opportunityTypes.map((opp, i) => (
-                            <option key={i} value={opp.Name}>{ opp.Name }</option>
+                            <option key={i} value={opp.id}>{ opp.Name }</option>
                           ))}
                         </select>
                         <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
@@ -95,7 +108,7 @@ class Form extends Component {
                           value={state}
                           onChange={this.handleChange}>
                           { states && states.map((st, i) => (
-                            <option value={st.Name} key={i}>{st.Name}</option>
+                            <option value={st.id} key={i}>{st.Name}</option>
                           ))}
                         </select>
                         <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
@@ -114,7 +127,7 @@ class Form extends Component {
                           value={account}
                           onChange={this.handleChange}>
                           { accounts && accounts.map((acc, i) => (
-                            <option value={acc.name} key={i}>{acc.name}</option>
+                            <option value={acc.id} key={i}>{acc.name}</option>
                           ))}
                         </select>
                         <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
@@ -147,18 +160,25 @@ class Form extends Component {
                         type="number"
                         placeholder={100}
                         value={ammount}
-                        onChange={this.handleChange} />
+                        onChange={this.handleAmmount} />
                     </div>
                     <div className="md:w-1/2 px-3 mb-6 md:mb-0">
                       <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="currency">
                         Moneda
                       </label>
-                      <input
-                        className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
-                        name="currency" type="text"
-                        placeholder="Pesos argentinos"
-                        value={currency}
-                        onChange={this.handleChange} />
+                      <div className="relative">
+                        <select
+                          className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
+                          name="currency"
+                          value={currency}
+                          onChange={this.handleChange}>
+                          <option value="pesos">Pesos argentinos</option>
+                          <option value="dolar">Dólar estadounidense</option>
+                        </select>
+                        <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
+                          <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div className="-mx-3 md:flex mb-2">
