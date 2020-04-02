@@ -1,11 +1,14 @@
 import { useState } from 'react'
+import Loader from '../Loader'
 
 const LoginForm = props => {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
+  const [loading, setLoading] = useState(false)
   
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setLoading(true)
     
     const result = props.submit({
       email, password
@@ -65,7 +68,10 @@ const LoginForm = props => {
           className="bg-blue-wingu text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           type="submit"
         >
-          Ingresar
+          { loading 
+            ? <Loader />
+            : <span>Ingresar</span>
+          }
         </button>
       </div>
     </form>
