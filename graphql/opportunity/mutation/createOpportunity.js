@@ -21,7 +21,7 @@ export const CREATE_OPPORTUNITY = gql`
       state: $state,
       opportunity_type: $opportunity_type,
       account: $account,
-      organizacion: $organization,
+      organizacion: $organization
     }}) {
       opportunity {
         id

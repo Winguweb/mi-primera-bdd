@@ -16,15 +16,15 @@ class Form extends Component {
     email: this.props.data.contact ? this.props.data.contact.email : 'Email',
     alt_email: this.props.data.contact ? this.props.data.contact.alt_email : 'Email alternativo',
     phone: this.props.data.contact ? this.props.data.contact.phone : 123456789,
-    cellphone: this.props.data.contact ? this.props.data.contact.cellphone : 'Móvil',
+    cellphone: this.props.data.contact ? this.props.data.contact.cellphone : 123456789,
     subscribed: this.props.data.contact ? this.props.data.contact.subscribed : false,
     observations: this.props.data.contact ? this.props.data.contact.observations : 'Observaciones',
     volunteer: this.props.data.contact ? this.props.data.contact.volunteer : false,
     account: this.props.data.contact ? this.props.data.contact.account.name : 'Cuenta',
     origin: this.props.data.contact  ? this.props.data.contact.origin.name : 'Origen',
     contact_type: this.props.data.contact ? this.props.data.contact.contact_type.name : 'Tipo',
-    gender: this.props.data.contact ? this.props.data.contact.gender : 'Género',
-    identification: this.props.data.contact ? this.props.data.contact.identification : 'Documento'
+    gender: this.props.data.contact ? this.props.data.contact.gender : 'femenino',
+    identification: this.props.data.contact ? this.props.data.contact.identification : 123456789
   }
 
   toggleIsVolunteer = (e) => {
@@ -44,6 +44,14 @@ class Form extends Component {
       [name]: value
     })
   }
+
+  handleIdentification = (event) => {
+    const { value } = event.target
+    this.setState({ 
+      identification: parseInt(value)
+    })
+  }
+
   
   render() {
     const { 
@@ -151,9 +159,9 @@ class Form extends Component {
                   <input
                     className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
                     name="identification"
-                    type="text"
+                    type="number"
                     value={identification}
-                    onChange={this.handleChange} />
+                    onChange={this.handleIdentification} />
                 </div>
                 <div className="md:w-1/3 px-3 mb-6 md:mb-0">
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="birth-date">
@@ -163,7 +171,7 @@ class Form extends Component {
                     className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
                     type="date"
                     value={birth_date}
-                    name="birth-date"
+                    name="birth_date"
                     onChange={this.handleChange} />
                 </div>
               </div>
@@ -191,7 +199,7 @@ class Form extends Component {
                       onChange={this.handleChange}>
                       <option value='new'>Nueva cuenta</option>
                       {accounts && accounts.map((acc, i) => (
-                        <option value={acc.name} key={i}>{acc.name}</option>
+                        <option value={acc.id} key={i}>{acc.name}</option>
                       ))}
                     </select>
                     <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
@@ -354,7 +362,7 @@ class Form extends Component {
                       value={contact_type}
                       onChange={this.handleChange}>
                       { contactTypes && contactTypes.map((typ, i) => (
-                        <option value={typ.Name} key={i}>{typ.Name}</option>
+                        <option value={typ.id} key={i}>{typ.Name}</option>
                       ))}
                     </select>
                     <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
