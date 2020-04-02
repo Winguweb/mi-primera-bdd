@@ -55,7 +55,7 @@ class Layout extends Component {
           : <> 
             { children }
           </> }
-        }
+
       </div>
     )
   }
