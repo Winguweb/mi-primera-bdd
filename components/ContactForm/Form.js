@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { Mutation } from 'react-apollo'
+import Router from 'next/router'
 import { CREATE_CONTACT_AND_ACCOUNT } from '../../graphql/contact/mutation/createContactAndAccount'
 import { getIdFromLocalCookie } from '../../lib/auth'
 import Alert from '../Alert'
@@ -42,7 +43,6 @@ class Form extends Component {
       [name]: value
     })
   }
-
   
   render() {
     const { 
@@ -72,9 +72,12 @@ class Form extends Component {
     } = this.props.data
 
     return (
-      <Mutation mutation={(this.props.mode === 'create' && account === 'new') ? CREATE_CONTACT_AND_ACCOUNT : this.props.mutation } variables={{
-        ...this.state
-        }}>
+      <Mutation
+        mutation={(this.props.mode === 'create' && account === 'new') ? CREATE_CONTACT_AND_ACCOUNT : this.props.mutation }
+        variables={{
+          ...this.state,
+          organization: getIdFromLocalCookie() }}
+        onCompleted={() => Router.push({ pathname: '/contacts', query: { success: 'true'} })}>
           {( contactMutation, { loading, error }) => (
         <>
           {

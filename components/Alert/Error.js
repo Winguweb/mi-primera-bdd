@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-
 const Error = ({ visible, toggleVisible, children }) => {
   return (
     <div className={`${visible ? 'block': 'hidden'} fixed left-0 right-0 top-90 z-50 bg-red-300 border-t-4 border-red-600 rounded-b p-2 shadow-md`} role="alert">

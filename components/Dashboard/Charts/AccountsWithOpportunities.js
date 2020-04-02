@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import _ from 'lodash'
 
 const AccountsWithOportunities = ({ data, error, loading }) => {
