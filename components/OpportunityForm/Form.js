@@ -183,7 +183,10 @@ class Form extends Component {
                             e.preventDefault()
                             opportunityMutation()
                           }}>
-                          <Loader></Loader>
+                          { loading 
+                            ? <Loader />
+                            : <span>Guardar oportunidad</span>
+                          } 
                         </button>
                       
                   </div>
