@@ -9,7 +9,7 @@ export const EDIT_OPPORTUNITY = gql`
     $state: ID,
     $opportunity_type: ID,
     $account: ID,
-    $organization: ID!)) {
+    $organization: ID!) {
     updateOpportunity(input: { 
       data: { 
         name: $name,
