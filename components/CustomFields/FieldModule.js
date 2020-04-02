@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useMutation } from '@apollo/react-hooks'
 import Router from 'next/router'
+import { getIdFromLocalCookie } from '../../lib/auth'
+
 
 const FieldModule = ({ name, fields, addField, deleteField }) => {
   const [field, setField] = useState('')
@@ -12,6 +14,8 @@ const FieldModule = ({ name, fields, addField, deleteField }) => {
   const [ submitItem, { submitData }] = useMutation(addField, {
     onCompleted: () => Router.reload()
   })
+
+  const id = getIdFromLocalCookie()
 
   return (
     <div className="w-1/2 pr-4">
@@ -47,7 +51,8 @@ const FieldModule = ({ name, fields, addField, deleteField }) => {
                   e.preventDefault()
                   submitItem({
                     variables: {
-                      name: field
+                      name: field,
+                      organization: id
                     }
                   })
                 }}>
