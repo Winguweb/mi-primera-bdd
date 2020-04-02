@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { gql } from \"apollo-boost\";\nexport const GET_OPPORTUNITIES = gql`\n  query {\n    opportunities {\n      id\n      name\n      state {\n        Name\n      }\n      opportunity_type {\n        Name\n      }\n      account {\n        name\n      }\n      date\n    }\n  }\n`;","map":null,"metadata":{},"sourceType":"module"}

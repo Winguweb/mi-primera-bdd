@@ -112,6 +112,6 @@ exports
 build/
 
 .env
-.next/
+.next
 
 db/
