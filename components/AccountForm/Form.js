@@ -46,7 +46,7 @@ class Form extends Component {
           <>
             {
               error && 
-              <Alert mode="error">No se pudo guardar la cuenta Por favor intente nuevamente.</Alert>
+              <Alert mode="error">No se pudo guardar la cuenta. Por favor intente nuevamente.</Alert>
             }
             <form>
               <div className="bg-white px-4 pt-6 pb-8 mb-4 flex flex-col my-2">

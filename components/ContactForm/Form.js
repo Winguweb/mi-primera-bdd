@@ -54,7 +54,7 @@ class Form extends Component {
       email,
       alt_email,
       phone,
-      cellphone,
+      cellphone, 
       subscribed,
       observations,
       volunteer,
