@@ -3,6 +3,7 @@ import { Mutation } from 'react-apollo'
 import Router from 'next/router'
 import { getIdFromLocalCookie } from '../../lib/auth'
 import Alert from '../Alert'
+import Loader from '../Loader'
 
 class Form extends Component {
   state = {
@@ -182,7 +183,7 @@ class Form extends Component {
                             e.preventDefault()
                             opportunityMutation()
                           }}>
-                          Guardar oportunidad
+                          <Loader></Loader>
                         </button>
                       
                   </div>
