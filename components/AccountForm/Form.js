@@ -3,6 +3,7 @@ import { Mutation } from 'react-apollo'
 import Router from 'next/router'
 import { getIdFromLocalCookie } from '../../lib/auth'
 import Alert from '../Alert'
+import Loader from '../Loader'
 
 class Form extends Component {
   state = {
@@ -209,7 +210,10 @@ class Form extends Component {
                         e.preventDefault()
                         accountMutation()
                       }}>
-                      Guardar cuenta
+                      { loading 
+                        ? <Loader />
+                        : <span>Guardar cuenta</span>
+                      } 
                     </button>
                   
               </div>

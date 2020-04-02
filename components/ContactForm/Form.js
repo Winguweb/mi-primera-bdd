@@ -4,6 +4,7 @@ import Router from 'next/router'
 import { CREATE_CONTACT_AND_ACCOUNT } from '../../graphql/contact/mutation/createContactAndAccount'
 import { getIdFromLocalCookie } from '../../lib/auth'
 import Alert from '../Alert'
+import Loader from '../Loader'
 
 class Form extends Component {
   state = {
@@ -399,7 +400,10 @@ class Form extends Component {
                     e.preventDefault()
                     contactMutation()
                   }}>
-                  Guardar contacto
+                  { loading 
+                    ? <Loader />
+                    : <span>Guardar contacto</span>
+                  } 
                 </button>      
               </div>
             </div>
