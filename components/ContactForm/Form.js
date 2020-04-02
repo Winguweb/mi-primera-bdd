@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { Mutation } from 'react-apollo'
 import { CREATE_CONTACT_AND_ACCOUNT } from '../../graphql/contact/mutation/createContactAndAccount'
+import { getIdFromLocalCookie } from '../../lib/auth'
 
 class Form extends Component {
   state = {
@@ -381,9 +382,10 @@ class Form extends Component {
               </div>  
             </div>
             <div className="-mx-3 md:flex mb-2 md:justify-center">
-              {console.log(this.props.mode)}
-              {console.log(account)}
-              <Mutation mutation={(this.props.mode === 'create' && account === 'new') ? CREATE_CONTACT_AND_ACCOUNT : this.props.mutation } variables={this.state}>
+              <Mutation mutation={(this.props.mode === 'create' && account === 'new') ? CREATE_CONTACT_AND_ACCOUNT : this.props.mutation } variables={{
+              ...this.state,
+              organization: getIdFromLocalCookie()
+              }}>
                 { contactMutation =>
                   <button
                     className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"

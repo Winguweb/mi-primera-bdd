@@ -1,8 +1,8 @@
 import { gql } from "apollo-boost";
 
 export const CREATE_CONTACT = gql`
-  mutation CreateContact($name: String!) {
-    createContact(input: { data: { name: $name } }) {
+  mutation CreateContact($name: String!, $organization: ID!) {
+    createContact(input: { data: { name: $name, organizacion: $organization } }) {
       contact {
         id
         identification

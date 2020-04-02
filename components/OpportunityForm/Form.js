@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { Mutation } from 'react-apollo'
+import { getIdFromLocalCookie } from '../../lib/auth'
 
 class Form extends Component {
   state = {
@@ -164,7 +165,10 @@ class Form extends Component {
             </div>
           </div>
           <div className="-mx-3 md:flex md:justify-center mb-2 mt-4">
-          <Mutation mutation={this.props.mutation} variables={this.state}>
+          <Mutation mutation={this.props.mutation} variables={{ 
+            ...this.state,
+            organization: getIdFromLocalCookie()
+           }}>
               { opportunityMutation =>
                  <button
                   className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
