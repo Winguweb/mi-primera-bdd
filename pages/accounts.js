@@ -1,5 +1,5 @@
+import { useState } from 'react'
 import { Query } from 'react-apollo'
-import Cookies from 'js-cookie'
 import { getIdFromLocalCookie } from '../lib/auth'
 import { GET_ACCOUNTS } from '../graphql/account/query/getAccounts'
 import { DELETE_ACCOUNT } from '../graphql/account/mutation/deleteAccount'
@@ -7,6 +7,7 @@ import securePage from '../hocs/securePage'
 import List from '../components/List'
 
 const Accounts = props => {
+  const [search, setSearch] = useState('') 
   const title = "Gestión de cuentas"
   const fields = [
     { name: 'Nombre de la cuenta',
@@ -28,10 +29,11 @@ const Accounts = props => {
     link: "/account/new"
   }
 
-  const id = Cookies.get("id")
-
   return (
-    <Query query={GET_ACCOUNTS} variables={{organization: getIdFromLocalCookie()}}>
+    <Query query={GET_ACCOUNTS} variables={{
+      organization: getIdFromLocalCookie(),
+      search: search
+      }}>
       {({ loading, data, error }) => {
 
       if (loading || !data) {
@@ -46,7 +48,8 @@ const Accounts = props => {
           title={title}
           workspace="account"
           delete={DELETE_ACCOUNT}
-          refetch={GET_ACCOUNTS} />
+          refetch={GET_ACCOUNTS}
+          handleSearch={setSearch} />
       )}}
     </Query>
   )

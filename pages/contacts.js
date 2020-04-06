@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Query } from 'react-apollo'
 import { getIdFromLocalCookie } from '../lib/auth'
 import { GET_CONTACTS } from '../graphql/contact/query/getContacts'
@@ -6,6 +7,7 @@ import securePage from '../hocs/securePage'
 import List from '../components/List'
 
 const Contacts = props => {
+  const [search, setSearch] = useState('') 
   const title = "Gestión de contactos"
   const fields = [
     { name: 'Nombre',
@@ -39,7 +41,10 @@ const Contacts = props => {
     link: "/contact/new"
   }
   return (
-    <Query query={GET_CONTACTS} variables={{organization: getIdFromLocalCookie()}}>
+    <Query query={GET_CONTACTS} variables={{
+      organization: getIdFromLocalCookie(),
+      search: search
+      }}>
       {({ loading, data, error }) => {
 
       if (loading || !data) {
@@ -54,7 +59,8 @@ const Contacts = props => {
           title={title}
           workspace="contact"
           delete={DELETE_CONTACT}
-          refetch={GET_CONTACTS} />
+          refetch={GET_CONTACTS}
+          handleSearch={setSearch} />
       )}}
     </Query>
   )
