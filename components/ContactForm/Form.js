@@ -12,7 +12,7 @@ class Form extends Component {
     lastname: this.props.data.contact ?  this.props.data.contact.lastname : 'Apellido',
     charge: this.props.data.contact ? this.props.data.contact.charge : 'Cargo',
     occupation: this.props.data.contact ? this.props.data.contact.occupation : 'Ocupación',
-    birth_date: this.props.data.contact ? this.props.data.contact.birth_date : Date.now(),
+    birth_date: this.props.data.contact ? this.props.data.contact.birth_date : new Date(),
     email: this.props.data.contact ? this.props.data.contact.email : 'Email',
     alt_email: this.props.data.contact ? this.props.data.contact.alt_email : 'Email alternativo',
     phone: this.props.data.contact ? this.props.data.contact.phone : 123456789,

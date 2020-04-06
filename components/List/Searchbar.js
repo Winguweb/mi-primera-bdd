@@ -9,7 +9,7 @@ const Searchbar = ({ handleSearch }) => {
         <input
           type="search"
           className="w-full bg-purple-white shadow rounded border-0 py-3 px-12"
-          placeholder="Ingrese su búsqueda y presione enter"
+          placeholder="Ingrese su búsqueda y presione 'Enter'"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           onKeyDown={(e) => {

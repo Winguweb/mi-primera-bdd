@@ -4,7 +4,7 @@ export const GET_CONTACTS = gql`
   query ($organization: ID!, $search: String) {
     contacts  (where: { 
       organizacion: { id: $organization },
-      name_contains: $search
+      searchFields_contains: $search
     }) {
       id
       name
