@@ -10,6 +10,7 @@ export const GET_ACCOUNTS = gql`
       name
       account_type {
         name
+        id
       }
       email
       phone

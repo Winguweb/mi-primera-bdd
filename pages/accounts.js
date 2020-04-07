@@ -33,7 +33,9 @@ const Accounts = props => {
     <Query query={GET_ACCOUNTS} variables={{
       organization: getIdFromLocalCookie(),
       search: search
-      }}>
+      }}
+      fetchPolicy={"network-only"}
+      >
       {({ loading, data, error }) => {
 
       if (loading || !data) {

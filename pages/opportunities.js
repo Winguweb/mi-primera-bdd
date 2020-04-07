@@ -32,10 +32,13 @@ const Opportunities = props => {
     link: "/opportunity/new"
   }
   return (
-    <Query query={GET_OPPORTUNITIES} variables={{
-      organization: getIdFromLocalCookie(),
-      search: search
-      }}>
+    <Query 
+      query={GET_OPPORTUNITIES} 
+      variables={{
+        organization: getIdFromLocalCookie(),
+        search: search
+      }}
+      fetchPolicy={"network-only"} >
       {({ loading, data, error }) => {
 
       if (loading || !data) {

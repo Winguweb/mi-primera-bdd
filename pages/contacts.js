@@ -41,10 +41,13 @@ const Contacts = props => {
     link: "/contact/new"
   }
   return (
-    <Query query={GET_CONTACTS} variables={{
-      organization: getIdFromLocalCookie(),
-      search: search
-      }}>
+    <Query 
+      query={GET_CONTACTS}
+      variables={{
+        organization: getIdFromLocalCookie(),
+        search: search
+      }}
+      fetchPolicy={"network-only"} >
       {({ loading, data, error }) => {
 
       if (loading || !data) {
