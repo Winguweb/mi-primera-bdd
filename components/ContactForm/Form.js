@@ -12,7 +12,7 @@ class Form extends Component {
     lastname: this.props.data.contact ?  this.props.data.contact.lastname : '',
     charge: this.props.data.contact ? this.props.data.contact.charge : '',
     occupation: this.props.data.contact ? this.props.data.contact.occupation : '',
-    birth_date: this.props.data.contact ? this.props.data.contact.birth_date : "2020-01-01",
+    birth_date: this.props.data.contact ? this.props.data.contact.birth_date : null,
     email: this.props.data.contact ? this.props.data.contact.email : '',
     alt_email: this.props.data.contact ? this.props.data.contact.alt_email : '',
     phone: this.props.data.contact ? this.props.data.contact.phone : 123456789,
@@ -20,9 +20,9 @@ class Form extends Component {
     subscribed: this.props.data.contact ? this.props.data.contact.subscribed : false,
     observations: this.props.data.contact ? this.props.data.contact.observations : '',
     volunteer: this.props.data.contact ? this.props.data.contact.volunteer : false,
-    account: this.props.data.contact ? this.props.data.contact.account.id : '',
-    origin: this.props.data.contact  ? this.props.data.contact.origin.id : '',
-    contact_type: this.props.data.contact ? this.props.data.contact.contact_type.id : '',
+    account: this.props.data.contact ? this.props.data.contact.account.id : null,
+    origin: this.props.data.contact  ? this.props.data.contact.origin.id : null,
+    contact_type: this.props.data.contact ? this.props.data.contact.contact_type.id : null,
     gender: this.props.data.contact ? this.props.data.contact.gender : 'femenino',
     identification: this.props.data.contact ? this.props.data.contact.identification : 123456789
   }
@@ -133,8 +133,8 @@ class Form extends Component {
                       onChange={this.handleChange}>
                       <option value="femenino">Femenino</option>
                       <option value="masculino">Masculino</option>
-                      <option value="no-binario">No binario</option>
-                      <option value="prefiero-no-decirlo">Prefiero no decirlo</option>
+                      <option value="no_binario">No binario</option>
+                      <option value="prefiero_no_decirlo">Prefiero no decirlo</option>
                     </select>
                     <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
                       <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
