@@ -7,14 +7,14 @@ import CustomFields from '../components/CustomFields'
 const Customize = props => {
   return (
     <Query query={GET_CUSTOM_FIELDS} variables={{organization: getIdFromLocalCookie()}}>
-      {({ loading, data, error }) => {
+      {({ loading, data, error, refetch }) => {
 
       if (loading || !data) {
         return <p>Cargando...</p>;
       }
 
       return (
-        <CustomFields data={data} />
+        <CustomFields data={data} refetch={refetch}/>
       )}}
     </Query>
   )
