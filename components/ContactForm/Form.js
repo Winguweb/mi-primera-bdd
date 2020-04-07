@@ -8,21 +8,21 @@ import Loader from '../Loader'
 
 class Form extends Component {
   state = {
-    name: this.props.data.contact ?  this.props.data.contact.name : 'Nombre',
-    lastname: this.props.data.contact ?  this.props.data.contact.lastname : 'Apellido',
-    charge: this.props.data.contact ? this.props.data.contact.charge : 'Cargo',
-    occupation: this.props.data.contact ? this.props.data.contact.occupation : 'Ocupación',
-    birth_date: this.props.data.contact ? this.props.data.contact.birth_date : new Date(),
-    email: this.props.data.contact ? this.props.data.contact.email : 'Email',
-    alt_email: this.props.data.contact ? this.props.data.contact.alt_email : 'Email alternativo',
+    name: this.props.data.contact ?  this.props.data.contact.name : '',
+    lastname: this.props.data.contact ?  this.props.data.contact.lastname : '',
+    charge: this.props.data.contact ? this.props.data.contact.charge : '',
+    occupation: this.props.data.contact ? this.props.data.contact.occupation : '',
+    birth_date: this.props.data.contact ? this.props.data.contact.birth_date : "2020-01-01",
+    email: this.props.data.contact ? this.props.data.contact.email : '',
+    alt_email: this.props.data.contact ? this.props.data.contact.alt_email : '',
     phone: this.props.data.contact ? this.props.data.contact.phone : 123456789,
     cellphone: this.props.data.contact ? this.props.data.contact.cellphone : 123456789,
     subscribed: this.props.data.contact ? this.props.data.contact.subscribed : false,
-    observations: this.props.data.contact ? this.props.data.contact.observations : 'Observaciones',
+    observations: this.props.data.contact ? this.props.data.contact.observations : '',
     volunteer: this.props.data.contact ? this.props.data.contact.volunteer : false,
-    account: this.props.data.contact ? this.props.data.contact.account.name : 'Cuenta',
-    origin: this.props.data.contact  ? this.props.data.contact.origin.name : 'Origen',
-    contact_type: this.props.data.contact ? this.props.data.contact.contact_type.name : 'Tipo',
+    account: this.props.data.contact ? this.props.data.contact.account.id : '',
+    origin: this.props.data.contact  ? this.props.data.contact.origin.id : '',
+    contact_type: this.props.data.contact ? this.props.data.contact.contact_type.id : '',
     gender: this.props.data.contact ? this.props.data.contact.gender : 'femenino',
     identification: this.props.data.contact ? this.props.data.contact.identification : 123456789
   }
@@ -106,6 +106,7 @@ class Form extends Component {
                     name="name"
                     value={name}
                     onChange={this.handleChange}
+                    placeholder="Nombre"
                   />
                 </div>
                 <div className="md:w-1/3 px-3 mb-6 md:mb-0">
@@ -117,7 +118,8 @@ class Form extends Component {
                     type="text" 
                     name="lastname"
                     value={lastname}
-                    onChange={this.handleChange} />
+                    onChange={this.handleChange}
+                    placeholder="Apellido" />
                 </div>
                 <div className="md:w-1/3 px-3">
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="gender">
@@ -150,7 +152,8 @@ class Form extends Component {
                     type="text"
                     name="charge"
                     value={charge}
-                    onChange={this.handleChange} />
+                    onChange={this.handleChange}
+                    placeholder="Cargo" />
                 </div>
                 <div className="md:w-1/3 px-3 mb-6 md:mb-0">
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="identification">
@@ -185,7 +188,8 @@ class Form extends Component {
                     name="occupation"
                     type="text"
                     value={occupation}
-                    onChange={this.handleChange} />
+                    onChange={this.handleChange}
+                    placeholder="Ocupación" />
                 </div>
                 <div className="md:w-1/3 px-3">
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="account">
@@ -283,7 +287,8 @@ class Form extends Component {
                     type="text" 
                     name="email"
                     value={email}
-                    onChange={this.handleChange} />
+                    onChange={this.handleChange}
+                    placeholder="Email" />
                 </div>
                 <div className="md:w-1/3 px-3 mb-6 md:mb-0">
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="alt_email">
@@ -294,7 +299,8 @@ class Form extends Component {
                     type="text"
                     name="alt_email"
                     value={alt_email}
-                    onChange={this.handleChange} />
+                    onChange={this.handleChange}
+                    placeholder="Email alternativo" />
                 </div>
               </div>
               <div className="-mx-3 md:flex mb-6">
@@ -302,19 +308,19 @@ class Form extends Component {
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
                     Dirección <span className="ml-2 normal-case text-xs italic font-light">Calle y numeración</span>
                   </label>
-                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+                  <input placeholder="Dirección" className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" />
                 </div>
                 <div className="md:w-1/3 px-3">
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
                     Ciudad
                   </label>
-                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Ciudad" />
                 </div>
                 <div className="md:w-1/3 px-3">
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
                     Código postal
                   </label>
-                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Código postal" />
                 </div>
               </div>
               <div className="-mx-3 md:flex mb-6">
@@ -322,13 +328,13 @@ class Form extends Component {
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
                     Estado o provincia
                   </label>
-                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Estado o provincia" />
                 </div>
                 <div className="md:w-1/3 px-3">
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
                     País
                   </label>
-                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="País" />
                 </div>
               </div>
               <div className="-mx-3 md:flex mb-6">
@@ -343,7 +349,7 @@ class Form extends Component {
                       value={origin}
                       onChange={this.handleChange}>
                       { origins && origins.map((or, i) => (
-                        <option value={or.Name} key={i}>{or.Name}</option>
+                        <option value={or.id} key={i}>{or.Name}</option>
                       ))}
                     </select>
                     <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
@@ -381,7 +387,8 @@ class Form extends Component {
                     name="observations"
                     type="text"
                     value={observations}
-                    onChange={this.handleChange} />
+                    onChange={this.handleChange}
+                    placeholder="Observaciones" />
                 </div>
               </div>
               <div className="-mx-3 md:flex mb-2">
