@@ -4,15 +4,20 @@ import Router from 'next/router'
 import { getIdFromLocalCookie } from '../../lib/auth'
 
 
-const FieldModule = ({ name, fields, addField, deleteField }) => {
+const FieldModule = ({ name, fields, addField, deleteField, onSuccess }) => {
   const [field, setField] = useState('')
 
   const [eraseItem, { data }] = useMutation(deleteField, {
-    onCompleted: () => Router.reload()
+    onCompleted: () => {
+      onSuccess()
+    }
   })
 
   const [ submitItem, { submitData }] = useMutation(addField, {
-    onCompleted: () => Router.reload()
+    onCompleted: () => {      
+      setField('')
+      onSuccess()
+    }
   })
 
   const id = getIdFromLocalCookie()
@@ -26,7 +31,7 @@ const FieldModule = ({ name, fields, addField, deleteField }) => {
         <div className="w-full">
           { fields && fields.map((field) => (
             <button
-              className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded mr-4"
+              className="button inline-block text-white bg-blue-wingu items-center justify-center p-4 font-bold rounded mr-2 mb-2"
               key={ field.id}
               onClick={e => {
                 e.preventDefault()
