@@ -9,13 +9,13 @@ import { parse } from 'graphql'
 class Form extends Component {
   state = {
     name: this.props.data.opportunity ? this.props.data.opportunity.name : '',
-    date: this.props.data.opportunity ? this.props.data.opportunity.date : Date.now(),
+    date: this.props.data.opportunity ? this.props.data.opportunity.date : null,
     ammount: this.props.data.opportunity ? this.props.data.opportunity.ammount : 0,
     currency: this.props.data.opportunity ? this.props.data.opportunity.currency : 'pesos',
     observations: this.props.data.opportunity ? this.props.data.opportunity.observations : '',
-    state: this.props.data.opportunity ? this.props.data.opportunity.state : '',
-    opportunity_type: this.props.data.opportunity ? this.props.data.opportunity.opportunity_type : '',
-    account: this.props.data.opportunity ? this.props.data.opportunity.account : ''
+    state: this.props.data.opportunity ? this.props.data.opportunity.state : null,
+    opportunity_type: this.props.data.opportunity ? this.props.data.opportunity.opportunity_type : null,
+    account: this.props.data.opportunity ? this.props.data.opportunity.account : null
   }
 
   handleChange = (event) => {
@@ -107,7 +107,7 @@ class Form extends Component {
                           name="state"
                           value={state}
                           onChange={this.handleChange}>
-                          { states && states.map((st, i) => (
+                          { states && states.map((st, i) =>  (
                             <option value={st.id} key={i}>{st.Name}</option>
                           ))}
                         </select>
@@ -201,6 +201,7 @@ class Form extends Component {
                           className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
                           onClick={(e) => {
                             e.preventDefault()
+                            console.log(this.state)
                             opportunityMutation()
                           }}>
                           { loading 
