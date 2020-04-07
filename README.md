@@ -1,30 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
+# Mi primera base de datos (público)
 
-## Getting Started
+Este es el repositorio de la parte pública de Mi primera base de datos. Para que funcione correctamente, vas a tener que tener levantado [éste repositorio](https://github.com/Winguweb/mi-primera-bdd-admin) .
 
-First, run the development server:
+Recordá crear un archivo `.env` y copiar el contenido que está en `.env.example`
+
+El proyecto está creado con [Next.js](https://nextjs.org/)
+
+## Primeros pasos
+
+Primero, debés instalar todos los paquetes necesarios
 
 ```bash
-npm run dev
-# or
+yarn install
+```
+
+Luego, para correr el entorno de desarrollo
+
+```bash
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Listo! El proyecto deberá estar corriendo en este puerto: [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Recursos
 
-## Learn More
+Algunos links para leer documentación relativa a Next.js
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs) 
+- [Learn Next.js](https://nextjs.org/learn)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/zeit/next.js/) - your feedback and contributions are welcome!
+## Deploy a staging
 
-## Deploy on ZEIT Now
+Para el deploy a staging usamos Heroku. Deberás estar loggeado en la cuenta correspondiente y en la consola correr
 
-The easiest way to deploy your Next.js app is to use the [ZEIT Now Platform](https://zeit.co/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+git push heroku [nombre de la rama a deployar]
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Deploy a producción
+
+En progreso.
