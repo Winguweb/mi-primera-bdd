@@ -60,7 +60,7 @@ class Form extends Component {
                     className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
                     name="name"
                     type="text"
-                    placeholder="Wingu"
+                    placeholder="Nombre"
                     value={name}
                     onChange={this.handleChange} />
                   {
@@ -97,7 +97,7 @@ class Form extends Component {
                     className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
                     name="email"
                     type="email" 
-                    placeholder="wingu@wingu.org"
+                    placeholder="Email"
                     value={email}
                     onChange={this.handleChange} />
                 </div>
@@ -109,7 +109,7 @@ class Form extends Component {
                     className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
                     name="alternative_email"
                     type="email"
-                    placeholder="wingu@wingu.org"
+                    placeholder="Email alternativo"
                     value={alternative_email}
                     onChange={this.handleChange} />
                 </div>
@@ -119,19 +119,28 @@ class Form extends Component {
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
                     Dirección <span className="ml-2 normal-case text-xs italic font-light">Calle y numeración</span>
                   </label>
-                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+                  <input 
+                    className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                    type="text" 
+                    placeholder="Dirección" />
                 </div>
                 <div className="md:w-1/3 px-3">
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
                     Ciudad
                   </label>
-                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+                  <input
+                    className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                    type="text" 
+                    placeholder="Ciudad" />
                 </div>
                 <div className="md:w-1/3 px-3">
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
                     Código postal
                   </label>
-                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+                  <input
+                    className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                    type="text" 
+                    placeholder="Código postal" />
                 </div>
               </div>
               <div className="-mx-3 md:flex mb-6">
@@ -139,13 +148,19 @@ class Form extends Component {
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
                     Estado o provincia
                   </label>
-                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+                  <input
+                    className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                    type="text" 
+                    placeholder="Estado o provincia" />
                 </div>
                 <div className="md:w-1/2 px-3">
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
                     País
                   </label>
-                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+                  <input
+                    className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                    type="text" 
+                    placeholder="País" />
                 </div>
               </div>
               <div className="-mx-3 md:flex mb-6">
@@ -183,7 +198,7 @@ class Form extends Component {
                     className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
                     name="web"
                     type="text"
-                    placeholder="https://winguweb.org"
+                    placeholder="Sitio web"
                     value={web}
                     onChange={this.handleChange} />
                 </div>
