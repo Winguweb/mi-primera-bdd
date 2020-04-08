@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useMutation } from '@apollo/react-hooks'
-import Router from 'next/router'
 import { getIdFromLocalCookie } from '../../lib/auth'
+import FieldItem from './FieldItem'
+import AddItem from './AddItem'
 
 
 const FieldModule = ({ name, fields, addField, deleteField, onSuccess }) => {
@@ -23,47 +24,21 @@ const FieldModule = ({ name, fields, addField, deleteField, onSuccess }) => {
   const id = getIdFromLocalCookie()
 
   return (
-    <div className="w-1/2 pr-4">
+    <div className="w-1/3 pr-8 mb-8">
       <div>
         <span>{ name }</span>
       </div>
-      <div className="bg-purple-white shadow rounded border-0 p-4 mt-4 min-h-1/4 flex flex-wrap justify-start">
+      <div className="bg-purple-white mt-4 min-h-1/4 flex flex-wrap justify-start">
         <div className="w-full">
           { fields && fields.map((field) => (
-            <button
-              className="button inline-block text-white bg-blue-wingu items-center justify-center p-4 font-bold rounded mr-2 mb-2"
-              key={ field.id}
-              onClick={e => {
-                e.preventDefault()
-                eraseItem({ variables: { id: field.id } })
-              }}>
-              <span className="mr-4">{ field.Name || field.name }</span>
-              <span>x</span>
-            </button>
+            <FieldItem key={field.id} field={field} eraseItem={eraseItem} />
           ))}
-        </div>
-        <div>
-          <div className="relative py-4">
-            <input
-              type="text"
-              className="w-full bg-purple-white shadow rounded border-0 p-4"
-              placeholder="Agregar nueva opción"
-              value={field}
-              onChange={(e) => setField(e.target.value)} />
-              <button
-                className="button h-8 w-8 text-white bg-blue-wingu flex items-center justify-center font-bold rounded-full absolute bottom-0 right-0 mt-4 -mr-4"
-                onClick={(e) => {
-                  e.preventDefault()
-                  submitItem({
-                    variables: {
-                      name: field,
-                      organization: id
-                    }
-                  })
-                }}>
-                <span>+</span>
-              </button>
-          </div>
+          <AddItem 
+            field={field}
+            setField={setField}
+            id={id}
+            submitItem={submitItem}
+            submitData={submitData} />
         </div>
       </div>
     </div>
