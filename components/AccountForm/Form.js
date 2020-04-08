@@ -8,7 +8,7 @@ import Loader from '../Loader'
 class Form extends Component {
   state = {
     name: this.props.data.account ? this.props.data.account.name : '',
-    type: this.props.data.account ? this.props.data.account.type : '',
+    account_type: this.props.data.account ? this.props.data.account.type : null,
     email: this.props.data.account ? this.props.data.account.email : '',
     alternative_email: this.props.data.account ? this.props.data.account.alternative_email : '',
     phone: this.props.data.account ? this.props.data.account.phone : 123456789,
@@ -19,7 +19,6 @@ class Form extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target
-
     this.setState({ 
       [name]: value
     })
@@ -29,7 +28,7 @@ class Form extends Component {
     const { accountTypes } = this.props.data
     const {
       name,
-      type, 
+      account_type, 
       email,
       alternative_email,
       phone,
@@ -68,18 +67,18 @@ class Form extends Component {
                   }
                 </div>
                 <div className="md:w-1/2 px-3">
-                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="type">
+                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="account_type">
                     Tipo
                   </label>
                   <div className="relative">
                     <select
                       className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
-                      name="account-type"
-                      value={type}
+                      name="account_type"
+                      value={account_type}
                       onChange={this.handleChange}
                       >
                       { accountTypes && accountTypes.map((type) => (
-                        <option key={type.id} value={type.name}>{type.name}</option>
+                        <option key={type.id} value={type.id}>{type.name}</option>
                       ))}
                     </select>
                     <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
