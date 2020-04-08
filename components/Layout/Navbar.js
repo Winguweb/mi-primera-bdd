@@ -1,6 +1,10 @@
 import Link from 'next/link'
 import { unsetToken } from "../../lib/auth"
 import Logo from '../../assets/wingu-logo.svg'
+import {
+  Account,
+  Logout
+} from '../Icons'
 
 const Navbar = ({ isAuthenticated, loggedUser }) => {
   return (
@@ -12,11 +16,19 @@ const Navbar = ({ isAuthenticated, loggedUser }) => {
         <h1 className="font-title text-xl uppercase">Mi primera base de datos</h1>
       </div>
       { isAuthenticated &&
-        <div className="flex flex-col items-end text-white">
-          <span>Organización: { loggedUser }</span>
-          <button onClick={unsetToken}>
-            <span>Cerrar sesión</span>
-          </button>
+        <div className="flex flex-col items-start text-white">
+          <div className="flex items-center mb-2">
+            <span className="w-4 h-4 mr-2"><Account /></span>
+            <span>{ loggedUser }</span>
+          </div>
+          <div>
+            <button className="flex items-center" onClick={unsetToken}>
+              <span className="w-4 h-4 mr-2">
+                <Logout />
+              </span>
+              <span>Cerrar sesión</span>
+            </button>
+          </div>
         </div>
       }
     </nav>
