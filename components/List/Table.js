@@ -49,7 +49,7 @@ const Table = ({ fields, info, workspace, ...props }) => {
             { info && info
                 .slice((currentPage - 1) * size, currentPage * size)
                 .map((item, i) => (
-                <tr className="bg-grey-lighter cursor-pointer" key={i}>
+                <tr className="bg-grey-lighter cursor-pointer"  key={i}>
                     { fields && fields
                       .map((field, j) => {
                       return (
@@ -60,20 +60,22 @@ const Table = ({ fields, info, workspace, ...props }) => {
                         </td>
                       )
                     })}
-                  <td className="py-4 px-6 border-b border-grey-light">
-                    <Link href={`/${workspace}/[id]`} as={`/${workspace}/${item.id}`}>
-                      <a className="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark">
-                        Editar
-                      </a>
-                    </Link>
-                    <button
-                      className="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark"
-                      onClick={e => {
-                        e.preventDefault();
-                        deleteItem({ variables: { id: item.id } })
-                      }}>
-                      Eliminar
-                    </button>
+                  <td className="px-6 border-b border-grey-light">
+                    <div className="flex">
+                      <Link href={`/${workspace}/[id]`} as={`/${workspace}/${item.id}`}>
+                        <a className="button w-4 h-4 mr-2 text-green-700">
+                          <Edit />
+                        </a>
+                      </Link>
+                      <button
+                        className="button w-4 h-4 text-red-600"
+                        onClick={e => {
+                          e.preventDefault();
+                          deleteItem({ variables: { id: item.id } })
+                        }}>
+                        <Delete />
+                      </button>
+                    </div>
                   </td>
                 </tr>
 
