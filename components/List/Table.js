@@ -3,6 +3,10 @@ import { useMutation } from '@apollo/react-hooks'
 import Link from 'next/link'
 import Router from 'next/router'
 import Pagination from './Pagination'
+import {
+  Edit,
+  Delete
+} from '../Icons'
 
 const Table = ({ fields, info, workspace, ...props }) => {
   const [deleteItem, { data }] = useMutation(props.delete, {
@@ -58,7 +62,9 @@ const Table = ({ fields, info, workspace, ...props }) => {
                     })}
                   <td className="py-4 px-6 border-b border-grey-light">
                     <Link href={`/${workspace}/[id]`} as={`/${workspace}/${item.id}`}>
-                      <a className="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark">Editar</a>
+                      <a className="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark">
+                        Editar
+                      </a>
                     </Link>
                     <button
                       className="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark"

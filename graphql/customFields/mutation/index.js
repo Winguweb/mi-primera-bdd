@@ -8,7 +8,12 @@ import { DELETE_CONTACT_TYPE } from './deleteContactType'
 import { DELETE_OPPORTUNITY_TYPE } from './deleteOpportunityType'
 import { DELETE_ORIGIN } from './deleteOrigin'
 import { DELETE_STATE } from './deleteState'
-
+import { EDIT_ACCOUNT_TYPE } from './editAccountType'
+import { EDIT_CONTACT_TYPE } from './editContactType'
+import { EDIT_OPPORTUNITY_TYPE } from './editOpportunityType'
+import { EDIT_ORIGIN } from './editOrigin'
+import { EDIT_STATE } from './editState'
+ 
 export {
   ADD_ACCOUNT_TYPE,
   ADD_CONTACT_TYPE,
@@ -19,5 +24,10 @@ export {
   DELETE_CONTACT_TYPE,
   DELETE_OPPORTUNITY_TYPE,
   DELETE_ORIGIN,
-  DELETE_STATE
+  DELETE_STATE,
+  EDIT_ACCOUNT_TYPE,
+  EDIT_CONTACT_TYPE,
+  EDIT_OPPORTUNITY_TYPE,
+  EDIT_ORIGIN,
+  EDIT_STATE
 }

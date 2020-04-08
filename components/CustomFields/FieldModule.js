@@ -5,10 +5,16 @@ import FieldItem from './FieldItem'
 import AddItem from './AddItem'
 
 
-const FieldModule = ({ name, fields, addField, deleteField, onSuccess }) => {
+const FieldModule = ({ name, fields, addField, deleteField, editField, onSuccess }) => {
   const [field, setField] = useState('')
 
   const [eraseItem, { data }] = useMutation(deleteField, {
+    onCompleted: () => {
+      onSuccess()
+    }
+  })
+
+  const [editItem, { editData }] = useMutation(editField, {
     onCompleted: () => {
       onSuccess()
     }
@@ -31,7 +37,11 @@ const FieldModule = ({ name, fields, addField, deleteField, onSuccess }) => {
       <div className="bg-purple-white mt-4 min-h-1/4 flex flex-wrap justify-start">
         <div className="w-full">
           { fields && fields.map((field) => (
-            <FieldItem key={field.id} field={field} eraseItem={eraseItem} />
+            <FieldItem
+              key={field.id}
+              field={field}
+              eraseItem={eraseItem}
+              editItem={editItem} />
           ))}
           <AddItem 
             field={field}

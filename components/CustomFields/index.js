@@ -12,7 +12,12 @@ import {
   DELETE_CONTACT_TYPE,
   DELETE_OPPORTUNITY_TYPE,
   DELETE_ORIGIN,
-  DELETE_STATE
+  DELETE_STATE,
+  EDIT_ACCOUNT_TYPE,
+  EDIT_CONTACT_TYPE,
+  EDIT_OPPORTUNITY_TYPE,
+  EDIT_ORIGIN,
+  EDIT_STATE
 } from '../../graphql/customFields/mutation'
 
 const CustomFields = ({ data, refetch }) => {
@@ -46,6 +51,7 @@ const CustomFields = ({ data, refetch }) => {
               fields={origins}
               addField={ADD_ORIGIN}
               deleteField={DELETE_ORIGIN} 
+              editField={EDIT_ORIGIN}
               onSuccess={onSuccess}
             />              
             <FieldModule
@@ -53,6 +59,7 @@ const CustomFields = ({ data, refetch }) => {
               fields={contactTypes}
               addField={ADD_CONTACT_TYPE}
               deleteField={DELETE_CONTACT_TYPE} 
+              editField={EDIT_CONTACT_TYPE}
               onSuccess={onSuccess}
             />
           </div>
@@ -65,6 +72,7 @@ const CustomFields = ({ data, refetch }) => {
               fields={accountTypes}
               addField={ADD_ACCOUNT_TYPE}
               deleteField={DELETE_ACCOUNT_TYPE} 
+              editField={EDIT_ACCOUNT_TYPE}
               onSuccess={onSuccess}
             />
           </div>
@@ -77,6 +85,7 @@ const CustomFields = ({ data, refetch }) => {
               fields={states}
               addField={ADD_STATE}
               deleteField={DELETE_STATE} 
+              editField={EDIT_STATE}
               onSuccess={onSuccess}
             />
             <FieldModule
@@ -84,6 +93,7 @@ const CustomFields = ({ data, refetch }) => {
               fields={opportunityTypes}
               addField={ADD_OPPORTUNITY_TYPE}
               deleteField={DELETE_OPPORTUNITY_TYPE} 
+              editField={EDIT_OPPORTUNITY_TYPE}
               onSuccess={onSuccess}
             />
           </div>
