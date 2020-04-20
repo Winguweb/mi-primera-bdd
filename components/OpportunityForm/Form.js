@@ -13,9 +13,9 @@ class Form extends Component {
     ammount: this.props.data.opportunity ? this.props.data.opportunity.ammount : 0,
     currency: this.props.data.opportunity ? this.props.data.opportunity.currency : 'pesos',
     observations: this.props.data.opportunity ? this.props.data.opportunity.observations : '',
-    state: this.props.data.opportunity ? this.props.data.opportunity.state : null,
-    opportunity_type: this.props.data.opportunity ? this.props.data.opportunity.opportunity_type : null,
-    account: this.props.data.opportunity ? this.props.data.opportunity.account : null
+    state: (this.props.data.opportunity && this.props.data.opportunity.state) ? this.props.data.opportunity.state.id : this.props.data.states[0].id,
+    opportunity_type: (this.props.data.opportunity &&  this.props.data.opportunity.opportunity_type) ? this.props.data.opportunity.opportunity_type.id : this.props.data.opportunityTypes[0].id,
+    account: (this.props.data.opportunity && this.props.data.opportunity.account) ? this.props.data.opportunity.account.id : this.props.data.accounts[0].id
   }
 
   handleChange = (event) => {
@@ -126,9 +126,10 @@ class Form extends Component {
                           name="account"
                           value={account}
                           onChange={this.handleChange}>
-                          { accounts && accounts.map((acc, i) => (
-                            <option value={acc.id} key={i}>{acc.name}</option>
-                          ))}
+                          { accounts && accounts.map((acc, i) =>{ 
+                            console.log(acc.id)
+                            return <option value={acc.id} key={i}>{acc.name}</option>
+                          })}
                         </select>
                         <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
                           <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -201,6 +202,7 @@ class Form extends Component {
                           className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
                           onClick={(e) => {
                             e.preventDefault()
+                            console.log(this.state)
                             opportunityMutation()
                           }}>
                           { loading 

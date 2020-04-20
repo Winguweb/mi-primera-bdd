@@ -8,6 +8,7 @@ export const GET_METRICS = gql`
       }
       opportunities {
         name
+        date
       }
     }
     contacts (where: { organizacion: { id: $organization }}) {

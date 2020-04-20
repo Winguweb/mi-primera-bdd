@@ -16,7 +16,9 @@ const Opportunities = ({ loading, error, data }) => {
 
   if (data) { 
     const opp = [...data.opportunities]
+    console.log(opp)
     const grouped = _.countBy(opp, (op => op.state && op.state.Name))
+    // console.log(grouped)
     formatted = {
       labels: Object.keys(grouped),
       datasets: [{

@@ -15,6 +15,8 @@ const Accounts = ({ loading, error, data }) => {
     }
   }
 
+ 
+
   if (loading) return <p>Loading...</p>
 
   if (data) {
