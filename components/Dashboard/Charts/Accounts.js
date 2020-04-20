@@ -19,7 +19,8 @@ const Accounts = ({ loading, error, data }) => {
 
   if (data) {
     const accounts = [...data.accounts].filter((account) => account.account_type)
-    const grouped = _.countBy(accounts, (account) => account.account_type.Name)
+    const grouped = _.countBy(accounts, (account) => account.account_type.name)
+
     formatted = {
       labels: Object.keys(grouped),
       datasets: [{
