@@ -9,10 +9,10 @@ export const GET_OPPORTUNITIES= gql`
       id
       name
       state {
-        Name
+        name
       }
       opportunity_type {
-        Name
+        name
       }
       account {
         name

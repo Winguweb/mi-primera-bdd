@@ -4,10 +4,10 @@ export const EDIT_CONTACT_TYPE = gql`
   mutation EditContactType($id: ID!, $name: String!) {
     updateContactType(input: { 
       where: { id: $id },
-      data: { Name: $name }
+      data: { name: $name }
     }) {
       contactType {
-        Name
+        name
       }
     }
   }

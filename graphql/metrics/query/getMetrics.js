@@ -13,13 +13,13 @@ export const GET_METRICS = gql`
     }
     contacts (where: { organizacion: { id: $organization }}) {
       contact_type {
-        Name
+        name
       }
     }
     
     opportunities (where: { organizacion: { id: $organization }}) {
       state {
-        Name
+        name
       }
     }
   }

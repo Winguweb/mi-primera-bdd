@@ -3,7 +3,7 @@ import { Edit, Delete } from '../Icons'
 
 const FieldItem = ({ field, eraseItem, editItem }) => {
   const [showInput, toggleInput] = useState(false)
-  const [newName, setNewName] = useState(field.Name || field.name)
+  const [newName, setNewName] = useState(field.name)
 
   const handleEditItem = () => {
     editItem({
@@ -16,7 +16,7 @@ const FieldItem = ({ field, eraseItem, editItem }) => {
   }
   return (
     <div className="my-2 p-4 w-3/4 shadow rounded border-0 flex justify-between items-center relative">
-      <span className="mr-4 text-sm">{field.Name || field.name}</span>
+      <span className="mr-4 text-sm">{field.name}</span>
       <div className="actions">
       <button
           className="button w-4 h-4 mr-2 text-green-700"

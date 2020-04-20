@@ -62,11 +62,11 @@ export const CREATE_CONTACT = gql`
         }
         origin {
           id
-          Name
+          name
         }
         contact_type {
           id
-          Name
+          name
         }
         gender
       }

@@ -4,11 +4,11 @@ export const GET_CUSTOM_FIELDS = gql`
   query ($organization: ID!) {
     contactTypes (where: { organizacion: { id: $organization }}) {
       id
-      Name
+      name
     }
     origins (where: { organizacion: { id: $organization }}) {
       id
-      Name
+      name
     }
     accountTypes (where: { organizacion: { id: $organization }}) {
       id
@@ -16,11 +16,11 @@ export const GET_CUSTOM_FIELDS = gql`
     }
     states  (where: { organizacion: { id: $organization }}) {
       id
-      Name
+      name
     } 
     opportunityTypes (where: { organizacion: { id: $organization }}) {
       id
-      Name
+      name
     }
   }
 `;

@@ -4,11 +4,11 @@ export const GET_OPPORTUNITY_FIELDS = gql`
   query ($organization: ID!)  {
     states (where: { organizacion: { id: $organization } }) {
       id
-      Name
+      name
     } 
     opportunityTypes (where: { organizacion: { id: $organization }}) {
       id
-      Name
+      name
     }
 
     accounts (where: { organizacion: { id: $organization }}) {

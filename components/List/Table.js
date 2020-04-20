@@ -33,6 +33,11 @@ const Table = ({ fields, info, workspace, ...props }) => {
     changeMax(Math.min((max - 10), info.length))
   }
 
+
+  const nestedFields = [
+    'state', 'origin', 'account_type', 'contact_type', 'opportunity_type', 'account'
+  ]
+
   return (
     <div className="w-full mx-auto">
       <div className="bg-white shadow-md my-6">
@@ -52,10 +57,16 @@ const Table = ({ fields, info, workspace, ...props }) => {
                 <tr className="bg-grey-lighter cursor-pointer"  key={i}>
                     { fields && fields
                       .map((field, j) => {
+               
                       return (
                         <td className="py-4 px-6 border-b border-grey-light" key={j}>
                           <Link href={`/${workspace}/[id]`} as={`/${workspace}/${item.id}`}>
-                            <span>{item[field.key]}</span>
+                            <span>
+                              { (item[field.key] && item[field.key].name)
+                                ? item[field.key].name
+                                : item[field.key]
+                              }
+                            </span>
                           </Link>
                         </td>
                       )

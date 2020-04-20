@@ -20,7 +20,7 @@ const Contacts = props => {
       key: 'name'
     },
     { name: 'Tipo',
-      key: 'contact_type.Name'
+      key: 'contact_type'
     },
     { name: 'Email',
       key: 'email'
@@ -32,7 +32,7 @@ const Contacts = props => {
       key: 'gender'
     },
     { name: 'Cuenta',
-      key: 'account.name'
+      key: 'account'
     },
   ]
 

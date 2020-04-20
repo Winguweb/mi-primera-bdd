@@ -20,7 +20,7 @@ const Contacts = ({ loading, error, data }) => {
     if (!contacts) {
       setIsEmpty(true)
     } else {
-      const grouped = _.countBy(contacts, (contact => contact.contact_type.Name))
+      const grouped = _.countBy(contacts, (contact => contact.contact_type.name))
       formatted = {
         labels: Object.keys(grouped),
         datasets: [{

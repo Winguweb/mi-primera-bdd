@@ -10,7 +10,7 @@ export const GET_CONTACTS = gql`
       name
       lastname
       contact_type {
-        Name
+        name
       }
       email
       phone

@@ -8,7 +8,7 @@ import Loader from '../Loader'
 class Form extends Component {
   state = {
     name: this.props.data.account ? this.props.data.account.name : '',
-    account_type: this.props.data.account ? this.props.data.account.type : null,
+    account_type: (this.props.data.account && this.props.data.account.account_type) ? this.props.data.account.account_type : null,
     email: this.props.data.account ? this.props.data.account.email : '',
     alternative_email: this.props.data.account ? this.props.data.account.alternative_email : '',
     phone: this.props.data.account ? this.props.data.account.phone : 123456789,
@@ -37,6 +37,7 @@ class Form extends Component {
       observations
     } = this.state
 
+    console.log(this.props.data.account)
     return (
       <Mutation mutation={this.props.mutation} variables={{
         ...this.state,
@@ -77,6 +78,7 @@ class Form extends Component {
                       value={account_type}
                       onChange={this.handleChange}
                       >
+                      <option value={null}>Elegir una cuenta</option>
                       { accountTypes && accountTypes.map((type) => (
                         <option key={type.id} value={type.id}>{type.name}</option>
                       ))}
@@ -222,6 +224,7 @@ class Form extends Component {
                       className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
                       onClick={(e) => {
                         e.preventDefault()
+                        console.log(this.state)
                         accountMutation()
                       }}>
                       { loading 

@@ -60,10 +60,10 @@ export const CREATE_CONTACT_AND_ACCOUNT = gql`
           name
         }
         origin {
-          Name
+          name
         }
         contact_type {
-          Name
+          name
         }
         gender
       }

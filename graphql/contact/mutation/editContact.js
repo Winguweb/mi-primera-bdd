@@ -61,11 +61,11 @@ export const EDIT_CONTACT = gql`
           id
         }
         origin {
-          Name
+          name
           id
         }
         contact_type {
-          Name
+          name
           id
         }
         gender
