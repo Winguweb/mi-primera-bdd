@@ -11,9 +11,9 @@ const Navbar = ({ isAuthenticated, loggedUser }) => {
     <nav className="fixed w-full flex items-center justify-between flex-wrap bg-blue-wingu p-6 z-10">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Link href="/">
-          <Logo className="cursor-pointer mr-6" />
+          <Logo className="cursor-pointer mr-4" />
         </Link>
-        <h1 className="font-title text-xl uppercase">Mi primera base de datos</h1>
+        <h1 className="font-title text-lg uppercase">Data</h1>
       </div>
       { isAuthenticated &&
         <div className="flex flex-col items-start text-white">

@@ -24,7 +24,7 @@ class MyApp extends App {
       <Layout
         isAuthenticated={isAuthenticated} {...pageProps}>
         <Head>
-          <title>Wingu | Mi primera base de datos</title>
+          <title>🚀 Wingudata</title>
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
           <link href='https://fonts.googleapis.com/css?family=Oswald|Raleway&display=swap' rel='stylesheet'  /> 
         </Head>
