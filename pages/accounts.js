@@ -14,7 +14,7 @@ const Accounts = props => {
       key: 'name'
     },
     { name: 'Tipo',
-      key: 'account_type.name'
+      key: 'account_type'
     },
     { name: 'Email',
       key: 'email'

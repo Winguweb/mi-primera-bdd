@@ -350,7 +350,7 @@ class Form extends Component {
                       value={origin}
                       onChange={this.handleChange}>
                       { origins && origins.map((or, i) => (
-                        <option value={or.id} key={i}>{or.Name}</option>
+                        <option value={or.id} key={i}>{or.name}</option>
                       ))}
                     </select>
                     <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
@@ -371,7 +371,7 @@ class Form extends Component {
                       >
                       <option value={null}>Elegir un tipo</option>
                       { contactTypes && contactTypes.map((typ, i) => (
-                        <option value={typ.id} key={i}>{typ.Name}</option>
+                        <option value={typ.id} key={i}>{typ.name}</option>
                       ))}
                     </select>
                     <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">

@@ -11,11 +11,11 @@ export const GET_OPPORTUNITY = gql`
       observations
       state {
         id
-        Name
+        name
       }
       opportunity_type {
         id
-        Name
+        name
       }
       account {
         id
@@ -25,12 +25,12 @@ export const GET_OPPORTUNITY = gql`
 
     states (where: { organizacion: { id: $organization }}) {
       id
-      Name
+      name
     } 
     
     opportunityTypes (where: { organizacion: { id: $organization }}) {
       id
-      Name
+      name
     }
 
     accounts (where: { organizacion: { id: $organization }}) {

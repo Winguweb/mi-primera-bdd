@@ -23,23 +23,23 @@ export const GET_CONTACT = gql`
       }
       origin {
         id
-        Name
+        name
       }
       contact_type {
         id
-        Name
+        name
       }
       gender
     }
 
     contactTypes (where: { organizacion: { id: $organization }}) {
       id
-      Name
+      name
     }
 
     origins (where: { organizacion: { id: $organization }}) {
       id
-      Name
+      name
     }
 
     accounts (where: { organizacion: { id: $organization }}) {

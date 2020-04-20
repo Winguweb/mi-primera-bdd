@@ -87,7 +87,7 @@ class Form extends Component {
                         value={opportunity_type}
                         onChange={this.handleChange}>
                           { opportunityTypes && opportunityTypes.map((opp, i) => (
-                            <option key={i} value={opp.id}>{ opp.Name }</option>
+                            <option key={i} value={opp.id}>{ opp.name }</option>
                           ))}
                         </select>
                         <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
@@ -108,7 +108,7 @@ class Form extends Component {
                           value={state}
                           onChange={this.handleChange}>
                           { states && states.map((st, i) =>  (
-                            <option value={st.id} key={i}>{st.Name}</option>
+                            <option value={st.id} key={i}>{st.name}</option>
                           ))}
                         </select>
                         <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">

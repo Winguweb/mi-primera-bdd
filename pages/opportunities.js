@@ -14,13 +14,13 @@ const Opportunities = props => {
       key: 'name'
     },
     { name: 'Estado',
-      key: 'state.Name'
+      key: 'state'
     },
     { name: 'Tipo',
-      key: 'opportunity_type.Name'
+      key: 'opportunity_type'
     },
     { name: 'Cuenta',
-      key: 'account.name'
+      key: 'account'
     },
     { name: 'Fecha',
       key: 'date'

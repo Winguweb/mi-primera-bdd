@@ -4,10 +4,10 @@ export const EDIT_STATE = gql`
   mutation EditState($id: ID!, $name: String!) {
     updateState(input: { 
       where: { id: $id },
-      data: { Name: $name }
+      data: { name: $name }
     }) {
       state {
-        Name
+        name
       }
     }
   }
