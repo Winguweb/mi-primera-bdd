@@ -57,12 +57,15 @@ export const CREATE_CONTACT = gql`
         observations
         volunteer
         account {
+          id
           name
         }
         origin {
+          id
           Name
         }
         contact_type {
+          id
           Name
         }
         gender

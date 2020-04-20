@@ -58,12 +58,15 @@ export const EDIT_CONTACT = gql`
         volunteer
         account {
           name
+          id
         }
         origin {
           Name
+          id
         }
         contact_type {
           Name
+          id
         }
         gender
       }

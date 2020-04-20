@@ -20,9 +20,9 @@ class Form extends Component {
     subscribed: this.props.data.contact ? this.props.data.contact.subscribed : false,
     observations: this.props.data.contact ? this.props.data.contact.observations : '',
     volunteer: this.props.data.contact ? this.props.data.contact.volunteer : false,
-    account: this.props.data.contact ? this.props.data.contact.account.id : null,
-    origin: this.props.data.contact  ? this.props.data.contact.origin.id : null,
-    contact_type: this.props.data.contact ? this.props.data.contact.contact_type.id : null,
+    account: (this.props.data.contact && this.props.data.contact.account) ? this.props.data.contact.account.id : null,
+    origin: (this.props.data.contact  && this.props.data.contact.origin) ? this.props.data.contact.origin.id : null,
+    contact_type: (this.props.data.contact && this.props.data.contact.contact_type) ? this.props.data.contact.contact_type.id : null,
     gender: this.props.data.contact ? this.props.data.contact.gender : 'femenino',
     identification: this.props.data.contact ? this.props.data.contact.identification : 123456789
   }
@@ -39,6 +39,7 @@ class Form extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target
+    console.log(name, value)
 
     this.setState({ 
       [name]: value
@@ -79,7 +80,7 @@ class Form extends Component {
       contactTypes,
       accounts
     } = this.props.data
-
+   
     return (
       <Mutation
         mutation={(this.props.mode === 'create' && account === 'new') ? CREATE_CONTACT_AND_ACCOUNT : this.props.mutation }
@@ -87,7 +88,7 @@ class Form extends Component {
           ...this.state,
           organization: getIdFromLocalCookie() }}
         onCompleted={() => Router.push({ pathname: '/contacts', query: { success: 'true'} })}>
-          {( contactMutation, { loading, error }) => (
+        {( contactMutation, { loading, error }) => (
         <>
           {
             error && 
@@ -366,7 +367,9 @@ class Form extends Component {
                       className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
                       name="contact_type"
                       value={contact_type}
-                      onChange={this.handleChange}>
+                      onChange={this.handleChange}
+                      >
+                      <option value={null}>Elegir un tipo</option>
                       { contactTypes && contactTypes.map((typ, i) => (
                         <option value={typ.id} key={i}>{typ.Name}</option>
                       ))}
