@@ -46,7 +46,7 @@ class Form extends Component {
       province,
       country
     } = this.state
-    console.log(this.props.data.account.account_type)
+
     return (
       <Mutation mutation={this.props.mutation} variables={{
         ...this.state,
@@ -248,7 +248,6 @@ class Form extends Component {
                       className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
                       onClick={(e) => {
                         e.preventDefault()
-                        console.log(this.state)
                         accountMutation()
                       }}>
                       { loading 

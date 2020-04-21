@@ -19,6 +19,14 @@ export const CREATE_CONTACT = gql`
     $origin: ID,
     $contact_type: ID,
     $gender: ENUM_CONTACT_GENDER,
+    $address: String,
+    $city:  String,
+    $zip_code:  String,
+    $province:  String,
+    $country:  String,
+    $state:  String,
+    $schedule:  String,
+    $skills:  String,
     $organization: ID!
   ) {
     createContact(input: { data: { 
@@ -39,7 +47,15 @@ export const CREATE_CONTACT = gql`
       origin: $origin,
       contact_type: $contact_type,
       gender: $gender,
-      organizacion: $organization
+      organizacion: $organization,
+      address: $address,
+      city: $city,
+      zip_code: $zip_code,
+      province: $province,
+      country: $country,
+      state: $state,
+      schedule: $schedule,
+      skills: $skills
     } }) {
       contact {
         id

@@ -24,7 +24,15 @@ class Form extends Component {
     origin: (this.props.data.contact  && this.props.data.contact.origin) ? this.props.data.contact.origin.id : null,
     contact_type: (this.props.data.contact && this.props.data.contact.contact_type) ? this.props.data.contact.contact_type.id : null,
     gender: this.props.data.contact ? this.props.data.contact.gender : 'femenino',
-    identification: this.props.data.contact ? this.props.data.contact.identification : 123456789
+    identification: this.props.data.contact ? this.props.data.contact.identification : 123456789,
+    address: this.props.data.contact ? this.props.data.contact.address : '',
+    city: this.props.data.contact ? this.props.data.contact.city : '',
+    zip_code: this.props.data.contact ? this.props.data.contact.zip_code : '',
+    province: this.props.data.contact ? this.props.data.contact.province : '',
+    country: this.props.data.contact ? this.props.data.contact.country : '',
+    state: this.props.data.contact ? this.props.data.contact.state : '',
+    schedule: this.props.data.contact ? this.props.data.contact.schedule : '',
+    skills: this.props.data.contact ? this.props.data.contact.skills : '',
   }
 
   toggleIsVolunteer = (e) => {
@@ -39,7 +47,6 @@ class Form extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target
-    console.log(name, value)
 
     this.setState({ 
       [name]: value
@@ -72,7 +79,15 @@ class Form extends Component {
       origin,
       contact_type,
       gender,
-      identification
+      identification,
+      address,
+      city,
+      zip_code,
+      province,
+      country,
+      state,
+      schedule,
+      skills,
     } = this.state
 
     const {
@@ -236,22 +251,40 @@ class Form extends Component {
                   </div>
                   <div className="-mx-3 md:flex mb-6">
                     <div className="md:w-1/3 px-3 mb-6 md:mb-0">
-                      <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-first-name">
+                      <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="state">
                         Estado
                       </label>
-                      <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+                      <input
+                        className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                        name="state"
+                        type="text"
+                        placeholder="Estado"
+                        value={state}
+                        onChange={this.handleChange} />
                     </div>
                     <div className="md:w-1/3 px-3 mb-6 md:mb-0">
-                      <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-first-name">
+                      <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="schedule">
                         Turno
                       </label>
-                      <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+                      <input
+                        className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                        name="schedule"
+                        type="text"
+                        value={schedule}
+                        onChange={this.handleChange}
+                        placeholder="Turno" />
                     </div>
                     <div className="md:w-1/3 px-3 mb-6 md:mb-0">
-                      <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-first-name">
+                      <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="skills">
                         Habilidades
                       </label>
-                      <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Juan" />
+                      <input
+                        className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                        name="skills"
+                        type="text"
+                        placeholder="Habilidades"
+                        value={skills}
+                        onChange={this.handleChange} />
                     </div>
                   </div>
                   <div className="-mx-3 md:flex mb-6 px-6">
@@ -306,36 +339,66 @@ class Form extends Component {
               </div>
               <div className="-mx-3 md:flex mb-6">
                 <div className="md:w-1/3 px-3">
-                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
+                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="address">
                     Dirección <span className="ml-2 normal-case text-xs italic font-light">Calle y numeración</span>
                   </label>
-                  <input placeholder="Dirección" className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" />
+                  <input
+                    placeholder="Dirección"
+                    className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                    type="text"
+                    name="address"
+                    value={address}
+                    onChange={this.handleChange} />
                 </div>
                 <div className="md:w-1/3 px-3">
-                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
+                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="city">
                     Ciudad
                   </label>
-                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Ciudad" />
+                  <input
+                    className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                    type="text"
+                    placeholder="Ciudad"
+                    name="city"
+                    value={city}
+                    onChange={this.handleChange} />
                 </div>
                 <div className="md:w-1/3 px-3">
-                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
+                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="zip_code">
                     Código postal
                   </label>
-                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Código postal" />
+                  <input
+                    className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                    name="zip_code"
+                    value={zip_code}
+                    type="text"
+                    placeholder="Código postal"
+                    onChange={this.handleChange} />
                 </div>
               </div>
               <div className="-mx-3 md:flex mb-6">
                 <div className="md:w-1/3 px-3">
-                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
+                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="province">
                     Estado o provincia
                   </label>
-                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Estado o provincia" />
+                  <input
+                    className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                    name="province"
+                    type="text"
+                    placeholder="Estado o provincia"
+                    value={province}
+                    onChange={this.handleChange} />
                 </div>
                 <div className="md:w-1/3 px-3">
-                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
+                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="country">
                     País
                   </label>
-                  <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="País" />
+                  <input
+                    className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+                    name="country"
+                    type="text"
+                    placeholder="País"
+                    value={country}
+                    onChange={this.handleChange} />
                 </div>
               </div>
               <div className="-mx-3 md:flex mb-6">
