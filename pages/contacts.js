@@ -16,9 +16,6 @@ const Contacts = props => {
     { name: 'Apellido',
       key: 'lastname'
     },
-    { name: 'Nombre',
-      key: 'name'
-    },
     { name: 'Tipo',
       key: 'contact_type'
     },
