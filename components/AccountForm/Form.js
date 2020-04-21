@@ -8,13 +8,18 @@ import Loader from '../Loader'
 class Form extends Component {
   state = {
     name: this.props.data.account ? this.props.data.account.name : '',
-    account_type: (this.props.data.account && this.props.data.account.account_type) ? this.props.data.account.account_type : null,
+    account_type: (this.props.data.account && this.props.data.account.account_type) ? this.props.data.account.account_type.id : null,
     email: this.props.data.account ? this.props.data.account.email : '',
     alternative_email: this.props.data.account ? this.props.data.account.alternative_email : '',
     phone: this.props.data.account ? this.props.data.account.phone : 123456789,
     alt_phone: this.props.data.account ? this.props.data.account.alt_phone : 123456789,
     web: this.props.data.account ? this.props.data.account.web : '',
-    observations: this.props.data.account ? this.props.data.account.observations : ''
+    observations: this.props.data.account ? this.props.data.account.observations : '',
+    address: this.props.data.account ? this.props.data.account.address : '',
+    city: this.props.data.account ? this.props.data.account.city : '',
+    zip_code: this.props.data.account ? this.props.data.account.zip_code : '',
+    province: this.props.data.account ? this.props.data.account.province : '',
+    country: this.props.data.account ? this.props.data.account.country : '',
   }
 
   handleChange = (event) => {
@@ -34,10 +39,14 @@ class Form extends Component {
       phone,
       alt_phone,
       web,
-      observations
+      observations,
+      address,
+      city,
+      zip_code,
+      province,
+      country
     } = this.state
-
-    console.log(this.props.data.account)
+    console.log(this.props.data.account.account_type)
     return (
       <Mutation mutation={this.props.mutation} variables={{
         ...this.state,
@@ -117,51 +126,66 @@ class Form extends Component {
               </div>
               <div className="-mx-3 md:flex mb-6">
                 <div className="md:w-1/3 px-3">
-                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
+                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="address">
                     Dirección <span className="ml-2 normal-case text-xs italic font-light">Calle y numeración</span>
                   </label>
                   <input 
                     className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
                     type="text" 
-                    placeholder="Dirección" />
+                    name="address"
+                    placeholder="Dirección"
+                    value={address}
+                    onChange={this.handleChange} />
                 </div>
                 <div className="md:w-1/3 px-3">
-                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
+                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="city">
                     Ciudad
                   </label>
                   <input
                     className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
                     type="text" 
-                    placeholder="Ciudad" />
+                    name="city"
+                    placeholder="Ciudad" 
+                    value={city}
+                    onChange={this.handleChange} />
                 </div>
                 <div className="md:w-1/3 px-3">
-                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
+                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="zip_code">
                     Código postal
                   </label>
                   <input
                     className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
                     type="text" 
-                    placeholder="Código postal" />
+                    name="zip_code"
+                    placeholder="Código postal"
+                    value={zip_code}
+                    onChange={this.handleChange} />
                 </div>
               </div>
               <div className="-mx-3 md:flex mb-6">
                 <div className="md:w-1/2 px-3">
-                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
+                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="province">
                     Estado o provincia
                   </label>
                   <input
                     className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
                     type="text" 
-                    placeholder="Estado o provincia" />
+                    name="province"
+                    placeholder="Estado o provincia"
+                    value={province}
+                    onChange={this.handleChange} />
                 </div>
                 <div className="md:w-1/2 px-3">
-                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-state">
+                  <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="country">
                     País
                   </label>
                   <input
                     className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
                     type="text" 
-                    placeholder="País" />
+                    name="country"
+                    placeholder="País"
+                    value={country}
+                    onChange={this.handleChange} />
                 </div>
               </div>
               <div className="-mx-3 md:flex mb-6">

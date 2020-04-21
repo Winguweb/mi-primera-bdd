@@ -17,6 +17,9 @@ export const GET_CONTACT = gql`
       subscribed
       observations
       volunteer
+      state
+      schedule
+      skills
       account {
         id
         name
@@ -30,6 +33,11 @@ export const GET_CONTACT = gql`
         name
       }
       gender
+      address
+      city
+      zip_code
+      province
+      country
     }
 
     contactTypes (where: { organizacion: { id: $organization }}) {
