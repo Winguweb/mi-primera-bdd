@@ -6,7 +6,7 @@ import { DELETE_ACCOUNT } from '../graphql/account/mutation/deleteAccount'
 import securePage from '../hocs/securePage'
 import List from '../components/List'
 
-const Accounts = props => {
+const Accounts = () => {
   const [search, setSearch] = useState('') 
   const title = "Gestión de cuentas"
   const fields = [
