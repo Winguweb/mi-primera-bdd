@@ -4,13 +4,10 @@ import Loader from '../Loader'
 const LoginForm = props => {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
-  const [loading, setLoading] = useState(false)
   
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    
-    const result = props.submit({
+    e.preventDefault()    
+    props.submit({
       email, password
     })
   }
@@ -39,7 +36,12 @@ const LoginForm = props => {
           type="text"
           placeholder="ejemplo@winguweb.org"
           value={email}
-          onChange={event => setEmail(event.target.value)}
+          onChange={event => {
+            if (props.errorMessage) {
+              props.handleErrorMessage(null)
+            }
+            setEmail(event.target.value)
+          }}
         />
       </div>
       <div className="mb-6">
@@ -50,17 +52,29 @@ const LoginForm = props => {
           Contraseña
         </label>
         <input
-          className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
           id="password"
           type="password"
           placeholder="******************"
           value={password}
-          onChange={event => setPassword(event.target.value)}
+          onChange={event => {
+            if (props.errorMessage) {
+              props.handleErrorMessage(null)
+            }
+            setPassword(event.target.value)
+          }}
         />
-        { !password &&
+        {/* { !password &&
           <p className="text-red-500 text-xs italic">
             Por favor, ingrese una contraseña.
           </p>
+        } */}
+        {
+          props.errorMessage && (
+            <p className="text-red-500 text-xs italic">
+             { props.errorMessage }
+            </p>
+          )
         }
       </div>
       <div className="flex items-center justify-center">
@@ -68,7 +82,7 @@ const LoginForm = props => {
           className="bg-blue-wingu text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           type="submit"
         >
-          { loading 
+          { props.loading 
             ? <Loader />
             : <span>Ingresar</span>
           }

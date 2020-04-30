@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import defaultPage from '../hocs/defaultPage'
 import { strapiLogin } from '../lib/auth'
 import Router from 'next/router'
@@ -13,15 +13,30 @@ const Login = (props) => {
   }, [])
 
   const onSubmit = ({ email, password }) => {
+    handleLoading(true)
     strapiLogin(email, password).then(() => {
       console.log(Cookies.get('username'))
+    }).catch((err) => {
+      handleLoading(false)
+      handleErrorMessage(err)
+      console.log(err)
+      console.log('error!')
     })
   }
+
+  const [loading, handleLoading] = useState(false)
+
+  const [errorMessage, handleErrorMessage] = useState(null)
 
   return (
     <div className="h-screen max-h-screen ">
       <div className="h-full w-full max-w-xs mx-auto flex items-center">
-        <LoginForm submit={onSubmit} />
+        <LoginForm 
+          submit={onSubmit} 
+          loading={loading}
+          errorMessage={errorMessage}
+          handleErrorMessage={handleErrorMessage}
+        />
       </div>
     </div>
   )
