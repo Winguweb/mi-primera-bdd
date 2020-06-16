@@ -42,7 +42,7 @@ const Opportunities = ({ loading, error, data }) => {
   return (
     <div>
       <h2 className="text-lg mb-4 font-bold">Oportunidades por estado</h2>
-      { data.opportunities && !!data.opportunities.length
+      { data && data.opportunities && !!data.opportunities.length
         ? <Pie data={formatted} options={options} />
         : ( <EmptyState>
           <SvgPie />
