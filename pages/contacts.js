@@ -44,9 +44,9 @@ const Contacts = props => {
         organization: getIdFromLocalCookie(),
         search: search
       }}
-      fetchPolicy={"network-only"} >
+      fetchPolicy={"no-cache"} >
       {({ loading, data, error }) => {
-
+      
       if (loading || !data) {
         return <p>Cargando...</p>;
       }

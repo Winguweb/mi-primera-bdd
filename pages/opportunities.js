@@ -46,7 +46,7 @@ const Opportunities = props => {
         organization: getIdFromLocalCookie(),
         search: search
       }}
-      fetchPolicy={"network-only"} >
+      fetchPolicy={"no-cache"} >
       {({ loading, data, error }) => {
 
       if (loading || !data) {
