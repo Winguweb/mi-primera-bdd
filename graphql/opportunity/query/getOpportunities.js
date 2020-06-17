@@ -18,6 +18,8 @@ export const GET_OPPORTUNITIES= gql`
         name
       }
       date
+      currency
+      ammount
     }
   }
 `;
