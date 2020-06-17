@@ -6,7 +6,8 @@ module.exports = {
         'green-wingu': '#00DE89',
         'orange-wingu': '#FF7214',
         'yellow-wingu': '#FFBD2E',
-        'gray-wingu': '#E0C7BF'
+        'gray-wingu': '#E0C7BF',
+        'error-red': '#F44336'
       },
       fontFamily: {
         'title': ['Oswald', 'sans-serif'],

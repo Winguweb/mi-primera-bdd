@@ -4,9 +4,9 @@ import Router from 'next/router'
 import { getIdFromLocalCookie } from '../../lib/auth'
 import Alert from '../Alert'
 import Loader from '../Loader'
-import { parse } from 'graphql'
+// import { parse } from 'graphql'
 
-class Form extends Component {
+class Form extends Component {  
   state = {
     name: this.props.data.opportunity ? this.props.data.opportunity.name : '',
     date: this.props.data.opportunity ? this.props.data.opportunity.date : null,
@@ -15,7 +15,8 @@ class Form extends Component {
     observations: this.props.data.opportunity ? this.props.data.opportunity.observations : '',
     state: (this.props.data.opportunity && this.props.data.opportunity.state) ? this.props.data.opportunity.state.id : this.props.data.states[0].id,
     opportunity_type: (this.props.data.opportunity &&  this.props.data.opportunity.opportunity_type) ? this.props.data.opportunity.opportunity_type.id : this.props.data.opportunityTypes[0].id,
-    account: (this.props.data.opportunity && this.props.data.opportunity.account) ? this.props.data.opportunity.account.id : this.props.data.accounts[0].id
+    account: (this.props.data.opportunity && this.props.data.opportunity.account) ? this.props.data.opportunity.account.id : '',
+    changeRequired: false
   }
 
   handleChange = (event) => {
@@ -34,6 +35,10 @@ class Form extends Component {
     })
   }
 
+  isValid = () => {
+    return !!(this.state.account)
+  }
+
   render() {
     const { opportunityTypes, states, accounts } = this.props.data
 
@@ -45,7 +50,8 @@ class Form extends Component {
       observations,
       state,
       opportunity_type,
-      account
+      account,
+      changeRequired
     } = this.state
 
     return (
@@ -122,10 +128,19 @@ class Form extends Component {
                       </label>
                       <div className="relative">
                         <select
-                          className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
+                          className={`block appearance-none w-full bg-grey-lighter border text-grey-darker py-3 px-4 pr-8 rounded ${changeRequired ? 'border-error-red' : 'border-grey-lighter'}`}
                           name="account"
                           value={account}
-                          onChange={this.handleChange}>
+                          onChange={(e) => {
+                            if (changeRequired) {
+                              this.setState({
+                                changeRequired: false
+                              })
+                            }
+                            this.handleChange(e)
+                          }}
+                        >
+                          <option disabled={true} value=''>Seleccionar cuenta</option>
                           { accounts && accounts.map((acc, i) => (
                             <option value={acc.id} key={i}>{acc.name}</option>
                           ))}
@@ -195,13 +210,24 @@ class Form extends Component {
                         onChange={this.handleChange} />
                     </div>
                   </div>
+                  { changeRequired && (
+                    <p className="text-error-red">
+                      Completar campos requeridos
+                    </p>
+                  )}
                   <div className="-mx-3 md:flex md:justify-center mb-2 mt-4">
 
                         <button
                           className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
                           onClick={(e) => {
                             e.preventDefault()
-                            opportunityMutation()
+                            if (this.isValid()) {
+                              opportunityMutation()
+                            } else {
+                              this.setState({
+                                changeRequired: true
+                              })
+                            }
                           }}>
                           { loading 
                             ? <Loader />
