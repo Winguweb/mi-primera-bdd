@@ -10,7 +10,14 @@ const Contacts = ({ loading, error, data }) => {
   const options = {
     legend: {
       display: false
-    }
+    },
+    scales: {
+      yAxes: [{
+          ticks: {
+              precision: 0
+          }
+      }]
+  }
   }
 
   if (loading) return <p>Loading...</p>

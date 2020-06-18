@@ -12,6 +12,13 @@ const Accounts = ({ loading, error, data }) => {
   const options = {
     legend: {
       display: false
+    },
+    scales: {
+      yAxes: [{
+          ticks: {
+              precision: 0
+          }
+      }]
     }
   }
 
