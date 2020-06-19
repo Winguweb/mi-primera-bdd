@@ -6,7 +6,7 @@ import Accounts from './Charts/Accounts'
 import AccountsWithOpportunities from './Charts/AccountsWithOpportunities'
 import Contacts from './Charts/Contacts'
 import Opportunities from './Charts/Opportunities'
-
+import OpportunityAmounts from './Charts/OpportunityAmounts'
 
 const Dashboard = ({ loggedUser }) => {
   const { loading, error, data } = useQuery(GET_METRICS, {
@@ -33,6 +33,11 @@ const Dashboard = ({ loggedUser }) => {
           </div>
           <div className="w-1/2 p-2">
             <AccountsWithOpportunities loading={loading} error={error} data={data} />
+          </div>
+        </div>
+        <div className="row flex mb-4">
+          <div className="w-1/2 p-2">
+            <OpportunityAmounts loading={loading} error={error} data={data}/>
           </div>
         </div>
       </div>
