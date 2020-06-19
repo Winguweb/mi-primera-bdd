@@ -20,7 +20,7 @@ class Form extends Component {
     subscribed: this.props.data.contact ? this.props.data.contact.subscribed : false,
     observations: this.props.data.contact ? this.props.data.contact.observations : '',
     volunteer: this.props.data.contact ? this.props.data.contact.volunteer : false,
-    account: (this.props.data.contact && this.props.data.contact.account) ? this.props.data.contact.account.id : null,
+    account: (this.props.data.contact && this.props.data.contact.account) ? this.props.data.contact.account.id : 'new',
     origin: (this.props.data.contact  && this.props.data.contact.origin) ? this.props.data.contact.origin.id : null,
     contact_type: (this.props.data.contact && this.props.data.contact.contact_type) ? this.props.data.contact.contact_type.id : null,
     gender: this.props.data.contact ? this.props.data.contact.gender : 'femenino',
@@ -97,18 +97,18 @@ class Form extends Component {
     } = this.props.data
    
     return (
-      <Mutation
-        mutation={(this.props.mode === 'create' && account === 'new') ? CREATE_CONTACT_AND_ACCOUNT : this.props.mutation }
-        variables={{
-          ...this.state,
-          organization: getIdFromLocalCookie() }}
-        onCompleted={() => Router.push({ pathname: '/contacts', query: { success: 'true'} })}>
-        {( contactMutation, { loading, error }) => (
+      // <Mutation
+      //   mutation={(this.props.mode === 'create' && account === 'new') ? CREATE_CONTACT_AND_ACCOUNT : this.props.mutation }
+      //   variables={{
+      //     ...this.state,
+      //     organization: getIdFromLocalCookie() }}
+      //   onCompleted={() => Router.push({ pathname: '/contacts', query: { success: 'true'} })}>
+      //   {( contactMutation, { loading, error }) => (
         <>
-          {
+          {/* {
             error && 
             <Alert mode="error">No se pudo guardar el contacto. Por favor intente nuevamente.</Alert>
-          }
+          } */}
           <form>
             <div className="bg-white px-4 pt-6 pb-8 mb-4 flex flex-col my-2">
               <div className="-mx-3 md:flex mb-6">
@@ -488,19 +488,20 @@ class Form extends Component {
                   className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
                   onClick={(e) => {
                     e.preventDefault()
-                    contactMutation()
+                    this.props.handleSubmit(this.state)
                   }}>
-                  { loading 
+                  {/* { loading 
                     ? <Loader />
                     : <span>Guardar contacto</span>
-                  } 
+                  }  */}
+                  <span>Guardar contacto</span>
                 </button>      
               </div>
             </div>
           </form>
         </>
-      )}
-    </Mutation>
+    //   )}
+    // </Mutation>
     )
   }
 }
