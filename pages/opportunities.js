@@ -28,11 +28,7 @@ const Opportunities = props => {
     {
       name: 'Monto',
       key: 'ammount'
-    },
-    {
-      name: 'Moneda',
-      key: 'currency'
-    },
+    },    
   ]
 
   const cta = {

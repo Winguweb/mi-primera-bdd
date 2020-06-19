@@ -22,8 +22,8 @@ const Opportunities = ({ loading, error, data }) => {
       if (!(op.state && states[op.state.name])) {
         states[op.state.name] = 0
       }
-    })
-    data.opportunities.filter((obj) => obj.currency === currency).forEach((opp) => states[opp.state.name] += opp.ammount)
+    })    
+    data.opportunities.forEach((opp) => states[opp.state.name] += parseInt(opp.ammount))
     formatted = {
       labels: Object.keys(states),
       datasets: [{
@@ -47,12 +47,9 @@ const Opportunities = ({ loading, error, data }) => {
   if (loading) return <p>Loading...</p>
 
   return (
-    <div>
-      {/* className={`block appearance-none w-full bg-grey-lighter border text-grey-darker py-3 px-4 pr-8 rounded ${changeRequired ? 'border-error-red' : 'border-grey-lighter'}`} */}
+    <div>    
       <h2 className="text-lg mb-4 font-bold">
-        {`Oportunidades por monto en `}
-        <span className={`cursor-pointer ${currency === 'pesos' && 'text-green-wingu'}`} onClick={() => { handleCurrency('pesos') }}>pesos</span> {` / `} 
-        <span className={`cursor-pointer ${currency === 'dolar' && 'text-green-wingu'}`} onClick={() => { handleCurrency('dolar') }}>dolares</span>
+        {`Oportunidades por monto`}
       </h2>
       { data && data.opportunities && !!data.opportunities.length
         ? <Polar data={formatted} options={options} />

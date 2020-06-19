@@ -16,7 +16,7 @@ const NewOpportunity = () => {
           <OpportunityForm
             data={data}
             mutation={CREATE_OPPORTUNITY}
-            />
+          />
         )
       }}
     </Query>
