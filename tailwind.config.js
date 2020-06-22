@@ -7,11 +7,12 @@ module.exports = {
         'orange-wingu': '#FF7214',
         'yellow-wingu': '#FFBD2E',
         'gray-wingu': '#E0C7BF',
-        'error-red': '#F44336'
+        'error-red': '#F44336',
+        'purple-wingu': '#7444BE',
       },
       fontFamily: {
         'title': ['Oswald', 'sans-serif'],
-        'body': ['Raleway', 'sans-serif']
+        'body': ['Inter', 'sans-serif']
       },
       minHeight: {
         '1/4': '100px',

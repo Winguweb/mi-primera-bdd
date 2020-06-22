@@ -4,6 +4,7 @@ import { strapiLogin } from '../lib/auth'
 import Router from 'next/router'
 import Cookies from 'js-cookie'
 import LoginForm from '../components/LoginForm'
+import Icon from '../assets/wingudata-icon.svg'
 
 const Login = (props) => {
   useEffect(() => {
@@ -29,14 +30,19 @@ const Login = (props) => {
   const [errorMessage, handleErrorMessage] = useState(null)
 
   return (
-    <div className="h-screen max-h-screen ">
-      <div className="h-full w-full max-w-xs mx-auto flex items-center">
-        <LoginForm 
-          submit={onSubmit} 
-          loading={loading}
-          errorMessage={errorMessage}
-          handleErrorMessage={handleErrorMessage}
-        />
+    <div className="h-screen max-h-screen flex justify-center items-center">
+      <div className="p-x"> 
+        <div className="absolute left-0 top-0 ">
+          <Icon />
+        </div>
+      </div>
+      <div>
+          <LoginForm 
+            submit={onSubmit} 
+            loading={loading}
+            errorMessage={errorMessage}
+            handleErrorMessage={handleErrorMessage}
+          />
       </div>
     </div>
   )

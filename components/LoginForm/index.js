@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Loader from '../Loader'
-
+import Logo from '../../assets/wingudata-logo.svg'
 const LoginForm = props => {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
@@ -16,22 +16,23 @@ const LoginForm = props => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="md:w-full bg-white shadow-md rounded px-8 pt-6 pb-8"
+      className=""
     >
       <div className="mb-4 w-full text-center">
-        <span className="text-blue-wingu font-title text-2xl uppercase">
-          Iniciar sesión
-        </span>
+        <Logo />
+        <div>
+          <span>Mi primera base de datos</span>
+        </div>
       </div>
       <div className="mb-4">
         <label
-          className="block text-gray-700 text-sm font-bold mb-2"
+          className="block text-gray-700 text-sm mb-2"
           htmlFor="email"
         >
           Correo electrónico
         </label>
         <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-purple-wingu"
           id="email"
           type="text"
           placeholder="ejemplo@winguweb.org"
@@ -46,13 +47,13 @@ const LoginForm = props => {
       </div>
       <div className="mb-6">
         <label
-          className="block text-gray-700 text-sm font-bold mb-2"
+          className="block text-gray-700 text-sm mb-2"
           htmlFor="password"
         >
           Contraseña
         </label>
         <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:border-purple-wingu"
           id="password"
           type="password"
           placeholder="******************"
@@ -79,7 +80,7 @@ const LoginForm = props => {
       </div>
       <div className="flex items-center justify-center">
         <button
-          className="bg-blue-wingu text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-purple-wingu text-white w-full py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
           type="submit"
         >
           { props.loading 
