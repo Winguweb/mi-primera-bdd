@@ -44,7 +44,7 @@ class Layout extends Component {
 
     return (
       <div>
-        <Navbar isAuthenticated={isAuthenticated} loggedUser={loggedUser} />
+        {  isAuthenticated && <Navbar isAuthenticated={isAuthenticated} loggedUser={loggedUser} />}
         {  isAuthenticated 
           ? (<div className="flex">
               <Sidebar />

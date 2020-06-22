@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Loader from '../Loader'
-
+import Logo from '../../assets/wingudata-logo.svg'
 const LoginForm = props => {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
@@ -12,29 +12,28 @@ const LoginForm = props => {
     })
   }
 
-
   return (
     <form
       onSubmit={handleSubmit}
-      className="md:w-full bg-white shadow-md rounded px-8 pt-6 pb-8"
+      className="w-1/2"
     >
-      <div className="mb-4 w-full text-center">
-        <span className="text-blue-wingu font-title text-2xl uppercase">
-          Iniciar sesión
-        </span>
+      <div className="mb-4 text-center">
+        <Logo />
+        <div className="text-center text-purple">
+          <span>Mi Primera Base de Datos</span>
+        </div>
       </div>
       <div className="mb-4">
         <label
-          className="block text-gray-700 text-sm font-bold mb-2"
+          className="block text-gray-wingu text-sm mb-2 focus-within:text-purple-wingu"
           htmlFor="email"
         >
           Correo electrónico
         </label>
         <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="appearance-none border-2 border-light-gray rounded w-full py-2 px-3 text-gray-wingu leading-tight focus:outline-none focus:border-purple-wingu"
           id="email"
           type="text"
-          placeholder="ejemplo@winguweb.org"
           value={email}
           onChange={event => {
             if (props.errorMessage) {
@@ -46,16 +45,15 @@ const LoginForm = props => {
       </div>
       <div className="mb-6">
         <label
-          className="block text-gray-700 text-sm font-bold mb-2"
+          className="block text-gray-wingu text-sm mb-2 focus-within:text-purple-wingu"
           htmlFor="password"
         >
           Contraseña
         </label>
         <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+          className="appearance-none border-2 border-light-gray rounded w-full py-2 px-3 text-gray-wingu mb-3 leading-tight focus:outline-none focus:border-purple-wingu"
           id="password"
           type="password"
-          placeholder="******************"
           value={password}
           onChange={event => {
             if (props.errorMessage) {
@@ -64,11 +62,9 @@ const LoginForm = props => {
             setPassword(event.target.value)
           }}
         />
-        {/* { !password &&
-          <p className="text-red-500 text-xs italic">
-            Por favor, ingrese una contraseña.
-          </p>
-        } */}
+        <div>
+          <a href="https://dev-test-uploads-wingu.s3.amazonaws.com/wingudata/Terminos+y+Condiciones+Wingudata.pdf" target="_blank" rel="noopener noreferrer" className="text-dark-purple">Términos y condiciones</a>
+        </div>
         {
           props.errorMessage && (
             <p className="text-red-500 text-xs italic">
@@ -79,7 +75,7 @@ const LoginForm = props => {
       </div>
       <div className="flex items-center justify-center">
         <button
-          className="bg-blue-wingu text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-purple-wingu text-white w-full py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
           type="submit"
         >
           { props.loading 
