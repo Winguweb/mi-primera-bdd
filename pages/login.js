@@ -36,7 +36,7 @@ const Login = (props) => {
           <Icon />
         </div>
       </div>
-      <div className="w-2/4">
+      <div className="w-2/4 ml-64">
           <LoginForm 
             submit={onSubmit} 
             loading={loading}
