@@ -12,30 +12,28 @@ const LoginForm = props => {
     })
   }
 
-
   return (
     <form
       onSubmit={handleSubmit}
-      className=""
+      className="w-1/2"
     >
-      <div className="mb-4 w-full text-center">
+      <div className="mb-4 text-center">
         <Logo />
-        <div>
-          <span>Mi primera base de datos</span>
+        <div className="text-center text-purple">
+          <span>Mi Primera Base de Datos</span>
         </div>
       </div>
       <div className="mb-4">
         <label
-          className="block text-gray-700 text-sm mb-2"
+          className="block text-gray-wingu text-sm mb-2 focus-within:text-purple-wingu"
           htmlFor="email"
         >
           Correo electrónico
         </label>
         <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-purple-wingu"
+          className="appearance-none border-2 border-light-gray rounded w-full py-2 px-3 text-gray-wingu leading-tight focus:outline-none focus:border-purple-wingu"
           id="email"
           type="text"
-          placeholder="ejemplo@winguweb.org"
           value={email}
           onChange={event => {
             if (props.errorMessage) {
@@ -47,16 +45,15 @@ const LoginForm = props => {
       </div>
       <div className="mb-6">
         <label
-          className="block text-gray-700 text-sm mb-2"
+          className="block text-gray-wingu text-sm mb-2 focus-within:text-purple-wingu"
           htmlFor="password"
         >
           Contraseña
         </label>
         <input
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:border-purple-wingu"
+          className="appearance-none border-2 border-light-gray rounded w-full py-2 px-3 text-gray-wingu mb-3 leading-tight focus:outline-none focus:border-purple-wingu"
           id="password"
           type="password"
-          placeholder="******************"
           value={password}
           onChange={event => {
             if (props.errorMessage) {
@@ -65,11 +62,9 @@ const LoginForm = props => {
             setPassword(event.target.value)
           }}
         />
-        {/* { !password &&
-          <p className="text-red-500 text-xs italic">
-            Por favor, ingrese una contraseña.
-          </p>
-        } */}
+        <div>
+          <a href="https://dev-test-uploads-wingu.s3.amazonaws.com/wingudata/Terminos+y+Condiciones+Wingudata.pdf" target="_blank" rel="noopener noreferrer" className="text-dark-purple">Términos y condiciones</a>
+        </div>
         {
           props.errorMessage && (
             <p className="text-red-500 text-xs italic">

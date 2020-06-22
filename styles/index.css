@@ -5,3 +5,6 @@
 body {
   @apply font-body;
 }
+input:focus-within ~ label {
+  color: '#7444BE';
+}

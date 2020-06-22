@@ -6,9 +6,12 @@ module.exports = {
         'green-wingu': '#00DE89',
         'orange-wingu': '#FF7214',
         'yellow-wingu': '#FFBD2E',
-        'gray-wingu': '#E0C7BF',
         'error-red': '#F44336',
         'purple-wingu': '#7444BE',
+        'purple': '#2f1f7e',
+        'dark-purple': '#08083b',
+        'gray-wingu': '#2d3748',
+        'light-gray': '#718096'
       },
       fontFamily: {
         'title': ['Oswald', 'sans-serif'],
@@ -91,6 +94,7 @@ module.exports = {
     animationDirection: ['responsive'],
     animationFillMode: ['responsive'],
     animationPlayState: ['responsive'],
+    color: ['responsive', 'focus-within']
   },
   plugins: [
     require('tailwindcss-animations'),

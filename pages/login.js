@@ -31,12 +31,12 @@ const Login = (props) => {
 
   return (
     <div className="h-screen max-h-screen flex justify-center items-center">
-      <div className="p-x"> 
-        <div className="absolute left-0 top-0 ">
+      <div className="p-x h-screen w-1/4"> 
+        <div className="absolute left-0 top-0 bottom-0 ">
           <Icon />
         </div>
       </div>
-      <div>
+      <div className="w-2/4">
           <LoginForm 
             submit={onSubmit} 
             loading={loading}
