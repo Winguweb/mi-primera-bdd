@@ -1,14 +1,13 @@
 import { useQuery } from '@apollo/react-hooks'
 import { getIdFromLocalCookie } from '../../lib/auth'
 import { GET_METRICS } from '../../graphql/metrics/query/getMetrics'
-import Header from './Header'
 import Accounts from './Charts/Accounts'
 import AccountsWithOpportunities from './Charts/AccountsWithOpportunities'
 import Contacts from './Charts/Contacts'
 import Opportunities from './Charts/Opportunities'
 import OpportunityAmounts from './Charts/OpportunityAmounts'
 
-const Dashboard = ({ loggedUser }) => {
+const Dashboard = () => {
   const { loading, error, data } = useQuery(GET_METRICS, {
     variables: {
       organization: getIdFromLocalCookie()
@@ -17,7 +16,7 @@ const Dashboard = ({ loggedUser }) => {
 
   return (
     <div className="p-2">
-      <Header loggedUser={loggedUser} />
+      <h2 className="text-lg mb-4 font-bold">Indicadores</h2>
       <div className="mt-4">
         <div className="row flex mb-4">
           <div className="w-1/2 p-2">
