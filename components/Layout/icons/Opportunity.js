@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Opportunity = () => (
+const Opportunity = ({active}) => (
   <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Dashboard" transform="translate(-24.000000, -354.000000)" fill="#718096">
+        <g id="Dashboard" transform="translate(-24.000000, -354.000000)" fill={active ? '#7444BE' : '#718096'}>
             <g id="Nav/Menu/List--Copy-6" transform="translate(0.000000, 337.000000)">
                 <g id="icon-target" transform="translate(23.000000, 16.000000)">
                     <g id="goal" transform="translate(1.000000, 1.000000)">
