@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
-    <title>icon-dashboard</title>
-    <desc>Created with Sketch.</desc>
+import React from 'react'
+
+const Opportunity = () => (
+  <svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Dashboard" transform="translate(-24.000000, -354.000000)" fill="#718096">
             <g id="Nav/Menu/List--Copy-6" transform="translate(0.000000, 337.000000)">
@@ -14,4 +13,7 @@
             </g>
         </g>
     </g>
-</svg>
+  </svg>
+)
+
+export default Opportunity

@@ -2,7 +2,11 @@ import { useRouter } from "next/router";
 import Link from 'next/link'
 import Header from '../Dashboard/Header'
 import { unsetToken } from '../../lib/auth'
-
+import Contact from './icons/Contact'
+import Indicator from './icons/Indicator'
+import Opportunity from './icons/Opportunity'
+import Account from './icons/Account.svg'
+import Custom from './icons/Custom.svg'
 
 const Sidebar = ({ loggedUser }) => {
   const router = useRouter()
@@ -17,29 +21,34 @@ const Sidebar = ({ loggedUser }) => {
               </button>
             </div>
             <Link href="/">
-              <span className={`text-light-gray ${router.pathname == "/" ? "bg-purple-100 font-bold text-purple-wingu" : ""} cursor-pointer px-1 py-2 hover:bg-purple-100 hover:bg-opacity-25 hover:text-purple-wingu block`}>
-                <span>Indicadores</span>
-              </span>
+              <div className={`text-light-gray ${router.pathname == "/" ? "border-l-2 border-purple-wingu bg-purple-100 font-bold text-purple-wingu" : ""} cursor-pointer px-1 py-2 hover:bg-purple-100 hover:bg-opacity-25 hover:text-purple-wingu flex`}>
+                <div><Indicator /></div>
+                <div className="pl-2">Indicadores</div>
+              </div>
             </Link>
             <Link href="/contacts">
-            <span className={`text-light-gray ${(router.pathname == "/contacts" || router.pathname == "/new-contact") ? "bg-purple-100 font-bold text-purple-wingu" : ""} cursor-pointer px-1 py-2 hover:bg-purple-100 hover:bg-opacity-25 hover:text-purple-wingu block`}>
-                <span>Contactos</span>
-              </span>
+              <div className={`text-light-gray ${router.pathname == "/contacts" ? "border-l-2 border-purple-wingu bg-purple-100 font-bold text-purple-wingu" : ""} cursor-pointer px-1 py-2 hover:bg-purple-100 hover:bg-opacity-25 hover:text-purple-wingu flex`}>
+                <div><Contact /></div>
+                <div className="pl-2">Contactos</div>
+              </div>
             </Link>
             <Link href="/accounts">
-            <span className={`text-light-gray ${(router.pathname == "/accounts" || router.pathname == "/new-account")? "bg-purple-100 font-bold text-purple-wingu" : ""} cursor-pointer px-1 py-2 hover:bg-purple-100 hover:text-purple-wingu block`}>
-                <span>Cuentas</span>
-              </span>
+              <div className={`text-light-gray ${router.pathname == "/accounts" ? "border-l-2 border-purple-wingu bg-purple-100 font-bold text-purple-wingu" : ""} cursor-pointer px-1 py-2 hover:bg-purple-100 hover:bg-opacity-25 hover:text-purple-wingu flex`}>
+                <div><Account /></div>
+                <div className="pl-2">Cuentas</div>
+              </div>
             </Link>
             <Link href="/opportunities">
-            <span className={`text-light-gray ${(router.pathname == "/opportunities" || router.pathname == "/new-opportunity") ? "bg-purple-100 font-bold text-purple-wingu" : ""} cursor-pointer px-1 py-2 hover:bg-purple-100 hover:text-purple-wingu block`}>
-                <span>Oportunidades</span>
-              </span>
+              <div className={`text-light-gray ${router.pathname == "/opportunities" ? "border-l-2 border-purple-wingu bg-purple-100 font-bold text-purple-wingu" : ""} cursor-pointer px-1 py-2 hover:bg-purple-100 hover:bg-opacity-25 hover:text-purple-wingu flex`}>
+                <div><Opportunity /></div>
+                <div className="pl-2">Oportunidades</div>
+              </div>
             </Link>
             <Link href="/customize">
-              <span className={`text-light-gray ${router.pathname == "/customize" ? "bg-purple-100 font-bold text-purple-wingu" : ""} cursor-pointer px-1 py-2 hover:bg-purple-100 hover:text-purple-wingu block`}>
-                <span>Campos customizables</span>
-              </span>
+              <div className={`text-light-gray ${router.pathname == "/customize" ? "border-l-2 border-purple-wingu bg-purple-100 font-bold text-purple-wingu" : ""} cursor-pointer px-1 py-2 hover:bg-purple-100 hover:bg-opacity-25 hover:text-purple-wingu flex`}>
+                <div><Custom /></div>
+                <div className="pl-2">Campos Customizables</div>
+              </div>
             </Link>
           <div className="mt-auto text-center">
             <span>
