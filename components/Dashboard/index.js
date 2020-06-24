@@ -26,7 +26,7 @@ const Dashboard = () => {
             <Contacts loading={loading} error={error} data={data} />
           </div>
         </div>
-        <div className="row flex justify-between my-8">
+        <div className="row flex justify-between flex-wrap my-8">
           <div className="w-3/5 custom-shadow rounded p-2">
             <Accounts loading={loading} error={error} data={data} />
           </div>

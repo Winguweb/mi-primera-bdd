@@ -1,5 +1,5 @@
 import _ from 'lodash'
-
+import Icon from '../assets/opportunity-sent.svg'
 const AccountsWithOportunities = ({ data, error, loading }) => {
   let counter = false
 
@@ -16,10 +16,17 @@ const AccountsWithOportunities = ({ data, error, loading }) => {
   return (
     <div className="flex flex-col justify-between">
       <h2 className="text-lg mb-4 font-bold">Cuentas con oportunidades</h2>
-      <h3 className="text-blue-wingu text-center text-6xl">{counter}</h3>
-      { (error || !counter) && 
-        <span className="text-center">Las métricas aún no están disponibles</span>
-      }
+      <div className="px-4">
+        <div className="flex items-center">
+          <div>
+          <Icon />
+          </div>
+          <h3 className="text-purple-wingu text-center text-4xl">{counter}</h3>
+        </div>
+        { (error || !counter) && 
+          <span className="text-light-gray text-sm">Las métricas aún no están disponibles</span>
+        }
+      </div>
     </div>
   )
 }
