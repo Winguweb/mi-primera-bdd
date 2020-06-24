@@ -8,7 +8,7 @@ const Searchbar = ({ handleSearch }) => {
       <div className="relative mr-6 my-2">
         <input
           type="search"
-          className="w-full bg-purple-white shadow rounded border-0 py-3 px-12"
+          className="w-full  border-b-2 border-dark-gray py-3 px-12 focus:outline-none"
           placeholder="Ingrese su búsqueda y presione 'Enter'"
           value={search}
           onChange={(e) => setSearch(e.target.value)}

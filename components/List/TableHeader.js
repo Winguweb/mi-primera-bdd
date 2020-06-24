@@ -3,7 +3,7 @@ import { UpTriangle, DownTriangle } from '../Icons'
 
 const TableHeader = ({ field, order, handleOrder }) => {
   return (
-    <th className="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light cursor-pointer" onClick={() => { handleOrder(field.key, order) }}>      
+    <th className="py-3 px-6 bg-purple-100 uppercase text-sm text-grey-dark border-b border-grey-light cursor-pointer" onClick={() => { handleOrder(field.key, order) }}>      
       <div className='flex items-center'>
       {field.name} 
       { order && (

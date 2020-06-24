@@ -14,7 +14,7 @@ const Contacts = ({ loading, error, data }) => {
     scales: {
       yAxes: [{
           ticks: {
-              precision: 0
+            beginAtZero: true
           }
       }]
   }
@@ -28,6 +28,7 @@ const Contacts = ({ loading, error, data }) => {
       setIsEmpty(true)
     } else {
       const grouped = _.countBy(contacts, (contact => contact.contact_type.name))
+      console.log(grouped)
       formatted = {
         labels: Object.keys(grouped),
         datasets: [{

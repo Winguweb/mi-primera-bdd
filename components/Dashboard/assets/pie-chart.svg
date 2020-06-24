@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="175px" height="178px" viewBox="0 0 175 178" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>circle</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-20.6%" y="-21.4%" width="141.2%" height="142.8%" filterUnits="objectBoundingBox" id="filter-1">
+            <feMorphology radius="0.5" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="1" dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.443137255   0 0 0 0 0.501960784   0 0 0 0 0.588235294  0 0 0 0.28392701 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard" transform="translate(-365.000000, -280.000000)" stroke-width="50.6024096">
+            <g id="card" filter="url(#filter-1)" transform="translate(281.000000, 175.000000)">
+                <g id="graphic" transform="translate(112.000000, 133.000000)">
+                    <g id="circle" transform="translate(58.108434, 60.000000) scale(-1, -1) translate(-58.108434, -60.000000) translate(0.108434, 0.000000)">
+                        <g id="Group-5">
+                            <path d="M55.660342,1.30279359 C25.4657666,1.47210847 -0.0153527181,27.7256829 -6.93405511e-06,58.3651529" id="Path" stroke="#FFC935"></path>
+                            <path d="M102.30988,0.698539174 C85.323277,0.793790873 69.5653194,9.11955514 59.5256435,21.8869323" id="Path" stroke="#FF6161" transform="translate(80.917762, 11.292736) scale(-1, 1) translate(-80.917762, -11.292736) "></path>
+                            <path d="M115.18602,24.7530782 C108.044644,34.3484978 103.759547,46.1804406 103.765816,58.7505876" id="Path" stroke="#BF5BFF" transform="translate(109.475918, 41.751833) scale(-1, 1) translate(-109.475918, -41.751833) "></path>
+                            <path d="M55.6603489,62.1686747 C25.4657735,62.3379896 -0.0153457841,88.591564 0,119.231034" id="Path" stroke="#8479FF" transform="translate(27.830174, 90.699854) scale(1, -1) translate(-27.830174, -90.699854) "></path>
+                        </g>
+                        <g id="Group-5" transform="translate(87.525644, 89.554217) scale(1, -1) translate(-87.525644, -89.554217) translate(59.525644, 60.554217)" stroke="#58D0FF">
+                            <path d="M55.6603489,0 C25.465781,0.169314875 -0.0153319309,26.4228893 0,57.0623593" id="Path" transform="translate(27.830174, 28.531180) scale(-1, 1) translate(-27.830174, -28.531180) "></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

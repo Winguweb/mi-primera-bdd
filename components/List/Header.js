@@ -36,14 +36,14 @@ const Header = ({ info, fields, name, cta }) => (
     <div className='flex'>
       <div className='mr-2'>
         <div onClick={() => { exportCsv(info, fields) }}>
-          <a className="button cursor-pointer text-blue-wingu flex items-center justify-center w-full p-4 font-bold rounded border border-blue-wingu">
+          <a className="button cursor-pointer text-purple-wingu flex items-center justify-center w-40 px-4 py-2 font-bold rounded-full border border-purple-wingu">
             Exportar
           </a>
         </div>
       </div>
       <div>
         <Link href={cta.link}>
-          <a className="button text-white bg-blue-wingu flex items-center justify-center w-full p-4 font-bold rounded">
+          <a className="button text-white bg-purple-wingu flex items-center justify-center max-w-md px-4 py-2 font-bold rounded-full">
             {cta.title}
           </a>
         </Link>
