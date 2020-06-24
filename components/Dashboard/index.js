@@ -16,7 +16,7 @@ const Dashboard = () => {
 
   return (
     <div className="p-2">
-      <h2 className="text-lg mb-4 font-bold">Indicadores</h2>
+      <h2 className="text-lg mb-4 font-bold border-b-4 border-yellow-wingu">Indicadores</h2>
       <div className="mt-4">
         <div className="row flex mb-4">
           <div className="w-1/2 p-2">
