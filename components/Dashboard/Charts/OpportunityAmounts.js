@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Polar } from 'react-chartjs-2'
+import { Doughnut } from 'react-chartjs-2'
 import _ from 'lodash'
 
 import EmptyState from '../assets/EmptyState'
@@ -52,7 +52,7 @@ const Opportunities = ({ loading, error, data }) => {
         {`Oportunidades por monto`}
       </h2>
       { data && data.opportunities && !!data.opportunities.length
-        ? <Polar data={formatted} options={options} />
+        ? <Doughnut data={formatted} options={options} />
         : ( <EmptyState>
           <SvgPie />
         </EmptyState> )
