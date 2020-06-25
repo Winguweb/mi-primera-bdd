@@ -3,15 +3,19 @@ module.exports = {
     extend: {
       colors: {
         'blue-wingu': '#2681FF',
-        'green-wingu': '#00DE89',
+        'green-wingu': '#00DE89', 
         'orange-wingu': '#FF7214',
         'yellow-wingu': '#FFBD2E',
         'error-red': '#F44336',
         'purple-wingu': '#7444BE',
         'purple': '#2f1f7e',
         'dark-purple': '#08083b',
+        'dark-gray': '#A8A8A8',
         'gray-wingu': '#2d3748',
-        'light-gray': '#718096'
+        'light-gray': '#718096',
+        'lighter-gray': '#D8D8D8',
+        'purple-200': '#e9d8fd',
+        'purple-100': '#faf5ff'
       },
       fontFamily: {
         'title': ['Oswald', 'sans-serif'],
