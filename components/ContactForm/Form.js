@@ -15,16 +15,16 @@ class Form extends Component {
     birth_date: this.props.data.contact ? this.props.data.contact.birth_date : null,
     email: this.props.data.contact ? this.props.data.contact.email : '',
     alt_email: this.props.data.contact ? this.props.data.contact.alt_email : '',
-    phone: this.props.data.contact ? this.props.data.contact.phone : 123456789,
-    cellphone: this.props.data.contact ? this.props.data.contact.cellphone : 123456789,
+    phone: this.props.data.contact ? this.props.data.contact.phone : null,
+    cellphone: this.props.data.contact ? this.props.data.contact.cellphone : null,
     subscribed: this.props.data.contact ? this.props.data.contact.subscribed : false,
     observations: this.props.data.contact ? this.props.data.contact.observations : '',
     volunteer: this.props.data.contact ? this.props.data.contact.volunteer : false,
-    account: (this.props.data.contact && this.props.data.contact.account) ? this.props.data.contact.account.id : null,
+    account: (this.props.data.contact && this.props.data.contact.account) ? this.props.data.contact.account.id : 'new',
     origin: (this.props.data.contact  && this.props.data.contact.origin) ? this.props.data.contact.origin.id : null,
     contact_type: (this.props.data.contact && this.props.data.contact.contact_type) ? this.props.data.contact.contact_type.id : null,
     gender: this.props.data.contact ? this.props.data.contact.gender : 'femenino',
-    identification: this.props.data.contact ? this.props.data.contact.identification : 123456789,
+    identification: this.props.data.contact ? this.props.data.contact.identification : null,
     address: this.props.data.contact ? this.props.data.contact.address : '',
     city: this.props.data.contact ? this.props.data.contact.city : '',
     zip_code: this.props.data.contact ? this.props.data.contact.zip_code : '',
@@ -97,18 +97,18 @@ class Form extends Component {
     } = this.props.data
    
     return (
-      <Mutation
-        mutation={(this.props.mode === 'create' && account === 'new') ? CREATE_CONTACT_AND_ACCOUNT : this.props.mutation }
-        variables={{
-          ...this.state,
-          organization: getIdFromLocalCookie() }}
-        onCompleted={() => Router.push({ pathname: '/contacts', query: { success: 'true'} })}>
-        {( contactMutation, { loading, error }) => (
+      // <Mutation
+      //   mutation={(this.props.mode === 'create' && account === 'new') ? CREATE_CONTACT_AND_ACCOUNT : this.props.mutation }
+      //   variables={{
+      //     ...this.state,
+      //     organization: getIdFromLocalCookie() }}
+      //   onCompleted={() => Router.push({ pathname: '/contacts', query: { success: 'true'} })}>
+      //   {( contactMutation, { loading, error }) => (
         <>
-          {
+          {/* {
             error && 
             <Alert mode="error">No se pudo guardar el contacto. Por favor intente nuevamente.</Alert>
-          }
+          } */}
           <form>
             <div className="bg-white px-4 pt-6 pb-8 mb-4 flex flex-col my-2">
               <div className="-mx-3 md:flex mb-6">
@@ -298,16 +298,24 @@ class Form extends Component {
                     Teléfono
                   </label>
                   <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
-                    name="phone" type="number"
-                    value={phone} onChange={this.handleChange} />
+                    name="phone" 
+                    type="number"
+                    label="Teléfono"
+                    value={phone} 
+                    onChange={this.handleChange} 
+                  />
                 </div>
                 <div className="md:w-1/3 px-3 mb-6 md:mb-0">
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="cellphone">
                     Móvil
                   </label>
                   <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
-                    name="cellphone" type="number"
-                    value={cellphone} onChange={this.handleChange} />
+                    name="cellphone" 
+                    label="Móvil"
+                    type="number"
+                    value={cellphone} 
+                    onChange={this.handleChange} 
+                  />
                 </div>
                 
               </div>
@@ -322,7 +330,8 @@ class Form extends Component {
                     name="email"
                     value={email}
                     onChange={this.handleChange}
-                    placeholder="Email" />
+                    placeholder="Email" 
+                  />
                 </div>
                 <div className="md:w-1/3 px-3 mb-6 md:mb-0">
                   <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="alt_email">
@@ -479,19 +488,20 @@ class Form extends Component {
                   className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
                   onClick={(e) => {
                     e.preventDefault()
-                    contactMutation()
+                    this.props.handleSubmit(this.state)
                   }}>
-                  { loading 
+                  {/* { loading 
                     ? <Loader />
                     : <span>Guardar contacto</span>
-                  } 
+                  }  */}
+                  <span>Guardar contacto</span>
                 </button>      
               </div>
             </div>
           </form>
         </>
-      )}
-    </Mutation>
+    //   )}
+    // </Mutation>
     )
   }
 }

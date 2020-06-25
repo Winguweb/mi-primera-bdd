@@ -25,6 +25,10 @@ const Opportunities = props => {
     { name: 'Fecha',
       key: 'date'
     },
+    {
+      name: 'Monto',
+      key: 'ammount'
+    },    
   ]
 
   const cta = {
@@ -38,7 +42,7 @@ const Opportunities = props => {
         organization: getIdFromLocalCookie(),
         search: search
       }}
-      fetchPolicy={"network-only"} >
+      fetchPolicy={"no-cache"} >
       {({ loading, data, error }) => {
 
       if (loading || !data) {

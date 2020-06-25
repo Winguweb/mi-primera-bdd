@@ -1,18 +1,57 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useMutation } from '@apollo/react-hooks'
+import moment from 'moment'
+import _ from 'lodash'
 import Link from 'next/link'
 import Router from 'next/router'
 import Pagination from './Pagination'
+import TableHeader from './TableHeader'
 import {
   Edit,
   Delete
 } from '../Icons'
 
+const comparison = (field1, field2, isDate = false) => {  
+  if (isDate) {
+    return field1.isSameOrAfter(field2) ? 1 : -1
+  }
+
+  return field1 < field2 ? 1 : -1
+}
+
+const sortInfo = (info, order) => {
+  const infoType = info[0] ? info[0][order.orderField] : null
+  if (!infoType) {
+    return info
+  }
+
+  if (typeof infoType === 'object') {
+    return info.sort((objA, objB) => { 
+      let lowerA = _.lowerCase(objA[order.orderField].name)
+      let lowerB = _.lowerCase(objB[order.orderField].name)
+      return order.orderType === 'asc' ? comparison(lowerA, lowerB) : comparison(lowerB, lowerA)      
+    })
+  } else if (moment(infoType).isValid()) {    
+    return info.sort((objA, objB) => { 
+      let lowerA = moment(objA[order.orderField])
+      let lowerB = moment(objB[order.orderField])
+      return order.orderType === 'asc' ?   comparison(lowerA, lowerB, true) : comparison(lowerB, lowerA, true)      
+    })    
+  } else if (typeof infoType === 'string') {  
+    return info.sort((objA, objB) => { 
+      let lowerA = _.lowerCase(objA[order.orderField])
+      let lowerB = _.lowerCase(objB[order.orderField])
+      return order.orderType === 'asc' ? comparison(lowerA, lowerB) : comparison(lowerB, lowerA)      
+    })    
+  }
+  return info
+}
+
 const Table = ({ fields, info, workspace, ...props }) => {
   const [deleteItem, { data }] = useMutation(props.delete, {
     onCompleted: () => Router.reload()
   })
-
+  
   const size = 10
 
   const [currentPage, changeCurrentPage] = useState(1)
@@ -21,16 +60,29 @@ const Table = ({ fields, info, workspace, ...props }) => {
 
   const [max, changeMax] = useState(Math.min(info.length, 10))
 
+  const [parsedInfo, handleInfo] = useState(info)
+
+  const [{ orderType, orderField }, handleOrder] = useState({
+    orderType: null,
+    orderField: null
+  })
+
+  useEffect(() => {
+    //check if has order
+    handleInfo(parsedInfo)
+  }, [info])
+  
+
   const moveForward = () => {
     changeCurrentPage(currentPage +1)
     changeMin(min + 10)
-    changeMax(Math.min((max + 10), info.length))
+    changeMax(Math.min((max + 10), parsedInfo.length))
   }
 
   const moveBackward = () => {
     changeCurrentPage(currentPage - 1)
     changeMin(min - 10)
-    changeMax(Math.min((max - 10), info.length))
+    changeMax(Math.min((max - 10), parsedInfo.length))
   }
 
 
@@ -45,13 +97,25 @@ const Table = ({ fields, info, workspace, ...props }) => {
           <thead>
             <tr>
               { fields && fields.map((field, i) => (
-                <th className="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light" key={i}>{field.name}</th>
+                <TableHeader
+                  key={i}
+                  field={field}
+                  order={orderField === field.key && orderType}
+                  handleOrder={(field, type) => {
+                    const order = {
+                      orderType: !type || type === 'asc' ? 'desc' : 'asc',
+                      orderField: field
+                    }
+                    handleOrder(order)
+                    handleInfo(sortInfo(info, order))
+                  }}
+                />
               ))}
-              <th className="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light"></th>
+              <th className="py-4 px-6 bg-purple-100 font-bold uppercase text-sm text-grey-dark border-b border-grey-light"></th>
             </tr>
           </thead>
           <tbody>
-            { info && info
+            { parsedInfo && parsedInfo
                 .slice((currentPage - 1) * size, currentPage * size)
                 .map((item, i) => (
                 <tr className="bg-grey-lighter cursor-pointer"  key={i}>
@@ -97,7 +161,7 @@ const Table = ({ fields, info, workspace, ...props }) => {
       <Pagination
         min={min}
         max={max}
-        total={info.length}
+        total={parsedInfo.length}
         moveBackward={moveBackward}
         moveForward={moveForward} />
     </div>

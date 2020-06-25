@@ -10,7 +10,14 @@ const Contacts = ({ loading, error, data }) => {
   const options = {
     legend: {
       display: false
-    }
+    },
+    scales: {
+      yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+      }]
+  }
   }
 
   if (loading) return <p>Loading...</p>
@@ -21,6 +28,7 @@ const Contacts = ({ loading, error, data }) => {
       setIsEmpty(true)
     } else {
       const grouped = _.countBy(contacts, (contact => contact.contact_type.name))
+      console.log(grouped)
       formatted = {
         labels: Object.keys(grouped),
         datasets: [{

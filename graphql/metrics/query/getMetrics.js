@@ -21,6 +21,8 @@ export const GET_METRICS = gql`
       state {
         name
       }
+      ammount
+      currency
     }
   }
 `;

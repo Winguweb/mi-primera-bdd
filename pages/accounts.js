@@ -34,7 +34,7 @@ const Accounts = props => {
       organization: getIdFromLocalCookie(),
       search: search
       }}
-      fetchPolicy={"network-only"}
+      fetchPolicy={"no-cache"}
       >
       {({ loading, data, error }) => {
 

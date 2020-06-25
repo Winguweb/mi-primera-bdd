@@ -5,7 +5,7 @@ import Header from './Header'
 import Searchbar from './Searchbar'
 import Table from './Table'
 
-const List = ({ cta,  title, data, handleSearch, ...props }) => {
+const List = ({ cta,  title, data, handleSearch, fields, ...props }) => {
   const [showAlert, toggleAlert] = useState(false)
   const router = useRouter()
   const { success } = router.query
@@ -21,9 +21,9 @@ const List = ({ cta,  title, data, handleSearch, ...props }) => {
       { showAlert &&
         <Alert mode="success"></Alert>
       }
-      <Header name={title} cta={cta} />
+      <Header info={data} name={title} cta={cta} fields={fields}/>
       <Searchbar handleSearch={handleSearch} />
-      <Table info={data} {...props} />
+      <Table info={data} fields={fields} {...props} />
     </div>
   )
 }

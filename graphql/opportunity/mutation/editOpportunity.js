@@ -3,7 +3,7 @@ import { gql } from "apollo-boost";
 export const EDIT_OPPORTUNITY = gql`
   mutation UpdateOpportunity($name: String!,
     $date: Date,
-    $ammount: Float,
+    $ammount: String,
     $currency: ENUM_OPPORTUNITY_CURRENCY,
     $observations: String,
     $state: ID,

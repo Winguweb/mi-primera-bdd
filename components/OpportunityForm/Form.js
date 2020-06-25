@@ -4,9 +4,9 @@ import Router from 'next/router'
 import { getIdFromLocalCookie } from '../../lib/auth'
 import Alert from '../Alert'
 import Loader from '../Loader'
-import { parse } from 'graphql'
+// import { parse } from 'graphql'
 
-class Form extends Component {
+class Form extends Component {  
   state = {
     name: this.props.data.opportunity ? this.props.data.opportunity.name : '',
     date: this.props.data.opportunity ? this.props.data.opportunity.date : null,
@@ -15,7 +15,8 @@ class Form extends Component {
     observations: this.props.data.opportunity ? this.props.data.opportunity.observations : '',
     state: (this.props.data.opportunity && this.props.data.opportunity.state) ? this.props.data.opportunity.state.id : this.props.data.states[0].id,
     opportunity_type: (this.props.data.opportunity &&  this.props.data.opportunity.opportunity_type) ? this.props.data.opportunity.opportunity_type.id : this.props.data.opportunityTypes[0].id,
-    account: (this.props.data.opportunity && this.props.data.opportunity.account) ? this.props.data.opportunity.account.id : this.props.data.accounts[0].id
+    account: (this.props.data.opportunity && this.props.data.opportunity.account) ? this.props.data.opportunity.account.id : '',
+    changeRequired: false
   }
 
   handleChange = (event) => {
@@ -30,8 +31,12 @@ class Form extends Component {
     const { value } = event.target
 
     this.setState({
-      ammount: parseInt(value)
+      ammount: value
     })
+  }
+
+  isValid = () => {
+    return !!(this.state.account)
   }
 
   render() {
@@ -45,13 +50,14 @@ class Form extends Component {
       observations,
       state,
       opportunity_type,
-      account
+      account,
+      changeRequired
     } = this.state
 
     return (
       <Mutation mutation={this.props.mutation} 
         variables={{ 
-          ammount: parseFloat(ammount),
+          ammount: (ammount + ''),
           ...this.state, 
           organization: getIdFromLocalCookie()
         }}
@@ -122,10 +128,19 @@ class Form extends Component {
                       </label>
                       <div className="relative">
                         <select
-                          className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
+                          className={`block appearance-none w-full bg-grey-lighter border text-grey-darker py-3 px-4 pr-8 rounded ${changeRequired ? 'border-error-red' : 'border-grey-lighter'}`}
                           name="account"
                           value={account}
-                          onChange={this.handleChange}>
+                          onChange={(e) => {
+                            if (changeRequired) {
+                              this.setState({
+                                changeRequired: false
+                              })
+                            }
+                            this.handleChange(e)
+                          }}
+                        >
+                          <option disabled={true} value=''>Seleccionar cuenta</option>
                           { accounts && accounts.map((acc, i) => (
                             <option value={acc.id} key={i}>{acc.name}</option>
                           ))}
@@ -148,8 +163,6 @@ class Form extends Component {
                         value={date}
                         onChange={this.handleChange}/>
                     </div>
-                  </div>
-                  <div className="-mx-3 md:flex mb-6">
                     <div className="md:w-1/2 px-3 mb-6 md:mb-0">
                       <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="ammount">
                         Monto
@@ -162,25 +175,7 @@ class Form extends Component {
                         value={ammount}
                         onChange={this.handleAmmount} />
                     </div>
-                    <div className="md:w-1/2 px-3 mb-6 md:mb-0">
-                      <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="currency">
-                        Moneda
-                      </label>
-                      <div className="relative">
-                        <select
-                          className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
-                          name="currency"
-                          value={currency}
-                          onChange={this.handleChange}>
-                          <option value="pesos">Pesos argentinos</option>
-                          <option value="dolar">Dólar estadounidense</option>
-                        </select>
-                        <div className="pointer-events-none absolute right-0 top-0 mt-4 flex items-center px-2 text-grey-darker">
-                          <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  </div>                  
                   <div className="-mx-3 md:flex mb-2">
                     <div className="md:w-full px-3 mb-6 md:mb-0">
                       <label className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="observations">
@@ -195,13 +190,24 @@ class Form extends Component {
                         onChange={this.handleChange} />
                     </div>
                   </div>
+                  { changeRequired && (
+                    <p className="text-error-red">
+                      Completar campos requeridos
+                    </p>
+                  )}
                   <div className="-mx-3 md:flex md:justify-center mb-2 mt-4">
 
                         <button
                           className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
                           onClick={(e) => {
                             e.preventDefault()
-                            opportunityMutation()
+                            if (this.isValid()) {
+                              opportunityMutation()
+                            } else {
+                              this.setState({
+                                changeRequired: true
+                              })
+                            }
                           }}>
                           { loading 
                             ? <Loader />

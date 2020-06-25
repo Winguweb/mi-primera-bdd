@@ -3,5 +3,13 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gray-200 font-body;
+  @apply font-body;
 }
+input:focus-within ~ label {
+  color: '#7444BE';
+}
+
+.custom-shadow{
+  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.04), 1px 1px 4px -1px rgba(113, 128, 150, 0.28);
+}
+

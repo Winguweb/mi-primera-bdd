@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Pie } from 'react-chartjs-2'
+import { Doughnut } from 'react-chartjs-2'
 import _ from 'lodash'
 
 import EmptyState from '../assets/EmptyState'
-import SvgPie from '../assets/Pie'
+import SvgPie from '../assets/pie-chart.svg'
 
 const Opportunities = ({ loading, error, data }) => {
   let formatted = {}
@@ -41,9 +41,9 @@ const Opportunities = ({ loading, error, data }) => {
 
   return (
     <div>
-      <h2 className="text-lg mb-4 font-bold">Oportunidades por estado</h2>
-      { data.opportunities && !!data.opportunities.length
-        ? <Pie data={formatted} options={options} />
+      <h2 className="text-lg mb-4 font-semibold">Oportunidades por estado</h2>
+      { data && data.opportunities && !!data.opportunities.length
+        ? <Doughnut data={formatted} options={options} />
         : ( <EmptyState>
           <SvgPie />
         </EmptyState> )

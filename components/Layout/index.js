@@ -44,10 +44,10 @@ class Layout extends Component {
 
     return (
       <div>
-        <Navbar isAuthenticated={isAuthenticated} loggedUser={loggedUser} />
+        {  isAuthenticated && <Navbar isAuthenticated={isAuthenticated} loggedUser={loggedUser} />}
         {  isAuthenticated 
           ? (<div className="flex">
-              <Sidebar />
+              <Sidebar loggedUser={loggedUser}/>
               <Main showModal={showModal} dismissModal={this.dismissModal}>
                 { children }
               </Main>
