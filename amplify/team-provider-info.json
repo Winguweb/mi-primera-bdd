@@ -1,20 +1,20 @@
 {
     "dev": {
         "awscloudformation": {
-            "AuthRoleName": "amplify-wingudata-dev-165620-authRole",
-            "UnauthRoleArn": "arn:aws:iam::800102726667:role/amplify-wingudata-dev-165620-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::800102726667:role/amplify-wingudata-dev-165620-authRole",
+            "AuthRoleName": "amplify-wingudata-dev-125120-authRole",
+            "UnauthRoleArn": "arn:aws:iam::800102726667:role/amplify-wingudata-dev-125120-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::800102726667:role/amplify-wingudata-dev-125120-authRole",
             "Region": "us-east-1",
-            "DeploymentBucketName": "amplify-wingudata-dev-165620-deployment",
-            "UnauthRoleName": "amplify-wingudata-dev-165620-unauthRole",
-            "StackName": "amplify-wingudata-dev-165620",
-            "StackId": "arn:aws:cloudformation:us-east-1:800102726667:stack/amplify-wingudata-dev-165620/21e6e0f0-a9c2-11ea-875d-0e6b90c5010d",
-            "AmplifyAppId": "d3gkiwl4liiy6u"
+            "DeploymentBucketName": "amplify-wingudata-dev-125120-deployment",
+            "UnauthRoleName": "amplify-wingudata-dev-125120-unauthRole",
+            "StackName": "amplify-wingudata-dev-125120",
+            "StackId": "arn:aws:cloudformation:us-east-1:800102726667:stack/amplify-wingudata-dev-125120/b9c0ac80-b6fb-11ea-ab76-0eac0ccc6c9d",
+            "AmplifyAppId": "dsy19bguc8ze1"
         },
         "categories": {
             "hosting": {
                 "amplifyhosting": {
-                    "appId": "d3gkiwl4liiy6u",
+                    "appId": "dsy19bguc8ze1",
                     "type": "manual"
                 }
             }
