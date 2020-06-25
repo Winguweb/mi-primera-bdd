@@ -115,3 +115,6 @@ build/
 .next
 
 db/
+amplify
+out
+src
