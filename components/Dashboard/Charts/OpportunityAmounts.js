@@ -29,16 +29,18 @@ const Opportunities = ({ loading, error, data }) => {
       datasets: [{
         data: Object.values(states),
         backgroundColor: [
-          'rgba(38, 128, 255, 0.6)',
-          'rgba(255, 189, 46, 0.6)',
-          'rgba(0, 222, 137, 0.6)',
-          'rgba(255, 114, 20, 0.6)'
+          '#58D0FF',
+          '#8479FF',
+          '#FFC935',
+          '#FF6161',
+          '#BF5BFF',
         ],
         hoverBackgroundColor: [
-          'rgba(38, 128, 255, 0.9)',
-          'rgba(255, 189, 46, 0.9)',
-          'rgba(0, 222, 137, 0.9)',
-          'rgba(255, 114, 20, 0.9)'
+          '#58D0FF',
+          '#8479FF',
+          '#FFC935',
+          '#FF6161',
+          '#BF5BFF',
         ]
       }]
     }         
