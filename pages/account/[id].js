@@ -19,21 +19,12 @@ const Account = (props) => {
     { name: 'Apellido',
       key: 'lastname'
     },
-    { name: 'Tipo',
-      key: 'contact_type'
-    },
     { name: 'Email',
       key: 'email'
     },
     { name: 'Teléfono',
       key: 'phone'
-    },
-    { name: 'Género',
-      key: 'gender'
-    },
-    { name: 'Cuenta',
-      key: 'account'
-    },
+    }
   ]
   
   const opportunityFields = [
@@ -46,12 +37,6 @@ const Account = (props) => {
     { name: 'Tipo',
       key: 'opportunity_type'
     },
-    { name: 'Cuenta',
-      key: 'account'
-    },
-    { name: 'Fecha',
-      key: 'date'
-    },
   ]
 
 
@@ -61,7 +46,6 @@ const Account = (props) => {
         if (loading || !data) {
           return <p>Cargando...</p>;
         }
-
         return (
           <>
             <AccountForm
