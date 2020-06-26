@@ -28,24 +28,19 @@ export const GET_ACCOUNT = gql`
     }
 
     contacts  (where: { 
-      organizacion: { id: $organization }
+      organizacion: { id: $organization },
+      account: {id: $id}
     }) {
       id
       name
       lastname
-      contact_type {
-        name
-      }
       email
       phone
-      gender
-      account {
-        name
-      }
     }
     
     opportunities (where: { 
-      organizacion: { id: $organization }
+      organizacion: { id: $organization },
+      account: {id: $id}
     }) {
       id
       name
@@ -55,10 +50,6 @@ export const GET_ACCOUNT = gql`
       opportunity_type {
         name
       }
-      account {
-        name
-      }
-      date
     }
   }
 `;
