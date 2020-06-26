@@ -45,8 +45,7 @@ const Account = (props) => {
       {({ loading, data, error }) => {
         if (loading || !data) {
           return <p>Cargando...</p>;
-        }console.log('ieuufuwef')
-        console.log(data)
+        }
         return (
           <>
             <AccountForm
