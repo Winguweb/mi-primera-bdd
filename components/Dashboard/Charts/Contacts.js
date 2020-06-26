@@ -28,22 +28,23 @@ const Contacts = ({ loading, error, data }) => {
       setIsEmpty(true)
     } else {
       const grouped = _.countBy(contacts, (contact => contact.contact_type.name))
-      console.log(grouped)
       formatted = {
         labels: Object.keys(grouped),
         datasets: [{
           data: Object.values(grouped),
           backgroundColor: [
-            '#2680FF',
-            '#FFBD2E',
-            '#00DE89',
-            '#ff7214'
+            '#58D0FF',
+            '#8479FF',
+            '#FFC935',
+            '#FF6161',
+            '#BF5BFF',
           ],
           hoverBackgroundColor: [
-            '#2680FF',
-            '#FFBD2E',
-            '#00DE89',
-            '#ff7214'
+            '#58D0FF',
+            '#8479FF',
+            '#FFC935',
+            '#FF6161',
+            '#BF5BFF',
           ]
         }]
       }

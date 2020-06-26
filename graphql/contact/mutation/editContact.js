@@ -2,6 +2,7 @@ import { gql } from "apollo-boost";
 
 export const EDIT_CONTACT = gql`
   mutation UpdateContact(
+    $id: ID!,
     $name: String!, 
     $lastname: String,
     $identification: Long,
@@ -29,34 +30,37 @@ export const EDIT_CONTACT = gql`
     $skills:  String,
     $organization: ID!
   ) {
-    updateContact(input: { data: { 
-      name: $name, 
-      lastname: $lastname,
-      identification: $identification,
-      charge: $charge,
-      occupation: $occupation,
-      birth_date: $birth_date,
-      email: $email,
-      alt_email: $alt_email,
-      phone: $phone,
-      cellphone: $cellphone,
-      subscribed: $subscribed,
-      observations: $observations,
-      volunteer: $volunteer,
-      account: $account,
-      origin: $origin,
-      contact_type: $contact_type,
-      gender: $gender,
-      organizacion: $organization,
-      address: $address,
-      city: $city,
-      zip_code: $zip_code,
-      province: $province,
-      country: $country,
-      state: $state,
-      schedule: $schedule,
-      skills: $skills
-    } }) {
+    updateContact(input: { 
+      where: { id: $id }
+      data: { 
+        name: $name, 
+        lastname: $lastname,
+        identification: $identification,
+        charge: $charge,
+        occupation: $occupation,
+        birth_date: $birth_date,
+        email: $email,
+        alt_email: $alt_email,
+        phone: $phone,
+        cellphone: $cellphone,
+        subscribed: $subscribed,
+        observations: $observations,
+        volunteer: $volunteer,
+        account: $account,
+        origin: $origin,
+        contact_type: $contact_type,
+        gender: $gender,
+        organizacion: $organization,
+        address: $address,
+        city: $city,
+        zip_code: $zip_code,
+        province: $province,
+        country: $country,
+        state: $state,
+        schedule: $schedule,
+        skills: $skills
+      } 
+    }) {
       contact {
         id
         identification

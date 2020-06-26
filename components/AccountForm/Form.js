@@ -50,7 +50,10 @@ class Form extends Component {
     return (
       <Mutation mutation={this.props.mutation} variables={{
         ...this.state,
-        organization: getIdFromLocalCookie()}}
+        organization: getIdFromLocalCookie(),
+        id: this.props.data.account ? this.props.data.account.id : null
+      }}
+        
         onCompleted={() => Router.push({ pathname: '/accounts', query: { success: 'true'} })}>
         { (accountMutation, { loading, error }) => (
           <>

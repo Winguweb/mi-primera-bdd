@@ -59,6 +59,7 @@ class Form extends Component {
         variables={{ 
           ammount: (ammount + ''),
           ...this.state, 
+          id: this.props.data.opportunity ? this.props.data.opportunity.id : null,
           organization: getIdFromLocalCookie()
         }}
         onCompleted={() => Router.push({ pathname: '/opportunities', query: { success: 'true'} })} >
