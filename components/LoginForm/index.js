@@ -20,7 +20,7 @@ const LoginForm = props => {
       <div className="mb-4 text-center">
         <Logo />
         <div className="text-center text-purple">
-          <span>Mi Primera Base de Datos</span>
+          
         </div>
       </div>
       <div className="mb-4">
