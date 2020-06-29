@@ -5,6 +5,8 @@ import Router from 'next/router'
 import Cookies from 'js-cookie'
 import LoginForm from '../components/LoginForm'
 import Icon from '../assets/wingudata-icon.svg'
+import MobileIcon from '../assets/ilustracion-mobile.svg'
+import { useWindowSize } from '../hooks/useWindowSize'
 
 const Login = (props) => {
   useEffect(() => {
@@ -12,7 +14,7 @@ const Login = (props) => {
       Router.push("/") // redirect if you're already logged in
     }
   }, [])
-
+  const size = useWindowSize()
   const onSubmit = ({ email, password }) => {
     handleLoading(true)
     strapiLogin(email, password).then(() => {
@@ -28,22 +30,30 @@ const Login = (props) => {
   const [loading, handleLoading] = useState(false)
 
   const [errorMessage, handleErrorMessage] = useState(null)
-
   return (
-    <div className="h-screen max-h-screen flex justify-center items-center">
-      <div className="p-x h-screen w-1/4"> 
-        <div className="absolute left-0 top-0 bottom-0 ">
-          <Icon />
-        </div>
-      </div>
-      <div className="w-2/4 ml-64">
+    <div>
+      <div className="md:h-screen md:max-h-screen md:flex md:justify-center md:items-center md:flex-row-reverse" id="loginWrapper" >
+        <div className="w-2/4 ml-64" id="loginFormWrapper">
           <LoginForm 
             submit={onSubmit} 
             loading={loading}
             errorMessage={errorMessage}
             handleErrorMessage={handleErrorMessage}
           />
+        </div>
+        {size.width > 640 && (
+          <div className="md:p-x md:h-screen md:w-1/4"> 
+            <div className="absolute left-0 top-0 bottom-0">
+              <Icon />
+            </div>
+          </div>
+        )}
       </div>
+      {size.width <= 640 && (
+        <div className="absolute bottom-0">
+          <MobileIcon />
+        </div>
+      )}
     </div>
   )
 }
