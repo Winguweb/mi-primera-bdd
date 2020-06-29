@@ -13,3 +13,15 @@ input:focus-within ~ label {
   box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.04), 1px 1px 4px -1px rgba(113, 128, 150, 0.28);
 }
 
+@media(max-width: 640px) {
+  #loginWrapper{
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  #iconWrapper{
+    position: relative;
+  }
+  #loginFormWrapper{
+    margin: 0;
+  }
+}
