@@ -15,13 +15,13 @@ input:focus-within ~ label {
 
 @media(max-width: 640px) {
   #loginWrapper{
-    display: flex;
-    flex-direction: column-reverse;
-  }
-  #iconWrapper{
-    position: relative;
+    height: 100vh;
+    width: 100vw;
+    padding: 1.5rem;
   }
   #loginFormWrapper{
     margin: 0;
+    padding-top: 2.5rem;
+    width: 100%;
   }
 }

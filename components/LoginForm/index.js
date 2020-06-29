@@ -15,12 +15,12 @@ const LoginForm = props => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-1/2"
+      className="md:w-1/2"
     >
-      <div className="mb-4 text-center">
+      <div className="mb-6 text-center">
         <Logo />
-        <div className="text-center text-purple">
-          
+        <div className="text-center pb-2 text-purple">
+          Mi primera base de datos
         </div>
       </div>
       <div className="mb-4">
