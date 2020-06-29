@@ -30,23 +30,28 @@ const Login = (props) => {
   const [loading, handleLoading] = useState(false)
 
   const [errorMessage, handleErrorMessage] = useState(null)
-  console.log(size)
   return (
-    <div className="md:h-screen md:max-h-screen md:flex md:justify-center md:items-center md:flex-row-reverse" id="loginWrapper" >
-      
-      <div className="w-2/4 ml-64" id="loginFormWrapper">
-        <LoginForm 
-          submit={onSubmit} 
-          loading={loading}
-          errorMessage={errorMessage}
-          handleErrorMessage={handleErrorMessage}
-        />
-      </div>
-      {size.width > 640 && (
-        <div className="md:p-x md:h-screen md:w-1/4"> 
-          <div className="absolute left-0 top-0 bottom-0 "  >
-            <Icon />
+    <div>
+      <div className="md:h-screen md:max-h-screen md:flex md:justify-center md:items-center md:flex-row-reverse" id="loginWrapper" >
+        <div className="w-2/4 ml-64" id="loginFormWrapper">
+          <LoginForm 
+            submit={onSubmit} 
+            loading={loading}
+            errorMessage={errorMessage}
+            handleErrorMessage={handleErrorMessage}
+          />
+        </div>
+        {size.width > 640 && (
+          <div className="md:p-x md:h-screen md:w-1/4"> 
+            <div className="absolute left-0 top-0 bottom-0">
+              <Icon />
+            </div>
           </div>
+        )}
+      </div>
+      {size.width <= 640 && (
+        <div className="absolute bottom-0">
+          <MobileIcon />
         </div>
       )}
     </div>
