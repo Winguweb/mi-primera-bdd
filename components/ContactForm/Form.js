@@ -33,6 +33,7 @@ class Form extends Component {
     state: this.props.data.contact ? this.props.data.contact.state : '',
     schedule: this.props.data.contact ? this.props.data.contact.schedule : '',
     skills: this.props.data.contact ? this.props.data.contact.skills : '',
+    changeRequired: false
   }
 
   toggleIsVolunteer = (e) => {
@@ -53,6 +54,10 @@ class Form extends Component {
     })
   }
 
+  isValid = () => {
+    return !!(this.state.account)
+  }
+  
   handleIdentification = (event) => {
     const { value } = event.target
     this.setState({ 
@@ -88,6 +93,7 @@ class Form extends Component {
       state,
       schedule,
       skills,
+      changeRequired
     } = this.state
 
     const {
@@ -216,7 +222,14 @@ class Form extends Component {
                       className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
                       name="account"
                       value={account}
-                      onChange={this.handleChange}>
+                      onChange={(e) => {
+                        if(changeRequired){
+                          this.setState({
+                            changeRequired: false
+                          })
+                          this.handleChange(e)
+                        }
+                      }}>
                       <option value='new'>Nueva cuenta</option>
                       {accounts && accounts.map((acc, i) => (
                         <option value={acc.id} key={i}>{acc.name}</option>
@@ -417,7 +430,7 @@ class Form extends Component {
                   </label>
                   <div className="relative">
                     <select
-                      className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
+                      className={`block appearance-none w-full bg-grey-lighter border text-grey-darker py-3 px-4 pr-8 rounded ${changeRequired ? 'border-error-red' : 'border-grey-lighter'}`}
                       name="origin"
                       value={origin}
                       onChange={this.handleChange}>
@@ -483,12 +496,24 @@ class Form extends Component {
                   </label>
                 </div>  
               </div>
+              { changeRequired && (
+                    <p className="text-error-red">
+                      Completar campos requeridos
+                    </p>
+                  )}
               <div className="-mx-3 md:flex mb-2 md:justify-center">
                 <button
                   className="button text-white bg-blue-wingu flex items-center justify-center p-4 font-bold rounded"
                   onClick={(e) => {
                     e.preventDefault()
-                    this.props.handleSubmit(this.state)
+                    if(this.isValid()){
+                      this.props.handleSubmit(this.state)
+                    }else{
+                      console.log('is not valid')
+                      this.setState({
+                        changeRequired: true
+                      })
+                    }
                   }}>
                   {/* { loading 
                     ? <Loader />
