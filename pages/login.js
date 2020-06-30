@@ -50,7 +50,7 @@ const Login = (props) => {
         )}
       </div>
       {size.width <= 640 && (
-        <div className="fixed bottom-0">
+        <div className="fixed bottom-0" id="mobileLogo">
           <MobileIcon />
         </div>
       )}
