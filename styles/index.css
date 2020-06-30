@@ -19,6 +19,9 @@ input:focus-within ~ label {
     width: 100vw;
     padding: 1.5rem;
   }
+  #mobileLogo{
+    z-index: -10;
+  }
   #loginFormWrapper{
     margin: 0;
     padding-top: 2.5rem;
