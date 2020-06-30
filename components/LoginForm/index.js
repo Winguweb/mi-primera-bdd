@@ -63,7 +63,7 @@ const LoginForm = props => {
           }}
         />
         <div>
-          <a href="https://dev-test-uploads-wingu.s3.amazonaws.com/wingudata/Te%CC%81rminos+y+Condiciones+Wingudata.pdf" className="text-dark-purple">Términos y condiciones</a>
+          <a href="https://dev-test-uploads-wingu.s3.amazonaws.com/wingudata/Te%CC%81rminos+y+Condiciones+Wingudata.pdf" target="_blank" className="text-dark-purple">Términos y condiciones</a>
         </div>
         {
           props.errorMessage && (

@@ -41,7 +41,7 @@ const ContactForm = ({ data, mutation }) => {
         addContact({
           variables: {
             ...submitFormData,
-            id: data.contact.id ? data.contact.id : null,
+            id: data.contact ? data.contact.id : null,
             organization: getIdFromLocalCookie()
           }
         })
