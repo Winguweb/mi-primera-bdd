@@ -49,7 +49,7 @@ const sortInfo = (info, order) => {
 
 const Table = ({ fields, info, workspace, ...props }) => {
   const [deleteItem, { data }] = useMutation(props.delete, {
-    onCompleted: () => Router.reload()
+    onCompleted: () => Router.reload(window.location.pathname)
   })
   
   const size = 10
