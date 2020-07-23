@@ -227,8 +227,8 @@ class Form extends Component {
                           this.setState({
                             changeRequired: false
                           })
-                          this.handleChange(e)
                         }
+                        this.handleChange(e)
                       }}>
                       <option value='new'>Nueva cuenta</option>
                       {accounts && accounts.map((acc, i) => (
@@ -509,7 +509,6 @@ class Form extends Component {
                     if(this.isValid()){
                       this.props.handleSubmit(this.state)
                     }else{
-                      console.log('is not valid')
                       this.setState({
                         changeRequired: true
                       })
