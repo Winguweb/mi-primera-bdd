@@ -48,9 +48,11 @@ const sortInfo = (info, order) => {
 }
 
 const Table = ({ fields, info, workspace, ...props }) => {
-  const [deleteItem, { data }] = useMutation(props.delete, {
+  const [deleteItem, { data }] = useMutation(props.delete, {    
     onCompleted: () => {
-      Router.reload(window.location.pathname)
+      console.log('on table delete')
+      window.location.reload()
+      // Router.reload(window.location.pathname)
     }
   })
   
