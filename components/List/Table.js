@@ -49,7 +49,9 @@ const sortInfo = (info, order) => {
 
 const Table = ({ fields, info, workspace, ...props }) => {
   const [deleteItem, { data }] = useMutation(props.delete, {
-    onCompleted: () => Router.reload(window.location.pathname)
+    onCompleted: () => {
+      Router.reload(window.location.pathname)
+    }
   })
   
   const size = 10
@@ -143,6 +145,7 @@ const Table = ({ fields, info, workspace, ...props }) => {
                         </a>
                       </Link>
                       <button
+                        type='button'
                         className="button w-4 h-4 text-red-600"
                         onClick={e => {
                           e.preventDefault();
