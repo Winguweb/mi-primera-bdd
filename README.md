@@ -40,4 +40,17 @@ git push heroku [nombre de la rama a deployar]
 
 ## Deploy a producción
 
-En progreso.
+El deploy a produccion se hace con amplify
+
+### Prerequisitos
+
+  - [amplify cli](https://docs.amplify.aws/cli)
+  - keys aws de wingu seteadas en tu maquina local
+
+  ```bash
+  amplify init
+  ```
+
+  ```bash
+  amplify publish
+  ```
