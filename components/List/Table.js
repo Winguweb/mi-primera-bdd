@@ -20,15 +20,15 @@ const comparison = (field1, field2, isDate = false) => {
 }
 
 const sortInfo = (info, order) => {
-  const infoType = info[0] ? info[0][order.orderField] : null
+  const infoType = info[0] ? (info[0][order.orderField] || info[info.length - 1][order.orderField]) : null
   if (!infoType) {
     return info
   }
 
-  if (typeof infoType === 'object') {
+  if (typeof infoType === 'object') {    
     return info.sort((objA, objB) => { 
-      let lowerA = _.lowerCase(objA[order.orderField].name)
-      let lowerB = _.lowerCase(objB[order.orderField].name)
+      let lowerA = objA[order.orderField] ? _.lowerCase(objA[order.orderField].name) : ''
+      let lowerB = objB[order.orderField] ? _.lowerCase(objB[order.orderField].name) : ''
       return order.orderType === 'asc' ? comparison(lowerA, lowerB) : comparison(lowerB, lowerA)      
     })
   } else if (moment(infoType).isValid()) {    
